@@ -7,16 +7,17 @@ import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import SettingsIcon from '@mui/icons-material/Settings';
 import InfoIcon from '@mui/icons-material/Info';
+import {Link} from 'react-router-dom';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
+    <ListItemButton component={Link} to='/'>
       <ListItemIcon>
         <GridOn />
       </ListItemIcon>
       <ListItemText primary="Home" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to='/help'>
       <ListItemIcon>
         <HelpCenterIcon />
       </ListItemIcon>

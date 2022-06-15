@@ -10,23 +10,25 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
+import MLink from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import GridOnIcon from '@mui/icons-material/GridOn';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems } from './listItems';
+import { Routes, Route, Link } from 'react-router-dom';
+import Game from './Game';
+import Help from './Help';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography variant="body2" color="text.secondary"
+                align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://camerongreen.or
+      <MLink color="inherit" href="https://camerongreen.or
       g/">
         camerongreen.org
-      </Link>{' '}
+      </MLink>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -79,7 +81,17 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-const mdTheme = createTheme();
+const mdTheme = createTheme({
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        colorPrimary: {
+          backgroundColor: "purple",
+        },
+      },
+    },
+  },
+});
 
 function DashboardContent() {
   const [open, setOpen] = React.useState(true);
@@ -90,7 +102,7 @@ function DashboardContent() {
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
+        <CssBaseline/>
         <AppBar position="absolute" open={open}>
           <Toolbar
             sx={{
@@ -107,8 +119,10 @@ function DashboardContent() {
                 ...(open && { display: 'none' }),
               }}
             >
-              <MenuIcon />
+              <MenuIcon/>
             </IconButton>
+            <GridOnIcon/>
+            &nbsp;
             <Typography
               component="h1"
               variant="h6"
@@ -120,7 +134,7 @@ function DashboardContent() {
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
+                <NotificationsIcon/>
               </Badge>
             </IconButton>
           </Toolbar>
@@ -135,10 +149,10 @@ function DashboardContent() {
             }}
           >
             <IconButton onClick={toggleDrawer}>
-              <ChevronLeftIcon />
+              <ChevronLeftIcon/>
             </IconButton>
           </Toolbar>
-          <Divider />
+          <Divider/>
           <List component="nav">
             {mainListItems}
           </List>
@@ -155,24 +169,12 @@ function DashboardContent() {
             overflow: 'auto',
           }}
         >
-          <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              {/* Chart */}
-              <Grid item xs={12} md={12} lg={12}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                </Paper>
-              </Grid>
-            </Grid>
-            <Copyright sx={{ pt: 4 }} />
-          </Container>
+          <Toolbar/>
+          <Routes>
+            <Route path="/" element={<Game />}/>
+            <Route path="/help" element={<Help />}/>
+          </Routes>
+          <Copyright sx={{ pt: 4 }}/>
         </Box>
       </Box>
     </ThemeProvider>
@@ -180,5 +182,5 @@ function DashboardContent() {
 }
 
 export default function Dashboard() {
-  return <DashboardContent />;
+  return <DashboardContent/>;
 }

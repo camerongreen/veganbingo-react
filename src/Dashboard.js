@@ -19,6 +19,9 @@ import { mainListItems } from './listItems';
 import { Routes, Route, Link } from 'react-router-dom';
 import Game from './Game';
 import Help from './Help';
+import About from './About';
+import Settings from './Settings';
+import Timeline from './Timeline';
 
 function Copyright(props) {
   return (
@@ -173,6 +176,9 @@ function DashboardContent() {
           <Routes>
             <Route path="/" element={<Game />}/>
             <Route path="/help" element={<Help />}/>
+            <Route path="/timeline" element={<Timeline />}/>
+            <Route path="/settings" element={<Settings />}/>
+            <Route path="/about" element={<About />}/>
           </Routes>
           <Copyright sx={{ pt: 4 }}/>
         </Box>

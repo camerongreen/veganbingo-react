@@ -16,12 +16,22 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import GridOnIcon from '@mui/icons-material/GridOn';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems } from './listItems';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Game from './Game';
 import Help from './Help';
 import About from './About';
 import Settings from './Settings';
 import Timeline from './Timeline';
+import './Dashboard.css';
+
+const routes = [
+  { path: '/', name: 'Game', Component: Game },
+  { path: '/help', name: 'Help', Component: Help },
+  { path: '/timeline', name: 'Timeline', Component: Timeline },
+  { path: '/settings', name: 'Settings', Component: Settings },
+  { path: '/about', name: 'About', Component: About },
+];
 
 function Copyright(props) {
   return (
@@ -102,6 +112,8 @@ function DashboardContent() {
     setOpen(!open);
   };
 
+  const location = useLocation();
+
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
@@ -173,13 +185,19 @@ function DashboardContent() {
           }}
         >
           <Toolbar/>
-          <Routes>
-            <Route path="/" element={<Game />}/>
-            <Route path="/help" element={<Help />}/>
-            <Route path="/timeline" element={<Timeline />}/>
-            <Route path="/settings" element={<Settings />}/>
-            <Route path="/about" element={<About />}/>
-          </Routes>
+          <TransitionGroup component={null}>
+            <CSSTransition
+              key={location.key}
+              timeout={400}
+              classNames="fade"
+            >
+              <Routes location={location}>
+                {routes.map(({ path, Component }, index) => (
+                  <Route key={index} path={path} element={<Component />}/>
+                ))}
+              </Routes>
+            </CSSTransition>
+          </TransitionGroup>
           <Copyright sx={{ pt: 4 }}/>
         </Box>
       </Box>

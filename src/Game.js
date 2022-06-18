@@ -2,6 +2,7 @@ import * as React from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
+import './Game.css';
 
 export default function Game() {
   return (
@@ -16,6 +17,9 @@ export default function Game() {
             height: 240,
           }}
         >
+          <div className="Game">
+            I am game
+          </div>
         </Paper>
       </Grid>
     </Container>

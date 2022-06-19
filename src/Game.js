@@ -13,10 +13,10 @@ const data = require('./data/data.json');
 
 const bgColors = [
   '#fbb8b8',
-  '#b8c8fb',
   '#fbf7b8',
+  '#d888ff',
   '#b8fbc6',
-  '#c888ff',
+  '#b8c8fb',
 ];
 
 export default function Game() {
@@ -26,7 +26,7 @@ export default function Game() {
   });
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-      <Grid container spacing={1}>
+      <Grid container spacing={2}>
         {listItems}
       </Grid>
     </Container>

@@ -84,7 +84,7 @@
     ]
   },
   "food": {
-    "description": "Why do you eat things resembling animal products?",
+    "description": "Why do you eat things that look like...",
     "rules": "Asking whether any given vegan alternative is made of tofu...which is all vegans eat apparently",
     "main": [
       "For a start, most animal products do not look like animal products. I don't want to spoil any childhood delusions, but fish don't actually have fingers.  Cheese, sausages, fish fingers, they are all creations for a culinary purpose.",

@@ -11,7 +11,8 @@ export default function Square(props) {
         p: 2,
         display: 'flex',
         flexDirection: 'column',
-        height: '100%'
+        height: '100%',
+        backgroundColor: props.bgColor,
       }}
     >
       <div className="Square">

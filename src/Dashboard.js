@@ -40,10 +40,9 @@ const routes = [
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary"
-                align="center" {...props}>
+                align="center" {...props} sx={{mb: 2}}>
       {'Copyright © '}
-      <MLink color="inherit" href="https://camerongreen.or
-      g/">
+      <MLink color="inherit" href="https://camerongreen.org/">
         camerongreen.org
       </MLink>{' '}
       {new Date().getFullYear()}
@@ -197,7 +196,7 @@ function DashboardContent() {
             >
               <Routes location={location}>
                 {routes.map(({ path, Component }, index) => (
-                  <Route key={index} path={path} element={<Component />}/>
+                  <Route key={index} path={path} element={<Component/>}/>
                 ))}
               </Routes>
             </CSSTransition>

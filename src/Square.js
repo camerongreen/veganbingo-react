@@ -16,13 +16,13 @@ export default function Square(props) {
         backgroundColor: props.bgColor,
       }}
     >
-      <Link to={'page/' + props.name}>
         <div className="Square">
+          <Link to={'page/' + props.name}>
           <img src={require('../public/images/' + props.name + '.png')}
                alt={props.data.description + ' Square'}/>
           <h2>{props.data.description}</h2>
+          </Link>
         </div>
-      </Link>
     </Paper>
   );
 }

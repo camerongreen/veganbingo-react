@@ -1,3 +1,11 @@
 .Square {
     text-align: center;
 }
+
+.Square a {
+    text-decoration: none;
+}
+
+.Square a:link {
+    color: #333;
+}

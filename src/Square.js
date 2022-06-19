@@ -11,11 +11,13 @@ export default function Square(props) {
         p: 2,
         display: 'flex',
         flexDirection: 'column',
-        height: 240,
+        height: '100%'
       }}
     >
-      <h2>{props.name}</h2>
-      <div>{JSON.stringify(props.data)}</div>
+      <div className="Square">
+        <img src={require('../public/images/' + props.name + '.png')} alt={props.data.description + ' Square'}/>
+        <h2>{props.data.description}</h2>
+      </div>
     </Paper>
   );
 }

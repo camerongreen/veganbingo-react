@@ -2,9 +2,18 @@ import * as React from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
+
+// CSS.
 import './Game.css';
 
+// Data.
+const data = require('./data/data.json');
+
 export default function Game() {
+  let listItems = [];
+  Object.entries(data).forEach(([key, value]) => {
+    listItems.push(<div>{key} -> {JSON.stringify(value)}</div>);
+  });
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       {/* Game */}
@@ -17,9 +26,9 @@ export default function Game() {
             height: 240,
           }}
         >
-          <div className="Game">
-            I am game
-          </div>
+          <ul className="Game">
+            {listItems}
+          </ul>
         </Paper>
       </Grid>
     </Container>

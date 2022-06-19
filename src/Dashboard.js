@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
@@ -15,14 +17,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import GridOnIcon from '@mui/icons-material/GridOn';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+
+// Components.
 import { mainListItems } from './listItems';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Game from './Game';
 import Help from './Help';
 import About from './About';
 import Settings from './Settings';
 import Timeline from './Timeline';
+
+// CSS
 import './Dashboard.css';
 
 const routes = [

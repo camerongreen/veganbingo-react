@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 
 // CSS.
@@ -15,10 +16,13 @@ export default function Square(props) {
         backgroundColor: props.bgColor,
       }}
     >
-      <div className="Square">
-        <img src={require('../public/images/' + props.name + '.png')} alt={props.data.description + ' Square'}/>
-        <h2>{props.data.description}</h2>
-      </div>
+      <Link to={'page/' + props.name}>
+        <div className="Square">
+          <img src={require('../public/images/' + props.name + '.png')}
+               alt={props.data.description + ' Square'}/>
+          <h2>{props.data.description}</h2>
+        </div>
+      </Link>
     </Paper>
   );
 }

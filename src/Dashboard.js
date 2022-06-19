@@ -21,6 +21,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 // Components.
 import { mainListItems } from './listItems';
 import Game from './Game';
+import Page from './Page';
 import Help from './Help';
 import About from './About';
 import Settings from './Settings';
@@ -40,7 +41,7 @@ const routes = [
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary"
-                align="center" {...props} sx={{mb: 2}}>
+                align="center" {...props} sx={{ mb: 2 }}>
       {'Copyright © '}
       <MLink color="inherit" href="https://camerongreen.org/">
         camerongreen.org
@@ -198,6 +199,9 @@ function DashboardContent() {
                 {routes.map(({ path, Component }, index) => (
                   <Route key={index} path={path} element={<Component/>}/>
                 ))}
+                <Route path="/page">
+                  <Route path=":name" element={<Page/>}/>
+                </Route>
               </Routes>
             </CSSTransition>
           </TransitionGroup>

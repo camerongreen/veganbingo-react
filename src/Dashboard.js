@@ -1,29 +1,32 @@
 import * as React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
+// Mui.
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import MuiDrawer from '@mui/material/Drawer';
-import Box from '@mui/material/Box';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
-import MLink from '@mui/material/Link';
-import MenuIcon from '@mui/icons-material/Menu';
+import Box from '@mui/material/Box';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import CssBaseline from '@mui/material/CssBaseline';
+import Divider from '@mui/material/Divider';
 import GridOnIcon from '@mui/icons-material/GridOn';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import MenuIcon from '@mui/icons-material/Menu';
+import MLink from '@mui/material/Link';
+import MuiAppBar from '@mui/material/AppBar';
+import MuiDrawer from '@mui/material/Drawer';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
 // Components.
 import { mainListItems } from './listItems';
-import Game from './Game';
-import Page from './Page';
-import Help from './Help';
 import About from './About';
+import Game from './Game';
+import Help from './Help';
+import Page from './Page';
+import Score from './Score';
 import Settings from './Settings';
 import Timeline from './Timeline';
 
@@ -37,6 +40,9 @@ const routes = [
   { path: '/settings', name: 'Settings', Component: Settings },
   { path: '/about', name: 'About', Component: About },
 ];
+
+let score = 0;
+let total = 0;
 
 function Copyright(props) {
   return (
@@ -151,11 +157,7 @@ function DashboardContent() {
             >
               Vegan Bingo
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon/>
-              </Badge>
-            </IconButton>
+            <Score score={score} total={total}/>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>

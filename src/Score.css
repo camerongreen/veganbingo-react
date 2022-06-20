@@ -1,0 +1,11 @@
+.Score {
+    text-align: center;
+}
+
+.Score a {
+    text-decoration: none;
+}
+
+.Score a:link {
+    color: #FFF;
+}

@@ -6,7 +6,7 @@ import { AppContext } from './AppContext';
 const data = require('./data/data.json');
 
 export default function App() {
-  const [bingos, setBingos] = React.useState([]);
+  const [bingos, setBingos] = React.useState({});
 
   const hasBingo = id => {
     return id in bingos;
@@ -15,14 +15,14 @@ export default function App() {
   const addBingo = id => {
     if (!hasBingo(id)) {
       bingos[id] = {id: id, time: new Date()};
-      setBingos(bingos);
+      setBingos({...bingos});
     }
   };
 
   const removeBingo = id => {
     if (hasBingo(id)) {
       delete bingos[id];
-      setBingos(bingos);
+      setBingos({...bingos});
     }
   };
 

@@ -156,7 +156,7 @@ function DashboardContent(props) {
             >
               Vegan Bingo
             </Typography>
-            <Score score={bingos.length} total={Object.keys(props.data).length}/>
+            <Score score={Object.keys(bingos).length} total={Object.keys(props.data).length}/>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>

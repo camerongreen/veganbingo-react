@@ -19,7 +19,7 @@ const bgColors = [
 export default function Game(props) {
   let listItems = [];
   Object.entries(props.data).forEach(([key, value], index) => {
-    listItems.push(<Grid item xs={3}><Square key={key} name={key} data={value} bgColor={bgColors[index % 5]}/></Grid>);
+    listItems.push(<Grid key={key} item xs={3}><Square key={key} name={key} data={value} bgColor={bgColors[index % 5]}/></Grid>);
   });
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>

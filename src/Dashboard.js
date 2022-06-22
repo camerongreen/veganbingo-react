@@ -4,7 +4,6 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Mui.
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,7 +15,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MLink from '@mui/material/Link';
 import MuiAppBar from '@mui/material/AppBar';
 import MuiDrawer from '@mui/material/Drawer';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
@@ -30,19 +28,11 @@ import Score from './Score';
 import Settings from './Settings';
 import Timeline from './Timeline';
 
+// Services
+import { AppContext } from './AppContext';
+
 // CSS
 import './Dashboard.css';
-
-const routes = [
-  { path: '/', name: 'Game', Component: Game },
-  { path: '/help', name: 'Help', Component: Help },
-  { path: '/timeline', name: 'Timeline', Component: Timeline },
-  { path: '/settings', name: 'Settings', Component: Settings },
-  { path: '/about', name: 'About', Component: About },
-];
-
-let score = 0;
-let total = 0;
 
 function Copyright(props) {
   return (
@@ -57,6 +47,14 @@ function Copyright(props) {
     </Typography>
   );
 }
+
+const routes = [
+  { path: '/', name: 'Game', Component: Game },
+  { path: '/help', name: 'Help', Component: Help },
+  { path: '/timeline', name: 'Timeline', Component: Timeline },
+  { path: '/settings', name: 'Settings', Component: Settings },
+  { path: '/about', name: 'About', Component: About },
+];
 
 const drawerWidth = 240;
 
@@ -117,6 +115,7 @@ const mdTheme = createTheme({
 });
 
 function DashboardContent(props) {
+  const {bingos} = React.useContext(AppContext);
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -157,7 +156,7 @@ function DashboardContent(props) {
             >
               Vegan Bingo
             </Typography>
-            <Score score={score} total={total}/>
+            <Score score={bingos.length} total={Object.keys(props.data).length}/>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -199,10 +198,11 @@ function DashboardContent(props) {
             >
               <Routes location={location}>
                 {routes.map(({ path, Component }, index) => (
-                  <Route key={index} path={path} element={<Component data={props.data} />}/>
+                  <Route key={index} path={path}
+                         element={<Component data={props.data}/>}/>
                 ))}
                 <Route path="/page">
-                  <Route path=":name" element={<Page data={props.data} />}/>
+                  <Route path=":name" element={<Page data={props.data}/>}/>
                 </Route>
               </Routes>
             </CSSTransition>

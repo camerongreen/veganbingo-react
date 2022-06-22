@@ -6,12 +6,9 @@ import Grid from '@mui/material/Grid';
 // CSS.
 import './Page.css';
 
-// Data.
-const data = require('./data/data.json');
-
-export default function Page() {
+export default function Page(props) {
   let { name } = useParams();
-  const page = data[name];
+  const page = props.data[name];
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={2} alignItems='center'>

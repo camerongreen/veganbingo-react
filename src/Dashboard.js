@@ -116,7 +116,7 @@ const mdTheme = createTheme({
   },
 });
 
-function DashboardContent() {
+function DashboardContent(props) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -199,10 +199,10 @@ function DashboardContent() {
             >
               <Routes location={location}>
                 {routes.map(({ path, Component }, index) => (
-                  <Route key={index} path={path} element={<Component/>}/>
+                  <Route key={index} path={path} element={<Component data={props.data} />}/>
                 ))}
                 <Route path="/page">
-                  <Route path=":name" element={<Page/>}/>
+                  <Route path=":name" element={<Page data={props.data} />}/>
                 </Route>
               </Routes>
             </CSSTransition>
@@ -214,6 +214,6 @@ function DashboardContent() {
   );
 }
 
-export default function Dashboard() {
-  return <DashboardContent/>;
+export default function Dashboard(props) {
+  return <DashboardContent data={props.data}/>;
 }

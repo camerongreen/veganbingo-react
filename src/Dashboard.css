@@ -18,3 +18,8 @@
     opacity: 0;
     transition: opacity 0ms linear;
 }
+
+.link {
+    color: #fff;
+    text-decoration: none;
+}

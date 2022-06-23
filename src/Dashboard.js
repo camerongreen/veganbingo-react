@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Link } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Mui.
@@ -154,7 +154,9 @@ function DashboardContent(props) {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Vegan Bingo
+              <Link className="link" to="/">
+                Vegan Bingo
+              </Link>{' '}
             </Typography>
             <Score score={Object.keys(bingos).length} total={Object.keys(props.data).length}/>
           </Toolbar>

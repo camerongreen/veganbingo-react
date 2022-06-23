@@ -13,6 +13,8 @@ export default function Page(props) {
   let { name } = useParams();
   const { hasBingo, addBingo, removeBingo } = React.useContext(AppContext);
   const page = props.data[name];
+
+
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={2} alignItems="center">
@@ -34,8 +36,10 @@ export default function Page(props) {
                     hasBingo(name) ? removeBingo(name) : addBingo(name)
                   }}>{hasBingo(name) ? 'Remove bingo' : 'Add bingo!'}</Button>
         </Grid>
-        <Grid item xs={12}>
-          <div className="main">{page.main}</div>
+        <Grid item xs={12} className="main">
+          {page.main.map((paragraph, index) =>
+            <p key={index}>{paragraph}</p>,
+          )}
         </Grid>
       </Grid>
     </Container>

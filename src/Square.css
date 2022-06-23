@@ -1,11 +1,31 @@
 .Square {
-    text-align: center;
-}
-
-.Square a {
-    text-decoration: none;
+    height: 100%;
+    display: flex;
 }
 
 .Square a:link {
-    color: #333;
+    color: #555;
+}
+
+.Square link {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.Square img {
+    width: 120px;
+    height: 120px;
+    margin: 2rem auto 0;
+}
+
+.Square .description {
+    display: flex;
+    margin-bottom: 1rem;
+    font-size: 16pt;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 35%;
 }

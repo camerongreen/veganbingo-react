@@ -1,31 +1,33 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import Paper from '@mui/material/Paper';
-import {AppContext} from './AppContext';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { CardActionArea } from '@mui/material';
+import { AppContext } from './AppContext';
 
 // CSS.
 import './Square.css';
 
 export default function Square(props) {
-  const {hasBingo} = React.useContext(AppContext);
+  const { hasBingo } = React.useContext(AppContext);
 
   return (
-    <Paper
+    <Card
+      className="Square"
       sx={{
-        p: 2,
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
         backgroundColor: props.bgColor,
       }}
     >
-        <div className="Square">
-          <Link to={'page/' + props.name}>
-          <img src={require('../public/images/' + props.name + (hasBingo(props.name) ? '_done' : '') + '.png')}
-               alt={props.data.description + ' Square'}/>
-          <h2>{props.data.description}</h2>
-          </Link>
-        </div>
-    </Paper>
+      <CardActionArea href={'page/' + props.name}>
+        <CardMedia
+          component="img"
+          image={'images/' + props.name + (hasBingo(props.name) ? '_done' : '') + '.png'}
+          alt={props.data.description + ' Square'}
+        />
+        <CardContent className="description">
+          {props.data.description}
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 }

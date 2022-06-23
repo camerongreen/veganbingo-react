@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-
+import IconButton from '@mui/material/IconButton';
+import GridOnIcon from '@mui/icons-material/GridOn';
 import { AppContext } from './AppContext';
 
 // CSS.
@@ -42,6 +43,9 @@ export default function Page(props) {
           )}
         </Grid>
       </Grid>
+      <IconButton component={Link} to="/">
+        <GridOnIcon/>
+      </IconButton>
     </Container>
   );
 }

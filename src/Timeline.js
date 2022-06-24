@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
 import { AppContext } from './AppContext';
 
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -29,25 +30,25 @@ export default function Timeline(props) {
         >
           <ListAltIcon fontSize="large"/>
           <h2>Timeline</h2>
-          {Object.keys(bingos).map((name, index) => {
-            <div>
-            <h1>{name}</h1>
-            <Card key={index}>
+          {Object.entries(bingos).map(([name, bingo], index) =>
+            <Card key={index} sx={{ display: 'flex' }}>
               <CardMedia
                 component="img"
+                sx={{width: '120px'}}
                 image={'images/' + name + '.png'}
-                />
-              <CardContent>
-                <Typography component="h2">
-                  {props.data[name].description}
-                </Typography>
-                <Typography component="body">
-                  {bingos[name].time}
-                </Typography>
-              </CardContent>
-            </Card>
-            </div>
-          })}
+              />
+              <Box sx={{display: 'flex', flexDirection: 'column'}}>
+                <CardContent sx={{flex: '1 0 auto'}}>
+                  <Typography component="h2">
+                    {props.data[name].description}
+                  </Typography>
+                  <Typography component="body">
+                    {bingo.time.toString()}
+                  </Typography>
+                </CardContent>
+              </Box>
+            </Card>,
+          )}
           <IconButton component={Link} to="/">
             <GridOn/>
           </IconButton>

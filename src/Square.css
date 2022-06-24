@@ -4,6 +4,9 @@
 }
 
 .Square a:link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     color: #555;
 }
 
@@ -15,18 +18,28 @@
 
 .Square img {
     width: 120px;
-    max-width: 80%;
+    max-width: 90%;
     height: auto;
-    margin: 2rem auto 0;
+    margin: 1rem auto 0;
 }
 
 .Square .description {
     display: flex;
-    margin-bottom: 1rem;
-    font-size: 16pt;
-    font-weight: bold;
+    flex: 1;
+    font-size: 12pt;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 35%;
+}
+
+@media only screen and (min-width: 600px) {
+    .Square .description {
+        font-weight: bold;
+        font-size: 16pt;
+        margin-bottom: 1rem;
+    }
+
+    .Square img {
+        margin: 2rem auto 0;
+    }
 }

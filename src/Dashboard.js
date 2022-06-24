@@ -74,6 +74,7 @@ export const themeOptions = {
     },
   },
 };
+
 const mdTheme = createTheme(themeOptions);
 
 function DashboardContent(props) {

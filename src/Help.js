@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter'
 import GridOnIcon from '@mui/icons-material/GridOn';
 import IconButton from '@mui/material/IconButton';
+import Divider from '@mui/material/Divider';
 import { Link } from 'react-router-dom';
 
 export default function Help() {
@@ -26,6 +27,7 @@ export default function Help() {
               <h2>How to play</h2>
             </Grid>
           </Grid>
+          <Divider/>
           <p>
             You start with a the board of pictures/icons, each one representing
             things people commonly say to vegans.

@@ -3,7 +3,7 @@ import { Routes, Route, useLocation, Link } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Mui.
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import { useTheme, createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,8 +13,8 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import MenuIcon from '@mui/icons-material/Menu';
 import MLink from '@mui/material/Link';
-import MuiAppBar from '@mui/material/AppBar';
-import MuiDrawer from '@mui/material/Drawer';
+import AppBar from '@mui/material/AppBar';
+import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
@@ -56,72 +56,26 @@ const routes = [
   { path: '/about', name: 'About', Component: About },
 ];
 
-const drawerWidth = 240;
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(['width', 'margin'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    '& .MuiDrawer-paper': {
-      position: 'relative',
-      whiteSpace: 'nowrap',
-      width: drawerWidth,
-      transition: theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      boxSizing: 'border-box',
-      ...(!open && {
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        }),
-        width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(9),
-        },
-      }),
+export const themeOptions = {
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#8b3fb5',
     },
-  }),
-);
-
-const mdTheme = createTheme({
-  components: {
-    MuiAppBar: {
-      styleOverrides: {
-        colorPrimary: {
-          backgroundColor: "purple",
-        },
-      },
+    secondary: {
+      main: '#f50057',
     },
   },
-});
+};
+const mdTheme = createTheme(themeOptions);
 
 function DashboardContent(props) {
-  const {bingos} = React.useContext(AppContext);
-  const [open, setOpen] = React.useState(true);
+  const { bingos } = React.useContext(AppContext);
+  const [open, setOpen] = React.useState(false);
+  const location = useLocation();
   const toggleDrawer = () => {
     setOpen(!open);
   };
-
-  const location = useLocation();
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -140,7 +94,6 @@ function DashboardContent(props) {
               onClick={toggleDrawer}
               sx={{
                 marginRight: '36px',
-                ...(open && { display: 'none' }),
               }}
             >
               <MenuIcon/>
@@ -158,10 +111,11 @@ function DashboardContent(props) {
                 Vegan Bingo
               </Link>{' '}
             </Typography>
-            <Score score={Object.keys(bingos).length} total={Object.keys(props.data).length}/>
+            <Score score={Object.keys(bingos).length}
+                   total={Object.keys(props.data).length}/>
           </Toolbar>
         </AppBar>
-        <Drawer variant="permanent" open={open}>
+        <Drawer anchor="left" open={open} onClick={toggleDrawer}>
           <Toolbar
             sx={{
               display: 'flex',

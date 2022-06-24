@@ -45,8 +45,13 @@ export default function App() {
     }
   };
 
+  const resetBingos = () => {
+    setBingos({});
+    cookies.remove(cookie_name);
+  }
+
   return (
-    <AppContext.Provider value={{ bingos, addBingo, hasBingo, removeBingo }}>
+    <AppContext.Provider value={{ bingos, addBingo, hasBingo, removeBingo, resetBingos }}>
       <Dashboard data={data}/>
     </AppContext.Provider>
   );

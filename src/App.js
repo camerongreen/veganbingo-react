@@ -31,7 +31,7 @@ export default function App() {
 
   const addBingo = id => {
     if (!hasBingo(id)) {
-      bingos[id] = {id: id, time: (new Date()).toString()};
+      bingos[id] = {id: id, time: (new Date()).toISOString()};
       setBingos({...bingos});
       cookies.set(cookie_name, bingos);
     }

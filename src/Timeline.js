@@ -38,7 +38,7 @@ export default function Timeline(props) {
               <h2>Bingo timeline</h2>
             </Grid>
           </Grid>
-          {bingos.length ? (
+          {Object.keys(bingos).length ? (
             <p>Here are your completed bingos!</p>
           ) : (
             <p>When you complete some bingos, you will see a list of them there.</p>

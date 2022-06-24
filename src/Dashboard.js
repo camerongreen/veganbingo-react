@@ -66,6 +66,13 @@ export const themeOptions = {
       main: '#f50057',
     },
   },
+  typography: {
+    h4: {
+      '@media (max-width:600px)': {
+        fontSize: '1.5rem',
+      },
+    },
+  },
 };
 const mdTheme = createTheme(themeOptions);
 
@@ -93,7 +100,7 @@ function DashboardContent(props) {
               aria-label="open drawer"
               onClick={toggleDrawer}
               sx={{
-                marginRight: '36px',
+                mr: 2,
               }}
             >
               <MenuIcon/>

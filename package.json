@@ -17,7 +17,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "universal-cookie": "^4.0.4"
   },
   "browserslist": {
     "production": [

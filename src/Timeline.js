@@ -38,16 +38,21 @@ export default function Timeline(props) {
               <h2>Bingo timeline</h2>
             </Grid>
           </Grid>
-          <p>
-          Here are your completed bingos!
-          </p>
+          {bingos.length ? (
+            <p>Here are your completed bingos!</p>
+          ) : (
+            <p>When you complete some bingos, you will see a list of them there.</p>
+          )}
           <Grid container spacing={3}>
             {Object.entries(bingos).reverse().map(([name, bingo], index) =>
               <Grid item xs={12} key={index}
                     className={props.data[name].colour}>
                 <Card>
                   <CardActionArea component={Link} to={'/page/' + name}
-                                  sx={{ display: 'flex', justifyContent: 'left' }}>
+                                  sx={{
+                                    display: 'flex',
+                                    justifyContent: 'left',
+                                  }}>
                     <CardMedia
                       component="img"
                       sx={{ width: '120px', height: '120px', m: '1rem' }}

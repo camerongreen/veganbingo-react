@@ -20,6 +20,7 @@ export default function Settings() {
           }}
         >
           <SettingsIcon fontSize="large"/>
+          <h2>Settings</h2>
           <p>
           </p>
 

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -18,7 +19,7 @@ export default function Square(props) {
         backgroundColor: props.bgColor,
       }}
     >
-      <CardActionArea href={'page/' + props.name}>
+      <CardActionArea component={Link} to={'page/' + props.name}>
         <CardMedia
           component="img"
           image={'images/' + props.name + (hasBingo(props.name) ? '_done' : '') + '.png'}

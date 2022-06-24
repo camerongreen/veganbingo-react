@@ -11,10 +11,9 @@ import { AppContext } from './AppContext';
 import './Page.css';
 
 export default function Page(props) {
-  let { name } = useParams();
-  const { hasBingo, addBingo, removeBingo } = React.useContext(AppContext);
+  const { name } = useParams();
+  const { bingos, hasBingo, addBingo, removeBingo } = React.useContext(AppContext);
   const page = props.data[name];
-
 
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>

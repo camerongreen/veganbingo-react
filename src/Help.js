@@ -20,6 +20,7 @@ export default function Help() {
           }}
         >
           <HelpCenterIcon fontSize="large"/>
+          <h2>How to play</h2>
           <p>
             You start with a the board of pictures/icons, each one representing
             things people commonly say to vegans.

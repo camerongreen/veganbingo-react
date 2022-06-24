@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
 import { AppContext } from './AppContext';
 
 function SimpleDialog(props) {
@@ -26,11 +28,14 @@ function SimpleDialog(props) {
 
   return (
     <Dialog onClose={handleClose} open={open}>
-      <DialogTitle>Your bingo count is {Object.keys(bingos).length}. Are you sure you want to reset the game?</DialogTitle>
-      <Button variant="contained" color="secondary" size="large"
-              onClick={handleDoIt}>Do it!</Button>
-      <Button variant="outlined" color="secondary" size="large"
+      <DialogTitle>Are you sure?</DialogTitle>
+      <DialogContent>Your bingo count is {Object.keys(bingos).length}. Are you really sure you want to reset the game?</DialogContent>
+      <DialogActions>
+      <Button
               onClick={handleClose}>Cancel</Button>
+        <Button variant="contained" autoFocus
+                onClick={handleDoIt}>Do it!</Button>
+      </DialogActions>
     </Dialog>
   );
 }

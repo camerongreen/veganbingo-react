@@ -1,11 +1,12 @@
 .Score {
     text-align: center;
+    color: #FFF;
 }
 
 .Score a {
     text-decoration: none;
 }
 
-.Score a:link {
+.Score a:any-link {
     color: #FFF;
 }

@@ -8,7 +8,7 @@ export default function Score(props) {
   return (
     <div className="Score">
       <Link to="/timeline/">
-        {props.score}/{props.total}
+        Bingos: {props.score}/{props.total}
       </Link>
     </div>
   );

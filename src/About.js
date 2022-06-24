@@ -18,7 +18,14 @@ export default function About() {
             flexDirection: 'column',
           }}
         >
-          <InfoIcon fontSize="large"/>
+          <Grid container spacing={2} sx={{display: 'flex', alignItems: 'center'}}>
+            <Grid item>
+              <InfoIcon fontSize="large"/>
+            </Grid>
+            <Grid item>
+              <h2>About Vegan Bingo</h2>
+            </Grid>
+          </Grid>
           <p>
             Hi :)
           </p>
@@ -29,18 +36,16 @@ export default function About() {
           </p>
           <p>
             If you'd like to get in touch about the app or anything else, or
-            just
-            want to read my philosophies, check out my web page at:
-            camerongreen.org
+            just want to read my thoughts, check out my web page at:
+            https://camerongreen.org
           </p>
           <p>
             You can chat more about Vegan Bingo, post your times, watch tumble
-            weeds roll past, etc at:
-            http://facebook.com/veganbingo
+            weeds roll past, etc at: https://facebook.com/veganbingo
           </p>
           <p>
             To read the privacy terms or other FAQs about the app:
-            camerongreen.org/a/veganbingo
+            https://camerongreen.org/a/veganbingo
             Big thanks to the original Rationalization Bingo in Vegnews which
             inspired this.
           </p>

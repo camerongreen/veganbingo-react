@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 export default function Help() {
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-      {/* Game */}
       <Grid item xs={12} md={12} lg={12}>
         <Paper
           sx={{
@@ -19,8 +18,14 @@ export default function Help() {
             flexDirection: 'column',
           }}
         >
-          <HelpCenterIcon fontSize="large"/>
-          <h2>How to play</h2>
+          <Grid container spacing={2} sx={{display: 'flex', alignItems: 'center'}}>
+            <Grid item>
+              <HelpCenterIcon fontSize="large"/>
+            </Grid>
+            <Grid item>
+              <h2>How to play</h2>
+            </Grid>
+          </Grid>
           <p>
             You start with a the board of pictures/icons, each one representing
             things people commonly say to vegans.

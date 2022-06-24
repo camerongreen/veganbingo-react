@@ -19,7 +19,6 @@ export default function Timeline(props) {
 
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-      {/* Game */}
       <Grid item xs={12} md={12} lg={12}>
         <Paper
           sx={{
@@ -28,27 +27,38 @@ export default function Timeline(props) {
             flexDirection: 'column',
           }}
         >
-          <ListAltIcon fontSize="large"/>
-          <h2>Timeline</h2>
+          <Grid container spacing={2}
+                sx={{ display: 'flex', alignItems: 'center' }}>
+            <Grid item>
+              <ListAltIcon fontSize="large"/>
+            </Grid>
+            <Grid item>
+              <h2>Bingo timeline</h2>
+            </Grid>
+          </Grid>
+          <Grid container spacing={3}>
           {Object.entries(bingos).map(([name, bingo], index) =>
-            <Card key={index} sx={{ display: 'flex' }}>
-              <CardMedia
-                component="img"
-                sx={{width: '120px'}}
-                image={'images/' + name + '.png'}
-              />
-              <Box sx={{display: 'flex', flexDirection: 'column'}}>
-                <CardContent sx={{flex: '1 0 auto'}}>
-                  <Typography component="h2">
-                    {props.data[name].description}
-                  </Typography>
-                  <Typography component="body">
-                    {bingo.time.toString()}
-                  </Typography>
-                </CardContent>
-              </Box>
-            </Card>,
+            <Grid item xs={12} key={index} className={props.data[name].colour}>
+              <Card sx={{ display: 'flex' }}>
+                <CardMedia
+                  component="img"
+                  sx={{ width: '120px' }}
+                  image={'images/' + name + '.png'}
+                />
+                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                  <CardContent sx={{ flex: '1 0 auto' }}>
+                    <Typography component="h2" variant="h2">
+                      {props.data[name].description}
+                    </Typography>
+                    <Typography>
+                      {bingo.time.toString()}
+                    </Typography>
+                  </CardContent>
+                </Box>
+              </Card>
+            </Grid>,
           )}
+          </Grid>
           <IconButton component={Link} to="/">
             <GridOn/>
           </IconButton>

@@ -106,8 +106,19 @@ function DashboardContent(props) {
             >
               <MenuIcon/>
             </IconButton>
-            <GridOnIcon/>
-            &nbsp;
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="Show home grid"
+              component={Link}
+              to="/"
+              sx={{
+                ml: 2,
+                mr: 1,
+              }}
+            >
+              <GridOnIcon/>
+            </IconButton>
             <Typography
               component="h1"
               variant="h6"

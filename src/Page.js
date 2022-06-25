@@ -38,7 +38,7 @@ export default function Page(props) {
           <h3>{page.rules}</h3>
         </Grid>
         <Grid item>
-          <Button variant="contained" color="secondary" size="large"
+          <Button variant="contained" color={hasBingo(name) ? 'secondary' : 'primary'} size="large"
                   onClick={() => {
                     hasBingo(name) ? removeBingo(name) : addBingo(name)
                   }}>{hasBingo(name) ? 'Remove bingo' : 'Add bingo!'}</Button>

@@ -9,10 +9,16 @@ export default function About() {
         Hi :)
       </p>
       <p>
-        Vegan Bingo was inspired by (what I think is) the original Omnivore
-        Rationalization Bingo by Vegnews. It is made to make light of the things
-        we hear so often as vegans. It's not meant to make fun of anybody, just
-        to make fun.
+        I went vegan around the turn of the millenium. In the many years since I
+        hear the same questions asked repeatedly. This app was developed to make
+        a little light hearted fun from this reality, and also to give people
+        some ideas for how to answer common questions. I try to remember
+        we had to learn all of this at some time ourselves, and that though we
+        may have heard a question a thousand times, it might still be the first
+        time someone asked it. I also think we shouldn't pretend we have all the
+        answers, hopefully the person you are talking to is just another person
+        trying to figure out how to do good in this world just
+        like we are. You might just plant a seed in even the most resistant mind.
       </p>
       <p>
         If you'd like to get in touch about the app or anything else, or just
@@ -21,14 +27,19 @@ export default function About() {
       </p>
       <p>
         You can chat more about Vegan Bingo, post your times, watch tumble weeds
-        roll past (seriously there have been like 2 posts ever), etc at: <a
+        roll past (seriously there have been like 2 posts ever) at: <a
         href="https://facebook.com/veganbingo"
         target="_blank">facebook.com/veganbingo</a>
       </p>
       <p>
         To read the privacy terms or other FAQs about the app: <a
         href="https://camerongreen.org/a/veganbingo" target="_blank">Vegan Bingo
-        on E.A.R.T.H.</a>.
+        on E.A.R.T.H.</a>. In short it only stores data in a cookie, and although
+        I might add some Google Analytics at some point, I haven't yet.
+      </p>
+      <p>
+        Vegan Bingo was inspired by (what I think is) the original Omnivore
+        Rationalization Bingo by Vegnews.
       </p>
       <p>
         This work is licensed under the Creative Commons

@@ -25,12 +25,12 @@ export default function Page(props) {
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={2}>
+        <Grid item xs={4} sm={3} md={2}>
           <img
             src={require('../public/images/' + name + (hasBingo(name) ? '_done' : '') + '.png')}
             alt={page.description + ' Page'}/>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={8} sm={9} md={10}>
           <h2>{page.description}</h2>
         </Grid>
         <Grid item xs={12} className="rules">

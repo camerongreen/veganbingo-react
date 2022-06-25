@@ -1,6 +1,6 @@
 {
   "protein": {
-    "description": "Where do you get your protein?",
+    "description": "Where do you get protein?",
     "rules": "Where do you get your iron, or some weird trace element.",
     "main": [
       "The real question I have is \"Where did people get their obsession with asking about protein?\".  Probably meat and dairy industry advertising which reaches far more people than any unbiased nutritional advice.  I've had scores of people ask me this, people as young as 10, even a highly trained medical profressional.",
@@ -61,7 +61,7 @@
     ]
   },
   "teeth": {
-    "description": "We have canine teeth?",
+    "description": "We have canine teeth",
     "rules": "Meat eating caused human brains to grow.  Our eyes are forward looking like a carnivore.",
     "main": [
       "Human canine teeth look rather lame compared with the ones sported by our cousins the gorillas, some of whom are known to eat insects but pretty much follow a vegan diet otherwise. Indeed all great apes have canine teeth used mainly for dominance displays and as weapons against each other.  None are known to have any more than a small fraction of their diet coming from eating other animals.",
@@ -84,7 +84,7 @@
     ]
   },
   "food": {
-    "description": "Why do you eat things resembling meat",
+    "description": "Don't eat things resembling meat",
     "rules": "Asking whether any given vegan alternative is made of tofu...which is all vegans eat apparently",
     "main": [
       "For a start, most animal products do not look like animal products. I don't want to spoil any childhood delusions, but fish don't actually have fingers.  Cheese, sausages, fish fingers, they are all creations for a culinary purpose.",
@@ -94,7 +94,7 @@
     ]
   },
   "natural": {
-    "description": "Meat eating is part of nature",
+    "description": "Killing is part of nature",
     "rules": "Making appeals that it has been done for a long time.",
     "main": [
       "OK this gets philosophical so bear with me (no not that sort of bear!).",

@@ -23,7 +23,12 @@ export default function Timeline(props) {
   return (
     <InfoPage icon={<ListAltIcon fontSize="large"/>} heading="Bingo timeline">
       {Object.keys(bingos).length ? (
-        <p>Here are your completed bingos!</p>
+        <React.Fragment>
+          <p>
+            You started <strong>{Moment((Object.values(bingos)[0]).time).fromNow()}</strong>
+          </p>
+          <p>Here are your completed bingos!</p>
+        </React.Fragment>
       ) : (
         <p>When you complete some bingos, you will see a list of them there.</p>
       )}

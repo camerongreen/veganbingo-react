@@ -19,7 +19,7 @@
     ]
   },
   "cow": {
-    "description": "What would happen to the cows?",
+    "description": "What about all the cows?",
     "rules": "Cows like to be milked! It shows a similar complete misunderstanding of how dairy cows are bred and for what purpose.",
     "main": [
       "Factory farm breeding is strictly controlled by the farmers and companies.  It is mostly done artificially and thus we just would simply need to stop bringing more cows, chickens, pigs etc into the world.",
@@ -39,7 +39,7 @@
     ]
   },
   "hitler": {
-    "description": "Hitler was a vegetarian",
+    "description": "Hitler was vegetarian",
     "rules": "Pol Pot, Charles Manson, anyone who reflects poorly on our species",
     "main": [
       "We acknowledge evil people might have eaten vegetables at some point in their lives, maybe even lots of vegetables.  We also acknowledge the statistical likelihood that out of hundreds of millions of people who've lead vegetarian lives a couple might have been bad people.",
@@ -50,7 +50,7 @@
     ]
   },
   "plants": {
-    "description": "Plants have feelings too!",
+    "description": "Plants have feelings",
     "rules": "Carrots scream when you cut them!",
     "main": [
       "Sadly people who ask this aren't some sort of level 9 compassionate souls, but are even less likely to care about plants than they do animals.",
@@ -61,7 +61,7 @@
     ]
   },
   "teeth": {
-    "description": "What about our canine teeth?",
+    "description": "We have canine teeth?",
     "rules": "Meat eating caused human brains to grow.  Our eyes are forward looking like a carnivore.",
     "main": [
       "Human canine teeth look rather lame compared with the ones sported by our cousins the gorillas, some of whom are known to eat insects but pretty much follow a vegan diet otherwise. Indeed all great apes have canine teeth used mainly for dominance displays and as weapons against each other.  None are known to have any more than a small fraction of their diet coming from eating other animals.",
@@ -73,8 +73,8 @@
     ]
   },
   "humane": {
-    "description": "What if we raised animals humanely?",
-    "rules": "What if the chickens were raised in your backyard?",
+    "description": "What about backyard chickens?",
+    "rules": "What if animals were farmed humanely?",
     "main": [
       "A lot of people talk about humane farming, but for all those that talk about about it few are at all rigorous about doing it or supporting it consistently with their money.",
       "People might buy some more humane animal products to eat at home, but completely inconsistently.  This concern also doesn't seem to extend to the factory farmed animals used by the restaurants and cafes they visit, or even the ones used to make their shoes, clothes and other products.",
@@ -84,7 +84,7 @@
     ]
   },
   "food": {
-    "description": "Why do you eat things that look like...",
+    "description": "Why do you eat things resembling meat",
     "rules": "Asking whether any given vegan alternative is made of tofu...which is all vegans eat apparently",
     "main": [
       "For a start, most animal products do not look like animal products. I don't want to spoil any childhood delusions, but fish don't actually have fingers.  Cheese, sausages, fish fingers, they are all creations for a culinary purpose.",
@@ -94,7 +94,7 @@
     ]
   },
   "natural": {
-    "description": "Meat eating is natural",
+    "description": "Meat eating is part of nature",
     "rules": "Making appeals that it has been done for a long time.",
     "main": [
       "OK this gets philosophical so bear with me (no not that sort of bear!).",
@@ -107,7 +107,7 @@
   },
   "eat": {
     "description": "What can you eat?",
-    "rules": "Oh you are vegan, that must be hard.  Veganism is expensive.",
+    "rules": "Oh you are vegan, that must be hard. Veganism is expensive.",
     "main": [
       "Veganism just isn't that hard, as my friend once said, \"Take out the animal things, replace with plant things. Done\".  Not hard.  Maybe slightly harder than not changing at all, but even then after a few weeks it becomes pretty much the same.",
       "Indeed it is often the opposite of a restriction once you try it.  On becoming vegan people discover an expanded world of new and interesting ingredients to explore. Many people also use the process of becoming vegan to transition to a healthier diet, by following all that nutritional advice of \"Eat more fruits and vegetables\".",
@@ -149,7 +149,7 @@
     ]
   },
   "aspirational": {
-    "description": "I'd like to be vegan, but...",
+    "description": "I'd love to be vegan, but...",
     "rules": "I was vegan/vegetarian but...",
     "main": [
       "The more mainstream veganism becomes and the more society understands the multitude of reasons for living vegan, the more we hear this. It's a sign that veganism has arrived.",

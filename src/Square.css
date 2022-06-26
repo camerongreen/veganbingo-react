@@ -17,10 +17,16 @@
 }
 
 .Square img {
-    width: 120px;
+    padding-bottom: 5px;
     max-width: 90%;
     height: auto;
     margin: 1rem auto 0;
+}
+
+.Square img:hover {
+    width: 125px;
+    padding-bottom: 0;
+    max-width: 95%;
 }
 
 .Square .description {
@@ -41,5 +47,7 @@
 
     .Square img {
         margin: 2rem auto 0;
+        width: 120px;
+        height: 120px;
     }
 }

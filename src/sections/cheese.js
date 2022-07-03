@@ -1,11 +1,11 @@
 // This appears under the pictures on the square, and at the top of its
-// Format: Text.
 // individual page.
-const heading = 'I could never give up cheese';
+// Format: Text.
+const heading = `I could never give up cheese`;
 
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
-// Format: Test.
+// Format: Text.
 const alternatives = `You won't need any other alternative questions because you'll hear this one repeatedly.`;
 
 // This is the short section at the top of the individual page.

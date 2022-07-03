@@ -1,11 +1,11 @@
 // This appears under the pictures on the square, and at the top of its
-// Format: Text.
 // individual page.
-const heading = 'Where do you get your protein?';
+// Format: Text.
+const heading = `Where do you get your protein?`;
 
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
-// Format: Test.
+// Format: Text.
 const alternatives = `Where do you get your iron, or an obscure trace element.`;
 
 // This is the short section at the top of the individual page.

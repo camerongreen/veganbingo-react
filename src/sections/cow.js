@@ -1,11 +1,11 @@
 // This appears under the pictures on the square, and at the top of its
-// Format: Text.
 // individual page.
-const heading = 'What would happen to the cows?';
+// Format: Text.
+const heading = `What would happen to the cows?`;
 
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
-// Format: Test.
+// Format: Text.
 const alternatives = `What about all the farmers? What about all the nice open fields in the countryside?`;
 
 // This is the short section at the top of the individual page.

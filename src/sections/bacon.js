@@ -1,11 +1,11 @@
 // This appears under the pictures on the square, and at the top of its
-// Format: Text.
 // individual page.
-const heading = 'Mmmm bacon...';
+// Format: Text.
+const heading = `Mmmm bacon...`;
 
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
-// Format: Test.
+// Format: Text.
 const alternatives = `"Steak" is almost as common. Anything unhealthy from the toxic masculinity menu.`;
 
 // This is the short section at the top of the individual page.

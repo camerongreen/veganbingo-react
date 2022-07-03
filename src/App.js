@@ -6,13 +6,14 @@ import Cookies from 'universal-cookie';
 import './App.css';
 
 // Game data.
-const data = require('./data/data.json');
+const sections = require('./data/data.json');
 
 export default function App() {
   const cookies = new Cookies();
   const cookie_name = 'veganbingo.net';
   const cookie = cookies.get(cookie_name);
   const [bingos, setBingos] = React.useState(cookie || {});
+  const [data, setData] = React.useState(sections);
   const colours = [
     'yellow',
     'pink',
@@ -22,7 +23,11 @@ export default function App() {
   ];
 
   Object.keys(data).forEach((key, index) => {
-    data[key].colour = colours[index % colours.length];
+    import(`./sections/${key}`).then(loadedPage => {
+      data[key] = loadedPage;
+      data[key].colour = colours[index % colours.length];
+      setData({...data});
+    }).catch(err => console.log(err));
   });
 
   const hasBingo = id => {

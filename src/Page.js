@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
 import GridOnIcon from '@mui/icons-material/GridOn';
 import Typography from '@mui/material/Typography';
@@ -28,17 +29,19 @@ export default function Page(props) {
         <Grid item xs={4} sm={3} md={2}>
           <img
             src={require('../public/images/' + name + (hasBingo(name) ? '_done' : '') + '.png')}
-            alt={page.description + ' Page'}/>
+            alt={page.heading + ' Page'}/>
         </Grid>
         <Grid item xs={8} sm={9} md={10}>
-          <h2>{page.description}</h2>
+          <h2>{page.heading}</h2>
         </Grid>
         <Grid item xs={12} className="rules">
           <div>Other acceptable statements for this bingo</div>
-          <h3>{page.rules}</h3>
+          <h3>{page.alternatives}</h3>
         </Grid>
         <Grid item>
-          <Button variant="contained" color={hasBingo(name) ? 'secondary' : 'primary'} size="large"
+          <Button variant="contained"
+                  color={hasBingo(name) ? 'secondary' : 'primary'}
+                  size="large"
                   onClick={() => {
                     hasBingo(name) ? removeBingo(name) : addBingo(name)
                   }}>{hasBingo(name) ? 'Remove bingo' : 'Add bingo!'}</Button>
@@ -50,10 +53,22 @@ export default function Page(props) {
             </Typography>
           </Grid>
         ) : ''}
-        <Grid item xs={12} className="main">
-          {page.main.map((paragraph, index) =>
-            <p key={index}>{paragraph}</p>,
-          )}
+        <Grid item xs={12}>
+          <Paper
+            sx={{
+              p: 2,
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+            className="main"
+          >
+            <h2>Short answer</h2>
+            <Grid item xs={12} className="short_answer"
+                  dangerouslySetInnerHTML={{ __html: page.short_answer }}/>
+            <h2>Read more</h2>
+            <Grid item xs={12} className="long_answer"
+                  dangerouslySetInnerHTML={{ __html: page.long_answer }}/>
+          </Paper>
         </Grid>
       </Grid>
       <IconButton component={Link} to="/">

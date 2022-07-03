@@ -23,10 +23,10 @@ export default function Square(props) {
         <CardMedia
           component="img"
           image={'images/' + props.name + (hasBingo(props.name) ? '_done' : '') + '.png'}
-          alt={props.data.description + ' Square'}
+          alt={props.data.heading + ' Square'}
         />
         <CardContent className="description">
-          {props.data.description}
+          {props.data.heading}
         </CardContent>
       </CardActionArea>
     </Card>

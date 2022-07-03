@@ -4,18 +4,7 @@
   "cow": {},
   "bacon": {},
   "hitler": {},
-  "plants": {
-    "description": "Plants have feelings",
-    "rules": "Carrots scream when you cut them!",
-    "main": [
-      "Sadly people who say things like this aren't some sort of level 9 compassionate souls, but are even less likely to care about plants than they do animals.",
-      "So yes, it's a ridiculous question. Most of the animals we eat are herbivores, and eating them means even more plants are killed than if we just ate plants directly. Also plants don't have a central nervous system, evolutionarily it's not very useful to feel pain if you can't do something in response to it, like run away.  Plant biology is many and varied, there is more to be said here, but it would probably lost on anyone silly enough to ask this question.",
-      "Ignoring them, there is a serious point for us to think about here. In evolutionary terms there aren't distinct, easily identifiable separate kingdoms of plants and animals, it is all very much a continuum. We need to ask ourselves where we draw the line and on what basis we do so.",
-      "Darwin and the best biologists since have understood that our common evolutionary heritage expresses itself in us sharing much of our sentience with other beings. In understanding how we should treat other beings ethically we should discuss levels of self awareness, the ability to suffer, the presence of a central nervous system, in all of which science should be our guide. This philosophy is called sentientism, that all animals interests deserve consideration. This is opposed to speciesism, which treats all non human life as having lesser worth, not because of their innate capabilities, but purely because they are not human.",
-      "Humans are a destructive force on the animal world, and modern technology has only increased this. The time is well past when we should reconsider the philosophies and ways of living which have led to this reality. Maybe considering the interests of beings other than humans, including plants, is actually something we should take seriously.",
-      "We need to re-evaluate our moral framework, we must rethink very carefully about where we draw our moral lines, of our obligations to the other beings who share our world. In the end if we err in that endeavour let us err on the side of compassion."
-    ]
-  },
+  "plants": {},
   "teeth": {
     "description": "We have canine teeth",
     "rules": "Meat eating caused human brains to grow. Our eyes are forward looking like a carnivore.",

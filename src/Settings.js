@@ -5,12 +5,12 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import { AppContext } from './AppContext';
+import { BingoContext } from './BingoContext';
 import InfoPage from './InfoPage';
 
 function SimpleDialog(props) {
   const { onClose, open } = props;
-  const { bingos, resetBingos } = React.useContext(AppContext);
+  const { bingos, resetBingos } = React.useContext(BingoContext);
 
   const handleDoIt = () => {
     resetBingos();
@@ -47,7 +47,7 @@ export default function Settings() {
     setOpen(false);
   };
 
-  const { bingos } = React.useContext(AppContext);
+  const { bingos } = React.useContext(BingoContext);
 
   return (
     <InfoPage icon={<SettingsIcon fontSize="large"/>} heading="Settings">

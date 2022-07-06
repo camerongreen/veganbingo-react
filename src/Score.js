@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 // CSS.
-import './Score.css';
+import './styles/Score.css';
 
 export default function Score(props) {
   return (

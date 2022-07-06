@@ -7,11 +7,11 @@ import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
 import GridOnIcon from '@mui/icons-material/GridOn';
 import Typography from '@mui/material/Typography';
-import { AppContext } from './AppContext';
+import { BingoContext } from './BingoContext';
 import Moment from 'moment';
 
 // CSS.
-import './Page.css';
+import './styles/Page.css';
 
 export default function Page(props) {
   const { name } = useParams();
@@ -20,7 +20,7 @@ export default function Page(props) {
     hasBingo,
     addBingo,
     removeBingo,
-  } = React.useContext(AppContext);
+  } = React.useContext(BingoContext);
   const page = props.data[name];
 
   return (

@@ -7,16 +7,23 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 // Components.
 import Square from './Square';
 
-// CSS.
-import './Game.css';
+// Services
+import DataService from './services/DataService';
 
-export default function Game(props) {
+// CSS.
+import './styles/Game.css';
+
+export default function Game() {
   let listItems = [];
   const theme = useTheme();
-  Object.entries(props.data).forEach(([key, value], index) => {
+  const dataService = new DataService();
+  const data = dataService.getData();
+
+  Object.entries(data).forEach(([key, value], index) => {
     listItems.push(<Grid key={key} item xs={3} className={value.colour}><Square
-      key={key} name={key} data={value}/></Grid>);
+      key={key} name={key} /></Grid>);
   });
+
   return (
     <Container maxWidth="lg" disableGutters={useMediaQuery(theme.breakpoints.down('sm'))} sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={{ xs: 1, sm: 2 }}>

@@ -6,7 +6,7 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import GridOn from '@mui/icons-material/GridOn'
 import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
-import { AppContext } from './AppContext';
+import { BingoContext } from './BingoContext';
 import Moment from 'moment';
 import CardActionArea from '@mui/material/CardActionArea';
 
@@ -18,7 +18,7 @@ import Typography from '@mui/material/Typography';
 import InfoPage from './InfoPage';
 
 export default function Timeline(props) {
-  const { bingos } = React.useContext(AppContext);
+  const { bingos } = React.useContext(BingoContext);
 
   return (
     <InfoPage icon={<ListAltIcon fontSize="large"/>} heading="Bingo timeline">

@@ -3,7 +3,7 @@ import { Routes, Route, useLocation, Link } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Mui.
-import { useTheme, createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -29,10 +29,11 @@ import Settings from './Settings';
 import Timeline from './Timeline';
 
 // Services
-import { AppContext } from './AppContext';
+import DataService from './services/DataService';
+import { BingoContext } from './BingoContext';
 
 // CSS
-import './Dashboard.css';
+import './styles/Dashboard.css';
 
 function Copyright(props) {
   return (
@@ -77,13 +78,15 @@ export const themeOptions = {
 
 const mdTheme = createTheme(themeOptions);
 
-function DashboardContent(props) {
-  const { bingos } = React.useContext(AppContext);
+function DashboardContent() {
+  const { bingos } = React.useContext(BingoContext);
   const [open, setOpen] = React.useState(false);
   const location = useLocation();
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  const dataService = new DataService();
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -131,7 +134,7 @@ function DashboardContent(props) {
               </Link>{' '}
             </Typography>
             <Score score={Object.keys(bingos).length}
-                   total={Object.keys(props.data).length}/>
+                   total={Object.keys(dataService.getSections()).length}/>
           </Toolbar>
         </AppBar>
         <Drawer anchor="left" open={open} onClick={toggleDrawer}>
@@ -174,10 +177,10 @@ function DashboardContent(props) {
               <Routes location={location}>
                 {routes.map(({ path, Component }, index) => (
                   <Route key={index} path={path}
-                         element={<Component data={props.data}/>}/>
+                         element={<Component />}/>
                 ))}
                 <Route path="/page">
-                  <Route path=":name" element={<Page data={props.data}/>}/>
+                  <Route path=":name" element={<Page />}/>
                 </Route>
               </Routes>
             </CSSTransition>
@@ -189,6 +192,6 @@ function DashboardContent(props) {
   );
 }
 
-export default function Dashboard(props) {
-  return <DashboardContent data={props.data}/>;
+export default function Dashboard() {
+  return <DashboardContent />;
 }

@@ -29,7 +29,9 @@ export default function Page(props) {
 
   const dataService = new DataService();
 
-  dataService.getSection(name).then(data => setPage(data));
+  React.useEffect(() => {
+    dataService.getSection(name).then(data => setPage(data));
+  }, [page]);
 
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>

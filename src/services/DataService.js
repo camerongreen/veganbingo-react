@@ -25,13 +25,6 @@ export default class DataService {
     return DataService.#SECTIONS;
   }
 
-  getData() {
-    if (Object.keys(this.#data).length === 0) {
-      DataService.#SECTIONS.forEach(key => this.getSection(key));
-    }
-    return this.#data;
-  }
-
   /**
    * Lazily loads and returns section.
    *
@@ -41,17 +34,20 @@ export default class DataService {
    *   Section data.
    */
   getSection(name) {
-    if (!(name in this.#data)) {
-      import(`../sections/${name}`).then(loadedPage => {
-        loadedPage.colour = DataService.#COLOURS[index % DataService.#COLOURS.length];
-        this.setSection(name, loadedPage);
-      }).catch(err => console.log(err));
-    }
-
-    return this.#data[name];
+    return this.loadSection(name);
   }
 
+  loadSection(name) {
+    return import(`../sections/${name}`).then(loadedPage => {
+      loadedPage.name = name;
+      loadedPage.colour = DataService.#COLOURS[(Object.keys(this.#data)).length % DataService.#COLOURS.length];
+      this.setSection(name, loadedPage);
+      return loadedPage;
+    });
+  }
+
+
   setSection(name, values) {
-    return this.#data[name] = values;
+    this.#data[name] = values;
   }
 }

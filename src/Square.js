@@ -6,32 +6,27 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
 import { BingoContext } from './BingoContext';
 
-// Services.
-import DataService from './services/DataService';
-
 // CSS.
 import './styles/Square.css';
 
 export default function Square(props) {
   const { hasBingo } = React.useContext(BingoContext);
-  const dataService = new DataService();
-  const data = dataService.getSection(props.name);
 
   return (
     <Card
       className="Square"
       sx={{
-        backgroundColor: data.colour,
+        backgroundColor: props.data.colour,
       }}
     >
-      <CardActionArea component={Link} to={'page/' + props.name}>
+      <CardActionArea component={Link} to={'page/' + props.data.name}>
         <CardMedia
           component="img"
-          image={'images/' + props.name + (hasBingo(props.name) ? '_done' : '') + '.png'}
-          alt={data.heading + ' Square'}
+          image={'images/' + props.data.name + (hasBingo(props.data.name) ? '_done' : '') + '.png'}
+          alt={props.data.heading + ' Square'}
         />
         <CardContent className="description">
-          {data.heading}
+          {props.data.heading}
         </CardContent>
       </CardActionArea>
     </Card>

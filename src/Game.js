@@ -14,20 +14,25 @@ import DataService from './services/DataService';
 import './styles/Game.css';
 
 export default function Game() {
-  let listItems = [];
   const theme = useTheme();
   const dataService = new DataService();
-  const data = dataService.getData();
+  const sections = dataService.getSections();
+  let [listItems, setListItems] = React.useState([]);
 
-  Object.entries(data).forEach(([key, value], index) => {
-    listItems.push(<Grid key={key} item xs={3} className={value.colour}><Square
-      key={key} name={key} /></Grid>);
+  Promise.all(sections.map(name => dataService.getSection(name))).then(sectionData => {
+    setListItems(sectionData);
   });
 
   return (
-    <Container maxWidth="lg" disableGutters={useMediaQuery(theme.breakpoints.down('sm'))} sx={{ mt: 4, mb: 4 }}>
+    <Container maxWidth="lg"
+               disableGutters={useMediaQuery(theme.breakpoints.down('sm'))}
+               sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={{ xs: 1, sm: 2 }}>
-        {listItems}
+        {listItems.map((section, index) => (
+          <Grid key={index} item xs={3} className={section.colour}>
+            <Square data={section}/>
+          </Grid>
+        ))}
       </Grid>
     </Container>
   );

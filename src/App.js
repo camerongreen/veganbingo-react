@@ -6,10 +6,9 @@ import { BingoProvider } from './BingoContext';
 import './styles/App.css';
 
 export default function App() {
-
   return (
     <BingoProvider>
-      <Dashboard />
+      <Dashboard/>
     </BingoProvider>
   );
 }

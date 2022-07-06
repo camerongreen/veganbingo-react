@@ -19,9 +19,11 @@ export default function Game() {
   const sections = dataService.getSections();
   let [listItems, setListItems] = React.useState([]);
 
-  Promise.all(sections.map(name => dataService.getSection(name))).then(sectionData => {
-    setListItems(sectionData);
-  });
+  React.useEffect(() => {
+    Promise.all(sections.map(name => dataService.getSection(name))).then(sectionData => {
+      setListItems(sectionData);
+    });
+  }, [sections]);
 
   return (
     <Container maxWidth="lg"

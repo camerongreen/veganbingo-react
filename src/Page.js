@@ -10,6 +10,9 @@ import Typography from '@mui/material/Typography';
 import { BingoContext } from './BingoContext';
 import Moment from 'moment';
 
+// Services.
+import DataService from './services/DataService';
+
 // CSS.
 import './styles/Page.css';
 
@@ -21,7 +24,12 @@ export default function Page(props) {
     addBingo,
     removeBingo,
   } = React.useContext(BingoContext);
-  const page = props.data[name];
+
+  const [page, setPage] = React.useState({});
+
+  const dataService = new DataService();
+
+  dataService.getSection(name).then(data => setPage(data));
 
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>

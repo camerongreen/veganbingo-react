@@ -34,18 +34,22 @@ export default class DataService {
    *   Section data.
    */
   getSection(name) {
-    return this.loadSection(name);
+    if (name in this.#data) {
+      return this.#data[name];
+    }
+
+    const loadedPage =  this.loadSection(name);
+    this.setSection(name, loadedPage);
+    return loadedPage;
   }
 
   loadSection(name) {
     return import(`../sections/${name}`).then(loadedPage => {
       loadedPage.name = name;
-      loadedPage.colour = DataService.#COLOURS[(Object.keys(this.#data)).length % DataService.#COLOURS.length];
-      this.setSection(name, loadedPage);
+      loadedPage.colour = DataService.#COLOURS[DataService.#SECTIONS.indexOf(name) % DataService.#COLOURS.length];
       return loadedPage;
     });
   }
-
 
   setSection(name, values) {
     this.#data[name] = values;

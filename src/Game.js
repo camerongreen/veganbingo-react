@@ -15,14 +15,12 @@ import './styles/Game.css';
 
 export default function Game() {
   const theme = useTheme();
+  let [listItems, setListItems] = React.useState([]);
   const dataService = new DataService();
   const sections = dataService.getSections();
-  let [listItems, setListItems] = React.useState([]);
 
   React.useEffect(() => {
-    Promise.all(sections.map(name => dataService.getSection(name))).then(sectionData => {
-      setListItems(sectionData);
-    });
+    Promise.all(sections.map(name => dataService.getSection(name))).then(sectionData => setListItems(sectionData));
   }, [sections]);
 
   return (

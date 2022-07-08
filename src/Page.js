@@ -24,9 +24,7 @@ export default function Page(props) {
     addBingo,
     removeBingo,
   } = React.useContext(BingoContext);
-
   const [page, setPage] = React.useState({});
-
   const dataService = new DataService();
 
   React.useEffect(() => {

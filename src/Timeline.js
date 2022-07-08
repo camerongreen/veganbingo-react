@@ -1,12 +1,7 @@
 import * as React from 'react';
-import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import ListAltIcon from '@mui/icons-material/ListAlt';
-import GridOn from '@mui/icons-material/GridOn'
-import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
-import { BingoContext } from './BingoContext';
 import Moment from 'moment';
 import CardActionArea from '@mui/material/CardActionArea';
 
@@ -17,15 +12,35 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import InfoPage from './InfoPage';
 
-export default function Timeline(props) {
+// Services.
+import { BingoContext } from './BingoContext';
+import DataService from './services/DataService';
+
+export default function Timeline() {
   const { bingos } = React.useContext(BingoContext);
+  const [data, setData] = React.useState({});
+  const dataService = new DataService();
+  const bingoKeys = Object.keys(bingos);
+
+  React.useEffect(() => {
+    Promise.all(bingoKeys.map(name => dataService.getSection(name))).then(loadedData => {
+      let keyedData = {};
+
+      bingoKeys.forEach(name => {
+        keyedData[name] = loadedData.find(element => element.name === name);
+      });
+
+      setData(keyedData)
+    });
+  }, [bingos, bingoKeys]);
 
   return (
     <InfoPage icon={<ListAltIcon fontSize="large"/>} heading="Bingo timeline">
-      {Object.keys(bingos).length ? (
+      {bingoKeys.length ? (
         <React.Fragment>
           <p>
-            You started <strong>{Moment((Object.values(bingos)[0]).time).fromNow()}</strong>
+            You
+            started <strong>{Moment((Object.values(bingos)[0]).time).fromNow()}</strong>
           </p>
           <p>Here are your completed bingos!</p>
         </React.Fragment>
@@ -33,9 +48,8 @@ export default function Timeline(props) {
         <p>When you complete some bingos, you will see a list of them there.</p>
       )}
       <Grid container spacing={3}>
-        {Object.entries(bingos).reverse().map(([name, bingo], index) =>
-          <Grid item xs={12} key={index}
-                className={props.data[name].colour}>
+        {Object.entries(data).reverse().map(([name, values], index) =>
+          <Grid item xs={12} className={values.colour}>
             <Card>
               <CardActionArea component={Link} to={'/page/' + name}
                               sx={{
@@ -59,10 +73,10 @@ export default function Timeline(props) {
                   }}>
                     <div>
                       <Typography component="h2" variant="h4">
-                        {props.data[name].description}
+                        {values.description}
                       </Typography>
                       <Typography>
-                        Completed <strong>{Moment(bingo.time).format('HH:mm Do MMM YYYY')}</strong>
+                        Completed <strong>{Moment(bingos[name].time).format('HH:mm Do MMM YYYY')}</strong>
                       </Typography>
                     </div>
                   </CardContent>

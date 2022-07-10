@@ -34,12 +34,12 @@ export const BingoProvider = props => {
 
   const resetBingos = () => {
     updateBingos({});
-    cookies.remove(cookie_name, bingoOptions);
+    cookies.remove(cookie_name, cookieOptions);
   }
 
   const updateBingos = (bingos) => {
     setBingos(bingos);
-    cookies.set(cookie_name, bingos, bingoOptions);
+    cookies.set(cookie_name, bingos, cookieOptions);
   }
 
   return (

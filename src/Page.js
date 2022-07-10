@@ -7,10 +7,10 @@ import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
 import GridOnIcon from '@mui/icons-material/GridOn';
 import Typography from '@mui/material/Typography';
-import { BingoContext } from './BingoContext';
 import Moment from 'moment';
 
 // Services.
+import { BingoContext } from './BingoContext';
 import DataService from './services/DataService';
 
 // CSS.

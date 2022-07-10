@@ -18,29 +18,21 @@ import DataService from './services/DataService';
 
 export default function Timeline() {
   const { bingos } = React.useContext(BingoContext);
-  const [data, setData] = React.useState({});
+  const [data, setData] = React.useState([]);
   const dataService = new DataService();
-  const bingoKeys = Object.keys(bingos);
 
   React.useEffect(() => {
-    Promise.all(bingoKeys.map(name => dataService.getSection(name))).then(loadedData => {
-      let keyedData = {};
-
-      bingoKeys.forEach(name => {
-        keyedData[name] = loadedData.find(element => element.name === name);
-      });
-
-      setData(keyedData)
+    Promise.all(Object.keys(bingos).map(name => dataService.getSection(name))).then(loadedData => {
+      setData(loadedData);
     });
-  }, [bingos, bingoKeys]);
+  }, []);
 
   return (
     <InfoPage icon={<ListAltIcon fontSize="large"/>} heading="Bingo timeline">
-      {bingoKeys.length ? (
+      {Object.keys(bingos).length ? (
         <React.Fragment>
           <p>
-            You
-            started <strong>{Moment((Object.values(bingos)[0]).time).fromNow()}</strong>
+            You started Bingoing <strong>{Moment((Object.values(bingos)[0]).time).fromNow()}</strong>
           </p>
           <p>Here are your completed bingos!</p>
         </React.Fragment>
@@ -48,8 +40,8 @@ export default function Timeline() {
         <p>When you complete some bingos, you will see a list of them there.</p>
       )}
       <Grid container spacing={3}>
-        {Object.entries(data).reverse().map(([name, values], index) =>
-          <Grid item xs={12} className={values.colour}>
+        {Object.values(data).reverse().map((values, index) =>
+          <Grid item xs={12} key={index} className={values.colour}>
             <Card>
               <CardActionArea component={Link} to={'/page/' + name}
                               sx={{
@@ -59,7 +51,7 @@ export default function Timeline() {
                 <CardMedia
                   component="img"
                   sx={{ width: '120px', height: '120px', m: '1rem' }}
-                  image={'/images/' + name + '.png'}
+                  image={'/images/' + values.name + '.png'}
                 />
                 <Box sx={{
                   display: 'flex',
@@ -73,10 +65,10 @@ export default function Timeline() {
                   }}>
                     <div>
                       <Typography component="h2" variant="h4">
-                        {values.description}
+                        {values.heading}
                       </Typography>
                       <Typography>
-                        Completed <strong>{Moment(bingos[name].time).format('HH:mm Do MMM YYYY')}</strong>
+                        Completed <strong>{Moment(bingos[values.name].time).format('HH:mm Do MMM YYYY')}</strong>
                       </Typography>
                     </div>
                   </CardContent>

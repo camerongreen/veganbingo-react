@@ -17,6 +17,14 @@ export default class DataService {
     'plants',
     'teeth',
     'humane',
+    'food',
+    'natural',
+    'eat',
+    'notmuch',
+    'what',
+    'cant',
+    'aspirational',
+    'preachy',
   ];
 
   #data = {};

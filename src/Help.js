@@ -6,8 +6,11 @@ export default function Help() {
   return (
     <InfoPage icon={<HelpCenterIcon fontSize="large"/>} heading="How to play">
       <p>
+        It's simple so just start clicking really :)
+      </p>
+      <p>
         You start with a the board of pictures/icons, each one representing
-        things people commonly say to vegans.
+        things people commonly say to vegans, hence the name Vegan Bingo!
       </p>
 
       <p>

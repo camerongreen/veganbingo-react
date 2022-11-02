@@ -130,7 +130,7 @@ function DashboardContent() {
               sx={{ flexGrow: 1 }}
             >
               <Link className="link" to="/">
-                Vegan Bingo
+                Vegan Bingo!
               </Link>{' '}
             </Typography>
             <Score score={Object.keys(bingos).length}

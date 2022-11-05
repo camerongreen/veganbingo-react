@@ -35,20 +35,6 @@ import { BingoContext } from './BingoContext';
 // CSS
 import './styles/Dashboard.css';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary"
-                align="center" {...props} sx={{ mb: 2 }}>
-      {'Copyright © '}
-      <MLink color="inherit" href="https://camerongreen.org/">
-        camerongreen.org
-      </MLink>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const routes = [
   { path: '/', name: 'Game', Component: Game },
   { path: '/help', name: 'Help', Component: Help },
@@ -77,6 +63,20 @@ export const themeOptions = {
 };
 
 const mdTheme = createTheme(themeOptions);
+
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary"
+                align="center" {...props} sx={{ mb: 2 }}>
+      {'Copyright © '}
+      <MLink color="inherit" href="https://camerongreen.org/">
+        camerongreen.org
+      </MLink>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 function DashboardContent() {
   const { bingos } = React.useContext(BingoContext);

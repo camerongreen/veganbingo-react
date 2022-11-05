@@ -21,8 +21,7 @@ export default function Page(props) {
   const {
     bingos,
     hasBingo,
-    addBingo,
-    removeBingo,
+    toggleBingo,
   } = React.useContext(BingoContext);
   const [page, setPage] = React.useState({});
   const dataService = new DataService();
@@ -51,7 +50,7 @@ export default function Page(props) {
                   color={hasBingo(name) ? 'secondary' : 'primary'}
                   size="large"
                   onClick={() => {
-                    hasBingo(name) ? removeBingo(name) : addBingo(name)
+                    toggleBingo(name)
                   }}>{hasBingo(name) ? 'Remove bingo' : 'Add bingo!'}</Button>
         </Grid>
         {hasBingo(name) ? (

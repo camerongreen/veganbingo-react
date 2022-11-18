@@ -8,6 +8,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Square from './Square';
 
 // Services
+import { BingoContext } from './BingoContext';
 import DataService from './services/DataService';
 
 // CSS.
@@ -18,10 +19,22 @@ export default function Game() {
   let [listItems, setListItems] = React.useState([]);
   const dataService = new DataService();
   const sections = dataService.getSections();
+  const {
+    checkScore,
+    hasBingo
+  } = React.useContext(BingoContext);
 
   React.useEffect(() => {
     Promise.all(sections.map(name => dataService.getSection(name))).then(sectionData => setListItems(sectionData));
   }, [sections]);
+
+  React.useEffect(() => {
+    if (checkScore()) {
+      console.log('do stuff');
+    } else {
+      console.log('do nuttin');
+    }
+  });
 
   return (
     <Container maxWidth="lg"
@@ -30,7 +43,7 @@ export default function Game() {
       <Grid container spacing={{ xs: 1, sm: 2 }}>
         {listItems.map((section, index) => (
           <Grid key={index} item xs={3} className={section.colour}>
-            <Square data={section}/>
+            <Square data={section} hasBingo={hasBingo(section.name)}/>
           </Grid>
         ))}
       </Grid>

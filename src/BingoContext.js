@@ -12,6 +12,7 @@ export const BingoProvider = props => {
   };
   const cookie = cookies.get(cookie_name, cookieOptions);
   const [bingos, setBingos] = React.useState(cookie || {});
+  const [checkScoreState, setCheckScoreState] = React.useState(false);
   const event = new CustomEvent('bingo:add');
 
   const hasBingo = id => {
@@ -29,6 +30,7 @@ export const BingoProvider = props => {
       };
 
       document.dispatchEvent(event);
+      setCheckScoreState(true);
     }
   };
 
@@ -48,14 +50,18 @@ export const BingoProvider = props => {
     hasBingo(id) ? removeBingo(id) : addBingo(id);
   }
 
-  const updateBingos = (bingos) => {
+  const updateBingos = bingos => {
     setBingos(bingos);
     cookies.set(cookie_name, bingos, cookieOptions);
   }
 
+  const checkScore = () => {
+    return checkScoreState;
+  }
+
   return (
     <BingoContext.Provider
-      value={{ bingos, addBingo, hasBingo, removeBingo, resetBingos, toggleBingo }}>
+      value={{ bingos, addBingo, hasBingo, removeBingo, resetBingos, checkScore, toggleBingo }}>
       {props.children}
     </BingoContext.Provider>
   )

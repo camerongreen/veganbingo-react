@@ -47,7 +47,7 @@ export default function Page(props) {
         </Grid>
         <Grid item>
           <Button variant="contained"
-                  color={hasBingo(name) ? 'secondary' : 'primary'}
+                  color={hasBingo(name) ? 'success' : 'primary'}
                   size="large"
                   onClick={() => {
                     toggleBingo(name)

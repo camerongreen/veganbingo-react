@@ -16,13 +16,13 @@ export default function Help() {
       <p>
         When someone says one of them to you, you then say Vegan Bingo! You
         go and click on its icon and press the button to say you've
-        completed it. A red X will now appear on the screen for that item
+        completed it. A green tick will now appear on the screen for that item
         showing it as checked off, and your score will go up (yay!).
       </p>
 
       <p>
         Your aim is to have enough conversations about veganism with people
-        that you get to check off all of the squares. You get kudos, and at
+        that you get to tick off all of the squares. You get kudos, and at
         parties will be able to use the only known infallible pick-up line,
         "I completed Vegan Bingo".
       </p>

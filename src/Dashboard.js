@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Routes, Route, useLocation, Link } from 'react-router-dom';
+import { Outlet, useLocation, Link } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Mui.
@@ -20,13 +20,8 @@ import Typography from '@mui/material/Typography';
 
 // Components.
 import { mainListItems } from './listItems';
-import About from './About';
-import Game from './Game';
-import Help from './Help';
-import Page from './Page';
 import Score from './Score';
-import Settings from './Settings';
-import Timeline from './Timeline';
+
 
 // Services
 import DataService from './services/DataService';
@@ -34,14 +29,6 @@ import { BingoContext } from './BingoContext';
 
 // CSS
 import './styles/Dashboard.css';
-
-const routes = [
-  { path: '/', name: 'Game', Component: Game },
-  { path: '/help', name: 'Help', Component: Help },
-  { path: '/timeline', name: 'Timeline', Component: Timeline },
-  { path: '/settings', name: 'Settings', Component: Settings },
-  { path: '/about', name: 'About', Component: About },
-];
 
 export const themeOptions = {
   palette: {
@@ -174,15 +161,7 @@ function DashboardContent() {
               timeout={400}
               classNames="fade"
             >
-              <Routes location={location}>
-                {routes.map(({ path, Component }, index) => (
-                  <Route key={index} path={path}
-                         element={<Component />}/>
-                ))}
-                <Route path="/page">
-                  <Route path=":name" element={<Page />}/>
-                </Route>
-              </Routes>
+              <Outlet />
             </CSSTransition>
           </TransitionGroup>
           <Copyright sx={{ pt: 4 }}/>

@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import InfoPage from './InfoPage';
 
 // Services.
-import { BingoContext } from './BingoContext';
+import { BingoContext } from './services/BingoContext';
 import DataService from './services/DataService';
 
 export default function Timeline() {

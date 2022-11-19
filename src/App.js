@@ -1,15 +1,18 @@
 import * as React from 'react';
-import Dashboard from './Dashboard';
-import { BingoProvider } from './BingoContext';
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// Services.
+import { BingoProvider } from './services/BingoContext';
+
+// Elements.
+import About from "./About";
+import Dashboard from './Dashboard';
 import Error from "./Error";
 import Game from "./Game";
 import Help from "./Help";
-import Timeline from "./Timeline";
-import Settings from "./Settings";
-import About from "./About";
 import Page from "./Page";
+import Settings from "./Settings";
+import Timeline from "./Timeline";
 
 import './styles/App.css';
 

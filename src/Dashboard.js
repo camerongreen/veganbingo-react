@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Outlet, useLocation, Link } from 'react-router-dom';
+import { Link, Outlet, useLocation, ScrollRestoration } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Mui.
@@ -22,10 +22,9 @@ import Typography from '@mui/material/Typography';
 import { mainListItems } from './listItems';
 import Score from './Score';
 
-
 // Services
 import DataService from './services/DataService';
-import { BingoContext } from './BingoContext';
+import { BingoContext } from './services/BingoContext';
 
 // CSS
 import './styles/Dashboard.css';
@@ -76,101 +75,104 @@ function DashboardContent() {
   const dataService = new DataService();
 
   return (
-    <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline/>
-        <AppBar position="absolute" open={open}>
-          <Toolbar
-            sx={{
-              pr: '24px', // keep right padding when drawer closed
-            }}
-          >
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer}
-              sx={{
-                mr: 2,
-              }}
-            >
-              <MenuIcon/>
-            </IconButton>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="Show home grid"
-              component={Link}
-              to="/"
-              sx={{
-                ml: 2,
-                mr: 1,
-              }}
-            >
-              <GridOnIcon/>
-            </IconButton>
-            <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              sx={{ flexGrow: 1 }}
-            >
-              <Link className="link" to="/">
-                Vegan Bingo!
-              </Link>{' '}
-            </Typography>
-            <Score score={Object.keys(bingos).length}
-                   total={Object.keys(dataService.getSections()).length}/>
-          </Toolbar>
-        </AppBar>
-        <Drawer anchor="left" open={open} onClick={toggleDrawer}>
-          <Toolbar
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              px: [1],
-            }}
-          >
-            <IconButton onClick={toggleDrawer}>
-              <ChevronLeftIcon/>
-            </IconButton>
-          </Toolbar>
-          <Divider/>
-          <List component="nav">
-            {mainListItems}
-          </List>
-        </Drawer>
-        <Box
-          component="main"
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline/>
+      <AppBar position="absolute" open={open}>
+        <Toolbar
           sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
-            flexGrow: 1,
-            height: '100vh',
-            overflow: 'auto',
+            pr: '24px', // keep right padding when drawer closed
           }}
         >
-          <Toolbar/>
-          <TransitionGroup component={null}>
-            <CSSTransition
-              key={location.key}
-              timeout={400}
-              classNames="fade"
-            >
-              <Outlet />
-            </CSSTransition>
-          </TransitionGroup>
-          <Copyright sx={{ pt: 4 }}/>
-        </Box>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            onClick={toggleDrawer}
+            sx={{
+              mr: 2,
+            }}
+          >
+            <MenuIcon/>
+          </IconButton>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="Show home grid"
+            component={Link}
+            to="/"
+            sx={{
+              ml: 2,
+              mr: 1,
+            }}
+          >
+            <GridOnIcon/>
+          </IconButton>
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            sx={{ flexGrow: 1 }}
+          >
+            <Link className="link" to="/">
+              Vegan Bingo!
+            </Link>{' '}
+          </Typography>
+          <Score score={Object.keys(bingos).length}
+                 total={Object.keys(dataService.getSections()).length}/>
+        </Toolbar>
+      </AppBar>
+      <Drawer anchor="left" open={open} onClick={toggleDrawer}>
+        <Toolbar
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            px: [1],
+          }}
+        >
+          <IconButton onClick={toggleDrawer}>
+            <ChevronLeftIcon/>
+          </IconButton>
+        </Toolbar>
+        <Divider/>
+        <List component="nav">
+          {mainListItems}
+        </List>
+      </Drawer>
+      <Box
+        component="main"
+        sx={{
+          backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+              ? theme.palette.grey[100]
+              : theme.palette.grey[900],
+          flexGrow: 1,
+          height: '100vh',
+          overflow: 'auto',
+        }}
+      >
+        <Toolbar/>
+        <TransitionGroup component={null}>
+          <CSSTransition
+            key={location.key}
+            timeout={400}
+            classNames="fade"
+          >
+            <Outlet/>
+          </CSSTransition>
+        </TransitionGroup>
+        <Copyright sx={{ pt: 4 }}/>
       </Box>
-    </ThemeProvider>
+    </Box>
   );
 }
 
 export default function Dashboard() {
-  return <DashboardContent />;
+  return (
+    <ThemeProvider theme={mdTheme}>
+      <ScrollRestoration/>
+      <DashboardContent/>
+    </ThemeProvider>
+  );
 }

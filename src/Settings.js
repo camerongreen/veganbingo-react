@@ -5,7 +5,8 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import { BingoContext } from './BingoContext';
+
+import { BingoContext } from './services/BingoContext';
 import InfoPage from './InfoPage';
 
 function SimpleDialog(props) {

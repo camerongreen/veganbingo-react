@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import Moment from 'moment';
 
 // Services.
-import { BingoContext } from './BingoContext';
+import { BingoContext } from './services/BingoContext';
 import DataService from './services/DataService';
 
 // CSS.

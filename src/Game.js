@@ -8,7 +8,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Square from './Square';
 
 // Services
-import { BingoContext } from './BingoContext';
+import { BingoContext } from './services/BingoContext';
 import DataService from './services/DataService';
 
 // CSS.
@@ -30,9 +30,7 @@ export default function Game() {
 
   React.useEffect(() => {
     if (checkScore()) {
-      console.log('do stuff');
-    } else {
-      console.log('do nuttin');
+      // console.log('do stuff');
     }
   });
 

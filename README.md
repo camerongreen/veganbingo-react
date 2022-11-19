@@ -1,6 +1,8 @@
 # Veganbingo.net
 
-Coded to try out React.
+Originally written in Polymer, after Google cancelled that a couple of months after they ran a big conference about it, I decided to try out React.
+
+![](public/images/vegan-bingo-share.png)
 
 ## Installation
 

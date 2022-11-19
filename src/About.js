@@ -34,8 +34,7 @@ export default function About() {
       <p>
         To read the privacy terms or other FAQs about the app: <a
         href="https://camerongreen.org/a/veganbingo" target="_blank">Vegan Bingo
-        on E.A.R.T.H.</a>. In short it only stores data in a cookie, and although
-        I might add some Google Analytics at some point, I haven't yet.
+        on E.A.R.T.H.</a>. In short it only stores data in a cookie and I don't take any identifying information. I have put Google Analytics on it now, but I won't be using it to target ads or anything else, just want to know how many people are using it.
       </p>
       <p>
         Vegan Bingo was inspired by (what I think is) the original Omnivore
@@ -46,7 +45,8 @@ export default function About() {
         Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a
         copy of this license, visit <a
         href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
-        target="_blank">Creative Commons</a>
+        target="_blank">Creative Commons</a>. Source code is here: <a
+        href="https://github.com/camerongreen/veganbingo-react">Vegan Bingo on Github</a>.
       </p>
       <p>Ahimsa!</p>
     </InfoPage>

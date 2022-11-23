@@ -6,11 +6,11 @@ const heading = `Vegans are preachy`;
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: Text.
-const alternatives = `The sadly ironic "live and let live", each to their own, or "How do you know someone's vegan? Don't worry they'll tell you"`;
+const alternatives = `The sadly ironic "live and let live", each to their own, or "How do you know someone's vegan? Don't worry they'll tell you".`;
 
 // This is the short section at the top of the individual page.
 // Format: HTML.
-const short_answer = `How someone presents an idea is irrelevant to the truth. Like any group of people, veganism is going to have its share of those with varying social or communication skills. Rather than shooting the messenger who brings disturbs your attention with the suffering of non-human animals, maybe see it as an opportunity for reflection and progress. After all, we know something is deeply unfair and wrong in our relationship with the other creatures who share our planet, ignoring that because some people have poor communication skills would be unjust.`;
+const short_answer = `<p>How someone presents an idea is irrelevant to the truth. Like any group of people, veganism is going to have its share of those with varying social or communication skills. Rather than shooting the messenger who brings disturbs your attention with the suffering of non-human animals, maybe see it as an opportunity for reflection and progress. After all, we know something is deeply unfair and wrong in our relationship with the other creatures who share our planet, ignoring that because some people have poor communication skills would be unjust.</p>`;
 
 // This is the body of the individual page, use HTML liberally.
 // Format: HTML.

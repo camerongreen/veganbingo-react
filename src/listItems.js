@@ -1,13 +1,14 @@
 import * as React from 'react';
+import {Link} from 'react-router-dom';
+import GridOn from '@mui/icons-material/GridOn';
+import HelpCenterIcon from '@mui/icons-material/HelpCenter';
+import InfoIcon from '@mui/icons-material/Info';
+import ListAltIcon from '@mui/icons-material/ListAlt';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import GridOn from '@mui/icons-material/GridOn';
-import HelpCenterIcon from '@mui/icons-material/HelpCenter';
-import ListAltIcon from '@mui/icons-material/ListAlt';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import SettingsIcon from '@mui/icons-material/Settings';
-import InfoIcon from '@mui/icons-material/Info';
-import {Link} from 'react-router-dom';
 
 export const mainListItems = (
   <React.Fragment>
@@ -34,6 +35,12 @@ export const mainListItems = (
         <SettingsIcon />
       </ListItemIcon>
       <ListItemText primary="Settings" />
+    </ListItemButton>
+    <ListItemButton component={Link} to='/book'>
+      <ListItemIcon>
+        <MenuBookIcon />
+      </ListItemIcon>
+      <ListItemText primary="Free ebook" />
     </ListItemButton>
     <ListItemButton component={Link} to='/about'>
       <ListItemIcon>

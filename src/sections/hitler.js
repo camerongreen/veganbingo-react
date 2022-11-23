@@ -7,7 +7,7 @@ const heading = 'Hitler was vegetarian';
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: text.
-const alternatives = `Pol Pot, Charles Manson, anyone who clearly was a terrible human being`;
+const alternatives = `Pol Pot, Charles Manson, anyone who clearly was a terrible human being.`;
 
 // This is the short section at the top of the individual page.
 // Format: HTML.

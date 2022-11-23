@@ -6,6 +6,7 @@ import { BingoProvider } from './services/BingoContext';
 
 // Elements.
 import About from "./About";
+import Book from './Book';
 import Dashboard from './Dashboard';
 import Error from "./Error";
 import Game from "./Game";
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: '/settings',
         element: <Settings />,
+      },
+      {
+        path: '/book',
+        element: <Book />,
       },
       {
         path: '/about',

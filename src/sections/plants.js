@@ -7,7 +7,7 @@ const heading = `Plants have feelings`;
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: Text.
-const alternatives = `Carrots scream when you cut them. Growing plants kills more animals than livestock production`;
+const alternatives = `Carrots scream when you cut them. Growing plants kills more animals than livestock production.`;
 
 // This is the short section at the top of the individual page.
 // Format: HTML.

@@ -10,7 +10,7 @@ export default function About() {
       </p>
       <p>
         I went vegan around the turn of the millenium. In the many years since I
-        hear the same questions asked repeatedly. This app was developed to make
+        hear the same questions asked repeatedly. Vegan Bingo was developed to make
         a little light hearted fun from this reality, and also to give people
         some ideas for how to answer common questions. I try to remember
         we had to learn all of this at some time ourselves, and that though we
@@ -21,7 +21,7 @@ export default function About() {
         like we are. You might just plant a seed in even the most resistant mind.
       </p>
       <p>
-        If you'd like to get in touch about the app or anything else, or just
+        If you'd like to get in touch about Vegan Bingo or anything else, or just
         want to read my thoughts, check out my web page at: <a
         href="https://camerongreen.org" target="_blank">camerongreen.org</a>
       </p>
@@ -45,7 +45,7 @@ export default function About() {
         Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a
         copy of this license, visit <a
         href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
-        target="_blank">Creative Commons</a>. Source code is here: <a
+        target="_blank">Creative Commons</a>. Source code for the application is here: <a
         href="https://github.com/camerongreen/veganbingo-react">Vegan Bingo on Github</a>.
       </p>
       <p>Ahimsa!</p>

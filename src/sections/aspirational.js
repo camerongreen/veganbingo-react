@@ -10,7 +10,7 @@ const alternatives = `I was vegan/vegetarian but...`;
 
 // This is the short section at the top of the individual page.
 // Format: HTML.
-const short_answer = `Many people consider diet solely an individual choice, ignoring the power of our collective choices that make the world. The factory farming industry overruns and degrades much of the arable earth whilst causing animal suffering and a host of other problems. When someone explains why they can’t be vegan, they often minimise the reality of animal farming or offer some idealised version of it. There is too much suffering in the world and reducing our usage of animal products reduces our contribution to this unfortunate reality. Veganism is a powerful, positive step most of us can take towards a kinder, healthier and more beautiful world.`;
+const short_answer = `<p>Many people consider diet solely an individual choice, ignoring the power of our collective choices that make the world. The factory farming industry overruns and degrades much of the arable earth whilst causing animal suffering and a host of other problems. When someone explains why they can’t be vegan, they often minimise the reality of animal farming or offer some idealised version of it. There is too much suffering in the world and reducing our usage of animal products reduces our contribution to this unfortunate reality. Veganism is a powerful, positive step most of us can take towards a kinder, healthier and more beautiful world.</p>`;
 
 // This is the body of the individual page, use html liberally.
 // Format: HTML.

@@ -6,11 +6,11 @@ const heading = `We have canine teeth`;
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: Text.
-const alternatives = `Meat eating caused human brains to grow. Our eyes are forward looking like a carnivore`;
+const alternatives = `Meat eating caused human brains to grow. Our eyes are forward looking like a carnivore.`;
 
 // This is the short section at the top of the individual page.
 // Format: HTML.
-const short_answer = `Justifying killing sentient creatures for pleasure should never be done lightly, and it should require an understanding of comparative biology slightly more advanced than that of a mediaeval peasant. Look at any carnivorous mammal’s teeth, then look at a herbivorous mammal, then look at ours, end of the story. Evolutionarily humans were at best opportunistic omnivores, the fact that we have “canine” teeth is of little more relevance than the fact we have things called an Achilles heel or Adam’s apple. `;
+const short_answer = `<p>Justifying killing sentient creatures for pleasure should never be done lightly, and it should require an understanding of comparative biology slightly more advanced than that of a mediaeval peasant. Look at any carnivorous mammal’s teeth, then look at a herbivorous mammal, then look at ours, end of the story. Evolutionarily humans were at best opportunistic omnivores, the fact that we have “canine” teeth is of little more relevance than the fact we have things called an Achilles heel or Adam’s apple.</p>`;
 
 // This is the body of the individual page, use HTML liberally.
 // Format: HTML.

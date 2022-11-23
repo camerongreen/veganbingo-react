@@ -6,7 +6,7 @@ const heading = `What about backyard chickens?`;
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: Text.
-const alternatives = `What if animals were farmed humanely?`;
+const alternatives = `What if animals were farmed humanely? My uncle has a farm...`;
 
 // This is the short section at the top of the individual page.
 // Format: HTML.

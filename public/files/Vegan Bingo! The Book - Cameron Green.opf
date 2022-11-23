@@ -6,8 +6,10 @@
         <dc:title>Vegan Bingo! The Book</dc:title>
         <dc:creator opf:file-as="Cameron Green" opf:role="aut">Cameron Green</dc:creator>
         <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (5.33.2) [https://calibre-ebook.com]</dc:contributor>
-        <dc:date>0101-01-01T00:00:00+00:00</dc:date>
+        <dc:date>2022-11-22T14:00:00+00:00</dc:date>
+        <dc:publisher>Self</dc:publisher>
         <dc:language>eng</dc:language>
+        <dc:subject>vegan</dc:subject>
         <meta name="calibre:author_link_map" content="{&quot;Cameron Green&quot;: &quot;&quot;}"/>
         <meta name="calibre:rating" content="10"/>
         <meta name="calibre:timestamp" content="2022-11-23T06:43:59+00:00"/>

@@ -9,11 +9,8 @@ export default function Book() {
     <InfoPage icon={<InfoIcon fontSize="large"/>}
               heading="Vegan Bingo! The Book">
       <p>
-        To make it easier to read all the answers here, you can read <strong>Vegan
-        Bingo! The Book</strong>.
-      </p>
-      <p>
-        Generally to import a book to your e-reader, you can plug your e-reader in to your computer with a cable, go into your file explorer where the device should display. Then just download and drag one of the files below onto it and then safely eject it. There may also ways to send things to your device if you check online.
+        To make it easier to read all the answers here, you can download <strong>Vegan
+        Bingo! The Book</strong> in a variety of formats.
       </p>
       <p>
         <MenuBookIcon/> <a target="_blank"
@@ -30,6 +27,10 @@ export default function Book() {
         <PictureAsPdfIcon/> <a target="_blank"
         href="/files/Vegan%20Bingo%21%20The%20Book%20-%20Cameron%20Green.pdf">
         Download PDF version for <strong>everything else</strong></a>.
+      </p>
+      <h3>How to import the book to your e-reader</h3>
+      <p>
+        Generally to import a book to your e-reader, you can plug your e-reader in to your computer with a cable, go into your file explorer where the device should display. Then just download and drag one of the files below onto it and then safely eject it. There may also ways to send things to your device if you check online.
       </p>
     </InfoPage>
   );

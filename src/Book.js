@@ -17,18 +17,18 @@ export default function Book() {
       </p>
       <p>
         <MenuBookIcon/> <a target="_blank"
-        href="/files/Cameron%20Green/Vegan%20Bingo%21%20The%20Book/Vegan%20Bingo%21%20The%20Book%20-%20Cameron%20Green.mobi">
+        href="/files/Vegan%20Bingo%21%20The%20Book%20-%20Cameron%20Green.mobi">
         Download Mobi version for <strong>Kindle</strong></a>.
       </p>
       <p>
         <MenuBookIcon/> <a target="_blank"
-        href="/files/Cameron%20Green/Vegan%20Bingo%21%20The%20Book/Vegan%20Bingo%21%20The%20Book%20-%20Cameron%20Green.epub">
+        href="/files/Vegan%20Bingo%21%20The%20Book%20-%20Cameron%20Green.epub">
         Download Epub version for <strong>Kobo, Calibre and other
         ereaders</strong></a>.
       </p>
       <p>
         <PictureAsPdfIcon/> <a target="_blank"
-        href="/files/Cameron%20Green/Vegan%20Bingo%21%20The%20Book/Vegan%20Bingo%21%20The%20Book%20-%20Cameron%20Green.pdf">
+        href="/files/Vegan%20Bingo%21%20The%20Book%20-%20Cameron%20Green.pdf">
         Download PDF version for <strong>everything else</strong></a>.
       </p>
     </InfoPage>

@@ -10,7 +10,7 @@ const alternatives = `Where do you get your iron, or an obscure trace element th
 
 // This is the short section at the top of the individual page.
 // Format: HTML.
-const short_answer = `<p>When you say you are vegan, some people suddenly turn into an amateur nutritionist. Almost all nutrients come from plants, and humans can just get them directly without needing an animal to suffer in between. Healthy vegans don’t just remove animal products from their diet, they replace them with extra nuts, beans, seeds, lentils, peas, seitan, tempeh, tofu and other plant-derived foods high in protein.</p>`;
+const short_answer = `<p>When you mention you are vegan, some people suddenly turn into an amateur nutritionist. Almost all nutrients come from plants, and humans can just get them directly without needing an animal to suffer in between. Healthy vegans don’t just remove animal products from their diet, they replace them with extra nuts, beans, seeds, lentils, peas, seitan, tempeh, tofu and other plant-derived foods high in protein.</p>`;
 
 // This is the body of the individual page, use HTML liberally.
 // Format: HTML.

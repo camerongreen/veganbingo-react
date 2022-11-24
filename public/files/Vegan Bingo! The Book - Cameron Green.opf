@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
     <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
-        <dc:identifier opf:scheme="calibre" id="calibre_id">22</dc:identifier>
-        <dc:identifier opf:scheme="uuid" id="uuid_id">fd4075d7-81ea-4e75-a1ae-4840a868e88a</dc:identifier>
+        <dc:identifier opf:scheme="calibre" id="calibre_id">23</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">d3b3d95e-3272-4e64-b419-edbcc7b2f6d3</dc:identifier>
         <dc:title>Vegan Bingo! The Book</dc:title>
         <dc:creator opf:file-as="Cameron Green" opf:role="aut">Cameron Green</dc:creator>
         <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (5.33.2) [https://calibre-ebook.com]</dc:contributor>

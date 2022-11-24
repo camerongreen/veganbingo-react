@@ -6,7 +6,7 @@ const heading = `Where do you get your protein?`;
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: Text.
-const alternatives = `Where do you get your iron, or an obscure trace element that they didn’t know about 2 months ago`;
+const alternatives = `Where do you get your iron? Or an obscure trace element that they didn’t know about 2 months ago`;
 
 // This is the short section at the top of the individual page.
 // Format: HTML.

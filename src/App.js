@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 
 // Services.
 import { BingoProvider } from './services/BingoContext';
@@ -28,28 +32,89 @@ const router = createBrowserRouter([
         element: <Game/>,
       },
       {
-        path: '/help',
+        path: 'help',
         element: <Help/>,
       },
       {
-        path: '/timeline',
+        path: 'timeline',
         element: <Timeline/>,
       },
       {
-        path: '/settings',
-        element: <Settings />,
+        path: 'settings',
+        element: <Settings/>,
       },
       {
-        path: '/book',
-        element: <Book />,
+        path: 'book',
+        element: <Book/>,
       },
       {
-        path: '/about',
-        element: <About />,
+        path: 'about',
+        element: <About/>,
       },
       {
-        path: "page/:name",
+        path: 'page/:name',
         element: <Page/>,
+      },
+      // Redirects from old routes.
+      {
+        path: 'aspirational',
+        element: <Navigate to="/page/aspirational" replace />,
+      },
+      {
+        path: 'bacon',
+        element: <Navigate to="/page/bacon" replace />,
+      },
+      {
+        path: 'cant',
+        element: <Navigate to="/page/cant" replace />,
+      },
+      {
+        path: 'cheese',
+        element: <Navigate to="/page/cheese" replace />,
+      },
+      {
+        path: 'cow',
+        element: <Navigate to="/page/cow" replace />,
+      },
+      {
+        path: 'eat',
+        element: <Navigate to="/page/eat" replace />,
+      },
+      {
+        path: 'food',
+        element: <Navigate to="/page/food" replace />,
+      },
+      {
+        path: 'hitler',
+        element: <Navigate to="/page/hitler" replace />,
+      },
+      {
+        path: 'humane',
+        element: <Navigate to="/page/humane" replace />,
+      },
+      {
+        path: 'natural',
+        element: <Navigate to="/page/natural" replace />,
+      },
+      {
+        path: 'notmuch',
+        element: <Navigate to="/page/notmuch" replace />,
+      },
+      {
+        path: 'plants',
+        element: <Navigate to="/page/plants" replace />,
+      },
+      {
+        path: 'preachy',
+        element: <Navigate to="/page/preachy" replace />,
+      },
+      {
+        path: 'protein',
+        element: <Navigate to="/page/protein" replace />,
+      },
+      {
+        path: 'teeth',
+        element: <Navigate to="/page/teeth" replace />,
       },
     ],
   },
@@ -58,7 +123,7 @@ const router = createBrowserRouter([
 export default function App() {
   return (
     <BingoProvider>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}/>
     </BingoProvider>
   );
 }

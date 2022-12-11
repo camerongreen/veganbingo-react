@@ -1,17 +1,20 @@
-// This appears under the pictures on the square, and at the top of its
+﻿// This appears under the pictures on the square, and at the top of its
 // Format: Text.
 // individual page.
 // Format: text.
 const heading = 'Hitler was vegetarian';
 
+
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: text.
-const alternatives = `Pol Pot, Charles Manson, anyone who clearly was a terrible human being.`;
+const alternatives = `Pol Pot, Charles Manson, anyone who clearly was a terrible human being`;
+
 
 // This is the short section at the top of the individual page.
 // Format: HTML.
 const short_answer = `<p>People should be more informed about the atrocities of history and respectful to their victims than to use them for ideological purposes. It is perversely ironic to use evil involving mass killing to justify such vast unnecessary mass killing. Veganism is about compassion for all animals, including humans, anyone acting or saying otherwise hasn’t understood its full message.</p>`;
+
 
 // This is the body of the individual page, use HTML liberally.
 // Format: HTML.
@@ -26,6 +29,7 @@ const long_answer = `
 <p>Given the scale of animal suffering at human hands, the billions huddled in factory farms, their bodies altered to be efficient production machines and the many wild species of the world in retreat or facing extinction, how can it be argued this is not a moral spot on which we need to shine some light? People should think carefully before engaging in knee-jerk reactions against people arguing for a different relationship between humans and non-humans to the one they have been brought up to accept. Even if you think they are wrong, is having compassion, maybe even too much compassion for other species more terrible than the problem it is confronting? This is not to say that vegans who lack empathy for people should get a free pass to be rude or inconsiderate. Veganism when properly understood is about compassion and consideration for all that can suffer, and this should include humans.</p>
 `;
 
+
 export {
-  heading, alternatives, short_answer, long_answer,
+ heading, alternatives, short_answer, long_answer,
 };

@@ -1,16 +1,19 @@
-// This appears under the pictures on the square, and at the top of its
+﻿// This appears under the pictures on the square, and at the top of its
 // individual page.
 // Format: Text.
 const heading = `You can't eat that`;
 
+
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: Text.
-const alternatives = `Can you eat bread? Or some other thing they wrongly assume isn’t usually vegan."`;
+const alternatives = `Can you eat bread? Or some other thing they assume isn’t usually vegan."`;
+
 
 // This is the short section at the top of the individual page.
 // Format: HTML.
-const short_answer = `<p>From the perspective of an animal-product heavy diet, veganism may seem like self-denial; that vegans can’t eat many things that people consider the centre of their diet. Vegans see aligning our consumption with our ideals as the opposite of self-denial. Veganism is connecting with our compassion, of engaging with a world beyond social circles and status. Abstaining from a handful of ingredients is of little importance compared to restoring our relationship with the non-human world.</p>`;
+const short_answer = `rom the perspective of an animal-product heavy diet, veganism may seem like self-denial; that vegans can’t eat many things that people consider the centre of their diet. Vegans see aligning our consumption with our ideals as the opposite of self-denial. Veganism is connecting with our compassion, of engaging with a world beyond social circles and status. Abstaining from a handful of ingredients is of little importance compared to restoring our relationship with the non-human world.`;
+
 
 // This is the body of the individual page, use html liberally.
 // Format: HTML.
@@ -26,9 +29,10 @@ const long_answer = `
 <p>Finally, the second point is about people thinking vegans can't eat things that are usually vegan but not labelled as such. I’ve had bread, pasta, avocado and peanut butter...I guess it does have butter in the name. This partly shows how little people are engaged in their diet, they just accept what they are served up, what their parents served up and don’t really know what is in the foods they eat much less their repercussions on the world. If someone is open to discussion, it is a good chance to open their mind, especially to the fact that the basis of most people’s diets is already mostly vegan. This is especially true if they are eating healthily. However, to some people it is an opportunity to argue, and to the waitress who served us in West End all those years ago, you may work at an Italian restaurant and think you are an authority on the matter but pasta can definitely be, and dried pasta usually is, vegan.</p>
 `;
 
+
 export {
-  heading,
-  alternatives,
-  short_answer,
-  long_answer,
+ heading,
+ alternatives,
+ short_answer,
+ long_answer,
 };

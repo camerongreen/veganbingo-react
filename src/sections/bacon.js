@@ -1,16 +1,19 @@
-// This appears under the pictures on the square, and at the top of its
+﻿// This appears under the pictures on the square, and at the top of its
 // individual page.
 // Format: Text.
 const heading = `Mmmm bacon...`;
+
 
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: Text.
 const alternatives = `"Steak" is almost as common. Anything unhealthy from the toxic masculinity menu.`;
 
+
 // This is the short section at the top of the individual page.
 // Format: HTML.
 const short_answer = `<p>Sometimes a joke, especially one that people laugh at for ideological reasons, tells us something about the character of the person telling it or laughing at it, and usually it isn't good. Laughter is complex, it can be innocent, but it can also be used to show status or declare our participation in a mob. One of the most important things any of us can do in life is not be a member of those mobs.</p>`;
+
 
 // This is the body of the individual page, use HTML liberally.
 // Format: HTML.
@@ -23,6 +26,7 @@ const long_answer = `
 <p>We can start making the world better for the life in it by changing our relationship with animals, especially farmed animals. Or you know, people could say something cruel and offensive and pretend it's a joke. People have that choice, but it is such a small, barren, ugly choice, in a world full of so many expansive, challenging, beautiful possibilities, with so many kind and great deeds to be done. If it wasn't for my thoughts of the victims, I might even just laugh at these people.</p>
 `;
 
+
 export {
-  heading, alternatives, short_answer, long_answer,
+ heading, alternatives, short_answer, long_answer,
 };

@@ -1,16 +1,19 @@
-// This appears under the pictures on the square, and at the top of its
+﻿// This appears under the pictures on the square, and at the top of its
 // individual page.
 // Format: Text.
 const heading = `What about backyard chickens?`;
 
+
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: Text.
-const alternatives = `What if animals were farmed humanely? My uncle has a farm...`;
+const alternatives = `What if animals were farmed humanely?`;
+
 
 // This is the short section at the top of the individual page.
 // Format: HTML.
 const short_answer = `<p>On average a chicken in the backyard of a family is going to have a better life than one in a factory farm, almost certainly if the factory farm uses intensive confinement. Like other factory-farmed animals though, they have been bred as production machines and a small bird just can't lay hundreds of eggs a year and be healthy.</p>`;
+
 
 // This is the body of the individual page, use HTML liberally.
 // Format: HTML.
@@ -23,6 +26,7 @@ const long_answer = `
 <p>Taking a sentient being's freedom away, using its body for profit and production, and prematurely killing them will always be a form of oppression. If this were all humans were capable of surviving on, if we really needed these products to be healthy then maybe kinder oppression would be the best relationship with non-human animals we could hope for. Many millions of people who have gone vegan and are living happy, healthy lives say otherwise. Another world is possible in the relationship between humans and non-humans.</p>
 <p>Animals are not on this earth for us, they are here with us. </p>
 `;
+
 
 export {
   heading,

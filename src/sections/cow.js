@@ -1,16 +1,19 @@
-// This appears under the pictures on the square, and at the top of its
+﻿// This appears under the pictures on the square, and at the top of its
 // individual page.
 // Format: Text.
 const heading = `Where would all the cows go?`;
+
 
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: Text.
 const alternatives = `What about all the farmers? What about all the nice open fields in the countryside?`;
 
+
 // This is the short section at the top of the individual page.
 // Format: HTML.
 const short_answer = `<p>It should come as little surprise that intensive livestock farming is intensively controlled. Livestock breeding is highly artificial and responds to the laws of supply and demand. If people stop eating animals, farmers would breed fewer of them. It may be interesting to think about “what if we just stopped eating animals?” but this is unfortunately unlikely to happen, it is more likely to be a gradual transition with plenty of opportunity for society to adjust.</p>`;
+
 
 // This is the body of the individual page, use HTML liberally.
 // Format: HTML.
@@ -24,6 +27,7 @@ const long_answer = `
 <p>A new world awaits if we can shake off the habits and ideas of the past to imagine a more equitable relationship between us and the other species who share our world. We should respect that all life has its own evolutionary paths separate from ours. We should stop believing that simply having the power to control the lives of other animals gives us any right to do so, especially when it is so evident we do not have the collective maturity to responsibly wield that power. The livestock industry is a symptom of our myopia, and we should only celebrate its gradual replacement because it will reflect a wider ethical progression for our species.</p>
 `;
 
+
 export {
-  heading, alternatives, short_answer, long_answer,
+ heading, alternatives, short_answer, long_answer,
 };

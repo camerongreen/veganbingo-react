@@ -116,6 +116,10 @@ const router = createBrowserRouter([
         path: 'teeth',
         element: <Navigate to="/page/teeth" replace />,
       },
+      {
+        path: 'what',
+        element: <Navigate to="/page/what" replace />,
+      },
     ],
   },
 ]);

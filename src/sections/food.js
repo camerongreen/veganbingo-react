@@ -1,16 +1,19 @@
-// This appears under the pictures on the square, and at the top of its
+﻿// This appears under the pictures on the square, and at the top of its
 // individual page.
 // Format: Text.
 const heading = `Why eat things resembling meat?`;
+
 
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: Text.
 const alternatives = `Asking whether any given vegan alternative is made of tofu...`;
 
+
 // This is the short section at the top of the individual page.
 // Format: HTML.
 const short_answer = `<p>We can answer this but first, why aren't meat eaters eating things resembling animal parts? A rissole, a burger pattie, a sausage, a bolognese, none of them exist in nature. If animal flesh is so naturally delicious to humans, why aren't there raw flesh restaurants everywhere giving it to them straight? Instead, animal flesh is sold after cooking, spicing, marinating, saucing and often even changing the texture.</p>`;
+
 
 // This is the body of the individual page, use HTML liberally.
 // Format: HTML.
@@ -23,9 +26,10 @@ const long_answer = `
 <p>Ultimately people who ask this are missing the point. It is oppression and violence that we oppose, not a particular ingredient's texture, shape or flavour. Many vegans avoid products resembling animal foods because they have uncomfortable connotations for them, and that is their right. Others are happy eating anything so long as they aren't contributing to factory farming, and that is cool too. Both are ethical choices and surely that’s the important thing, not the arbitrary shape or flavour of what people eat. People who get upset about the aesthetics of what vegans eat would do much more good in the world if they were to channel their energy into thinking about the ethics of what they eat.</p>
 `;
 
+
 export {
-  heading,
-  alternatives,
-  short_answer,
-  long_answer,
+ heading,
+ alternatives,
+ short_answer,
+ long_answer,
 };

@@ -7,12 +7,12 @@ const heading = `Vegans are preachy`;
 // These are the alternative questions/acceptable statements at the top of the
 // individual page.
 // Format: Text.
-const alternatives = `The sadly ironic "live and let live" or each to their own"`;
+const alternatives = `The sadly ironic "live and let live". Each to their own. What I eat is a personal choice.`;
 
 
 // This is the short section at the top of the individual page.
 // Format: HTML.
-const short_answer = `Like any large group, veganism will have people with varying social or communication skills. How someone presents an idea however, is irrelevant to its truth. Rather than shooting a messenger unsettling our mind with the suffering of non-human animals, ideally we would try to see it as an opportunity for introspection. Building ethical character is a personal moral journey, not one that should be guided by the vagaries of social interaction. Forgetting our part in the deeply unfair relationship humanity has with all other life in this world because we met someone interpersonally inept is illogical and unjust.`;
+const short_answer = `<p>Like any large group, veganism will have people with varying social or communication skills. How someone presents an idea however, is irrelevant to its truth. Rather than shooting a messenger unsettling our mind with the suffering of non-human animals, ideally we would try to see it as an opportunity for introspection. Building ethical character is a personal moral journey, not one that should be guided by the vagaries of social interaction. Forgetting our part in the deeply unfair relationship humanity has with all other life in this world because we met someone interpersonally inept is illogical and unjust.</p>`;
 
 
 // This is the body of the individual page, use HTML liberally.

@@ -16,7 +16,7 @@ Originally written in Polymer, after Google cancelled that a couple of months af
 
 `npm run build`
 
-## Download sections from Google Docs.
+## Update sections from Google Docs.
 
 `./scripts/download-docs.sh src/sections`
 

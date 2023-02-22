@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Image from 'mui-image';
 import InfoIcon from '@mui/icons-material/Info';
 import InfoPage from './InfoPage';
 
@@ -38,7 +39,8 @@ export default function About() {
       </p>
       <p>
         Vegan Bingo was inspired by (what I think is) the original Omnivore
-        Rationalization Bingo by Vegnews.
+        Rationalization Bingo by Vegnews, sent to me in 2008.
+        <Image sx={{ margin: '1rem auto', 'max-width': '90%' }} showLoading src="images/rationalization-bingo-2007.jpg" alt="Omnivore Rationalization Bingo" />
       </p>
       <p>
         This work is licensed under the Creative Commons

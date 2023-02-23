@@ -31,8 +31,8 @@ export default function Page(props) {
   }, [page]);
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-      <Grid container spacing={2} alignItems="center">
+    <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
+      <Grid container spacing={2} xs={12}>
         <Grid item xs={4} sm={3} md={2}>
           <img
             src={require('../public/images/' + name + (hasBingo(name) ? '_done' : '') + '.png')}
@@ -42,7 +42,7 @@ export default function Page(props) {
           <h2>{page.heading}</h2>
         </Grid>
         <Grid item xs={12} className="rules">
-          <div>Other acceptable statements for this bingo</div>
+          <div>Similar acceptable statements to get this bingo</div>
           <h3>{page.alternatives}</h3>
         </Grid>
         <Grid item>
@@ -69,10 +69,10 @@ export default function Page(props) {
             }}
             className="main"
           >
-            <h2>Short answer</h2>
+            <h2>Summary (tl;dr)</h2>
             <Grid item xs={12} className="short_answer"
                   dangerouslySetInnerHTML={{ __html: page.short_answer }}/>
-            <h2>Read more</h2>
+            <h2>Discussion</h2>
             <Grid item xs={12} className="long_answer"
                   dangerouslySetInnerHTML={{ __html: page.long_answer }}/>
           </Paper>

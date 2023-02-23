@@ -34,3 +34,6 @@ sections=(
 for section in "${!sections[@]}"; do
   curl -L "${sections[$section]}/export?format=txt" | sed -e 's///g' > "${OUTPUT_DIR}/$section.js"
 done
+
+# About page.
+# curl -L "https://docs.google.com/document/d/1xT6jquARDUdF3h-RaePiRL3mdfQ3_h1bhtkj5Q3OlB0/export?format=txt" > src/About.js

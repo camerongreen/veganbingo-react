@@ -33,10 +33,10 @@ const long_answer = `
 <p>National eating guidelines have slowly recognised plant-based sources of protein, such as lentils (which humans have been eating for at least 80,000 years) because the guidelines are increasingly being asked to respond to science and human health rather than the economic interests of those with power. That this change has correlated with less patriarchal governments and more women in positions of power generally is unlikely to be pure coincidence.</p>
 
 
-<p>The modern understanding of dietitians has been slow to filter outwards even in the medical community. I've had an elite cardiologist ask me where I get my protein from. Unfortunately, most medical professionals don't get anything beyond elementary nutritional training and are as susceptible to the unquestioned ideas laying around in the culture as everyone else. If we look at dietitians, the people who specialise in the health aspects of food, we see a very different story. The public stances of peak nutritional bodies around the world generally state similar things to the position of the American Dietetic Association:</p>
-
+<p>The modern understanding of dietitians has been slow to filter outwards even in the medical community. I've had an elite cardiologist ask me where I get my protein from. Unfortunately, most medical professionals don't get anything beyond elementary nutritional training and are as susceptible to the unquestioned ideas laying around in the culture as everyone else. If we look at dietitians, the people who specialise in the health aspects of food, we see a very different story. The public stances of peak nutritional bodies around the world generally state similar things to following by one of the world's most eminent:</p>
 
 <blockquote>appropriately planned vegetarian diets, including total vegetarian or vegan diets, are healthful, nutritionally adequate, and may provide health benefits in the prevention and treatment of certain diseases. Well-planned vegetarian diets are appropriate for individuals during all stages of the life cycle, including pregnancy, lactation, infancy, childhood, and adolescence, and for athletes.
+<figcaption>- Position of the American Dietetic Association: vegetarian diets</figcaption>
 </blockquote>
 
 

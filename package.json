@@ -1,6 +1,6 @@
 {
-  "name": "create-react-app",
-  "version": "5.0.0",
+  "name": "Vegan Bingo Application",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -21,6 +21,9 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "latest",
     "universal-cookie": "^4.0.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "latest"
   },
   "browserslist": {
     "production": [

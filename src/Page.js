@@ -32,35 +32,35 @@ export default function Page(props) {
 
   return (
     <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
-      <Grid container spacing={2} xs={12}>
-        <Grid item xs={4} sm={3} md={2}>
+      <Grid container spacing={2} size={{ xs: 12 }}>
+        <Grid size={{ xs: 4, sm: 3, md: 2 }}>
           <img
             src={require('../public/images/' + name + (hasBingo(name) ? '_done' : '') + '.png')}
-            alt={page.heading + ' Page'}/>
+            alt={page.heading + ' Page'} />
         </Grid>
-        <Grid item xs={8} sm={9} md={10}>
+        <Grid size={{ xs: 8, sm: 9, md: 10 }}>
           <h2>{page.heading}</h2>
         </Grid>
-        <Grid item xs={12} className="rules">
+        <Grid size={{ xs: 12 }} className="rules">
           <div>Similar acceptable statements to get this bingo</div>
           <h3>{page.alternatives}</h3>
         </Grid>
-        <Grid item>
+        <Grid>
           <Button variant="contained"
-                  color={hasBingo(name) ? 'success' : 'primary'}
-                  size="large"
-                  onClick={() => {
-                    toggleBingo(name)
-                  }}>{hasBingo(name) ? 'Remove bingo' : 'Add bingo!'}</Button>
+            color={hasBingo(name) ? 'success' : 'primary'}
+            size="large"
+            onClick={() => {
+              toggleBingo(name)
+            }}>{hasBingo(name) ? 'Remove bingo' : 'Add bingo!'}</Button>
         </Grid>
         {hasBingo(name) ? (
-          <Grid item>
+          <Grid>
             <Typography>
               Completed <strong>{Moment(bingos[name].time).format('HH:mm Do MMM YYYY')}</strong>
             </Typography>
           </Grid>
         ) : ''}
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Paper
             sx={{
               p: 2,
@@ -70,16 +70,16 @@ export default function Page(props) {
             className="main"
           >
             <h2>Summary (tl;dr)</h2>
-            <Grid item xs={12} className="short_answer"
-                  dangerouslySetInnerHTML={{ __html: page.short_answer }}/>
+            <Grid size={{ xs: 12 }} className="short_answer"
+              dangerouslySetInnerHTML={{ __html: page.short_answer }} />
             <h2>Discussion</h2>
-            <Grid item xs={12} className="long_answer"
-                  dangerouslySetInnerHTML={{ __html: page.long_answer }}/>
+            <Grid size={{ xs: 12 }} className="long_answer"
+              dangerouslySetInnerHTML={{ __html: page.long_answer }} />
           </Paper>
         </Grid>
       </Grid>
       <IconButton component={Link} to="/">
-        <GridOnIcon/>
+        <GridOnIcon />
       </IconButton>
     </Container>
   );

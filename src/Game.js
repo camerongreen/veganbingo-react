@@ -40,7 +40,7 @@ export default function Game() {
                sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={{ xs: 1, sm: 2 }}>
         {listItems.map((section, index) => (
-          <Grid key={index} item xs={3} className={section.colour}>
+          <Grid key={index} size={{xs:3}} className={section.colour}>
             <Square data={section} hasBingo={hasBingo(section.name)}/>
           </Grid>
         ))}

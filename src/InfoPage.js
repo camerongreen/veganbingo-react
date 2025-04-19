@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 export default function InfoPage(props) {
   return (
     <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
-      <Grid item xs={12} md={12} lg={12}>
+      <Grid size={{ xs: 12, md: 12, lg: 12 }}>
         <Paper
           sx={{
             p: 2,
@@ -19,18 +19,18 @@ export default function InfoPage(props) {
           }}
         >
           <Grid container spacing={2}
-                sx={{ display: 'flex', alignItems: 'center' }}>
-            <Grid item>
+            sx={{ display: 'flex', alignItems: 'center' }}>
+            <Grid>
               {props.icon}
             </Grid>
-            <Grid item>
+            <Grid>
               <h2>{props.heading}</h2>
             </Grid>
           </Grid>
-          <Divider/>
+          <Divider />
           {props.children}
           <IconButton component={Link} to="/">
-            <GridOnIcon/>
+            <GridOnIcon />
           </IconButton>
         </Paper>
       </Grid>

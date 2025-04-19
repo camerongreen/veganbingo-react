@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link, Outlet, useLocation, ScrollRestoration } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { AnimatePresence, motion } from 'framer-motion';
 
 // Mui.
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -53,7 +53,7 @@ const mdTheme = createTheme(themeOptions);
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary"
-                align="center" {...props} sx={{ mb: 2 }}>
+      align="center" {...props} sx={{ mb: 2 }}>
       {'Copyright © '}
       <MLink color="inherit" href="https://camerongreen.org/">
         camerongreen.org
@@ -76,7 +76,7 @@ function DashboardContent() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <CssBaseline/>
+      <CssBaseline />
       <AppBar position="absolute" open={open}>
         <Toolbar
           sx={{
@@ -92,7 +92,7 @@ function DashboardContent() {
               mr: 2,
             }}
           >
-            <MenuIcon/>
+            <MenuIcon />
           </IconButton>
           <IconButton
             edge="start"
@@ -105,7 +105,7 @@ function DashboardContent() {
               mr: 1,
             }}
           >
-            <GridOnIcon/>
+            <GridOnIcon />
           </IconButton>
           <Typography
             component="h1"
@@ -119,7 +119,7 @@ function DashboardContent() {
             </Link>{' '}
           </Typography>
           <Score score={Object.keys(bingos).length}
-                 total={Object.keys(dataService.getSections()).length}/>
+            total={Object.keys(dataService.getSections()).length} />
         </Toolbar>
       </AppBar>
       <Drawer anchor="left" open={open} onClick={toggleDrawer}>
@@ -132,10 +132,10 @@ function DashboardContent() {
           }}
         >
           <IconButton onClick={toggleDrawer}>
-            <ChevronLeftIcon/>
+            <ChevronLeftIcon />
           </IconButton>
         </Toolbar>
-        <Divider/>
+        <Divider />
         <List component="nav">
           {mainListItems}
         </List>
@@ -152,17 +152,18 @@ function DashboardContent() {
           overflow: 'auto',
         }}
       >
-        <Toolbar/>
-        <TransitionGroup component={null}>
-          <CSSTransition
+        <Toolbar />
+        <AnimatePresence>
+          <motion.div
             key={location.key}
-            timeout={400}
-            classNames="fade"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
           >
-            <Outlet/>
-          </CSSTransition>
-        </TransitionGroup>
-        <Copyright sx={{ pt: 4 }}/>
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
+        <Copyright sx={{ pt: 4 }} />
       </Box>
     </Box>
   );
@@ -171,8 +172,8 @@ function DashboardContent() {
 export default function Dashboard() {
   return (
     <ThemeProvider theme={mdTheme}>
-      <ScrollRestoration/>
-      <DashboardContent/>
+      <ScrollRestoration />
+      <DashboardContent />
     </ThemeProvider>
   );
 }

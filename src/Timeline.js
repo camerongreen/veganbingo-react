@@ -41,7 +41,7 @@ export default function Timeline() {
       )}
       <Grid container spacing={3}>
         {Object.values(data).reverse().map((values, index) =>
-          <Grid item xs={12} key={index} className={values.colour}>
+          <Grid size={{xs:12}} key={index} className={values.colour}>
             <Card>
               <CardActionArea component={Link} to={'/page/' + name}
                               sx={{

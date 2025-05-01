@@ -1,0 +1,5 @@
+# Undefine Macros. 
+UndefMacro VBCommonHeader
+UndefMacro VBDir
+UndefMacro VBVHost
+UndefMacro VBVHostSSL

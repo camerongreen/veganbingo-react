@@ -1,0 +1,83 @@
+#
+# HTTPD Macros for VeganBingo
+#
+# Usage:
+#
+# Use VBVHost veganbingo.net 80
+# Use VBVHostSSL veganbingo.net 443
+#
+
+# VirtualHost declarations.
+#
+
+<Macro VBVHost $(host) $(port)>
+  <VirtualHost *:$(port)>
+
+  Use VBCommonHeader $(host) $(port)
+
+  CustomLog ${APACHE_LOG_DIR}/$(host)-access_log common
+  ErrorLog ${APACHE_LOG_DIR}/$(host)-error_log
+  TransferLog ${APACHE_LOG_DIR}/$(host)-access_log
+
+  Use VBDir $(host)
+  </VirtualHost>
+</Macro>
+
+<Macro VBVHostSSL $(host) $(port)>
+  <VirtualHost *:$(port)>
+  Use VBCommonHeader $(host) $(port)
+
+  CustomLog ${APACHE_LOG_DIR}/$(host)-ssl_request_log \
+            "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
+  ErrorLog ${APACHE_LOG_DIR}/$(host)-ssl_error_log
+  TransferLog ${APACHE_LOG_DIR}/$(host)-ssl_access_log
+
+  SSLCertificateFile /var/www/$(host)/ssl/apache.crt
+  SSLCertificateKeyFile /var/www/$(host)/ssl/apache.key
+
+  SSLProtocol             -all +TLSv1.2 +TLSv1.3
+  SSLOpenSSLConfCmd       Curves X25519:prime256v1:secp384r1
+  SSLCipherSuite          ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305
+  SSLHonorCipherOrder     off
+  SSLSessionTickets       off
+
+  Use VBDir $(host)
+  </VirtualHost>
+</Macro>
+
+# Functions.
+
+<Macro VBCommonHeader $(host) $(port)>
+  ServerAdmin web@camerongreen.org
+  DocumentRoot /var/www/$(host)/web
+  ServerName $(host):$(port)
+  ServerAlias www.$(host):$(port)
+
+  RewriteEngine On
+  RewriteOptions inherit
+
+  # enable HTTP/2, if available
+  Protocols h2 http/1.1
+
+  # HTTP Strict Transport Security (mod_headers is required) (63072000 seconds)
+  Header always set Strict-Transport-Security "max-age=63072000"
+
+  LogLevel warn
+</Macro>
+
+<Macro VBDir $(host)>
+  <Directory /var/www/$(host)/web>
+    Options FollowSymLinks
+    AllowOverride All
+
+    <If "'$(host)' =~ /^dev.*/">
+    AuthType Basic
+    AuthName "What is your quest?"
+    AuthUserFile /var/www/$(host)/private/.htpasswd
+    Require valid-user
+    </If>
+    <Else>
+    Require all granted
+    </Else>
+  </Directory>
+</Macro>

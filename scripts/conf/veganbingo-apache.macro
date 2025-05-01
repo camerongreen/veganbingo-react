@@ -49,7 +49,7 @@
 
 <Macro VBCommonHeader $(host) $(port)>
   ServerAdmin web@camerongreen.org
-  DocumentRoot /var/www/$(host)/web
+  DocumentRoot /var/www/$(host)/public
   ServerName $(host):$(port)
   ServerAlias www.$(host):$(port)
 
@@ -66,7 +66,7 @@
 </Macro>
 
 <Macro VBDir $(host)>
-  <Directory /var/www/$(host)/web>
+  <Directory /var/www/$(host)/public>
     Options FollowSymLinks
     AllowOverride All
 

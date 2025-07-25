@@ -9,6 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@dr.pogodin/react-helmet": "^3.0.2",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
     "@mui/icons-material": "^7.0.0",

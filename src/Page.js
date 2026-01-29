@@ -8,6 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import GridOnIcon from '@mui/icons-material/GridOn';
 import Typography from '@mui/material/Typography';
 import Moment from 'moment';
+import { Helmet } from '@dr.pogodin/react-helmet';
+
 
 // Services.
 import { BingoContext } from './services/BingoContext';
@@ -25,6 +27,7 @@ export default function Page(props) {
   } = React.useContext(BingoContext);
   const [page, setPage] = React.useState({});
   const dataService = new DataService();
+  const canonicalUrl = 'https://veganbingo.net/page/' + name;
 
   React.useEffect(() => {
     dataService.getSection(name).then(data => setPage(data));
@@ -32,6 +35,9 @@ export default function Page(props) {
 
   return (
     <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
+      <Helmet>
+        <link rel="canonical" href={canonicalUrl} />
+      </Helmet>
       <Grid container spacing={2} size={{ xs: 12 }}>
         <Grid size={{ xs: 4, sm: 3, md: 2 }}>
           <img

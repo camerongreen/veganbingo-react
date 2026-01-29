@@ -1,17 +1,9 @@
 import * as React from 'react';
-import Cookies from 'universal-cookie';
 export const BingoContext = React.createContext([]);
 
 export const BingoProvider = props => {
-  const cookies = new Cookies();
-  const cookie_name = 'veganbingo.net';
-  const cookieOptions = {
-    path: '/',
-    sameSite: 'strict',
-    maxAge: 63072000
-  };
-  const cookie = cookies.get(cookie_name, cookieOptions);
-  const [bingos, setBingos] = React.useState(cookie || {});
+  const storage_name = 'veganbingo.net';
+  const [bingos, setBingos] = React.useState(JSON.parse(localStorage.getItem(storage_name)) || {});
   const [checkScoreState, setCheckScoreState] = React.useState(false);
   const event = new CustomEvent('bingo:add');
 
@@ -43,7 +35,7 @@ export const BingoProvider = props => {
 
   const resetBingos = () => {
     updateBingos({});
-    cookies.remove(cookie_name, cookieOptions);
+    localStorage.removeItem(storage_name);
   }
 
   const toggleBingo = id => {
@@ -52,7 +44,7 @@ export const BingoProvider = props => {
 
   const updateBingos = bingos => {
     setBingos(bingos);
-    cookies.set(cookie_name, bingos, cookieOptions);
+    localStorage.setItem(storage_name, JSON.stringify(bingos));
   }
 
   const checkScore = () => {

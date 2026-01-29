@@ -34,7 +34,7 @@ export default function About() {
      <p>
        To read the privacy terms or other FAQs about the app: <a
        href="https://camerongreen.org/a/veganbingo" target="_blank">Vegan Bingo
-       on E.A.R.T.H.</a>. In short it only stores data in a cookie and I don't take any identifying information. I have put Google Analytics on it now, but I won't be using it to target ads or anything else, just want to know how many people are using it.
+       on E.A.R.T.H.</a>. In short it only stores data in your browser and I don't take any identifying information. I have put Google Analytics on it now, but I won't be using it to target ads or anything else, just want to know how many people are using it.
      </p>
 
      <p>

@@ -1,9 +1,9 @@
 export default class BingoService {
-  // Should we check the score/
+  // Should we check the score?
   checkScoreState = false;
 
   setScoreCheck(check) {
-    this.checkScoreSate = check;
+    this.checkScoreState = check;
   }
 
   checkScore() {

@@ -1,19 +1,21 @@
-import * as React from 'react';
+import * as React from "react";
 export const BingoContext = React.createContext([]);
 
-export const BingoProvider = props => {
-  const storage_name = 'veganbingo.net';
-  const [bingos, setBingos] = React.useState(JSON.parse(localStorage.getItem(storage_name)) || {});
+export const BingoProvider = (props) => {
+  const storage_name = "veganbingo.net";
+  const [bingos, setBingos] = React.useState(
+    JSON.parse(localStorage.getItem(storage_name)) || {},
+  );
   const [checkScoreState, setCheckScoreState] = React.useState(false);
-  const event = new CustomEvent('bingo:add');
+  const event = new CustomEvent("bingo:add");
 
-  const hasBingo = id => {
+  const hasBingo = (id) => {
     return id in bingos;
   };
 
-  const addBingo = id => {
+  const addBingo = (id) => {
     if (!hasBingo(id)) {
-      bingos[id] = { id: id, time: (new Date()).toISOString() };
+      bingos[id] = { id: id, time: new Date().toISOString() };
       updateBingos({ ...bingos });
 
       event.data = {
@@ -26,7 +28,7 @@ export const BingoProvider = props => {
     }
   };
 
-  const removeBingo = id => {
+  const removeBingo = (id) => {
     if (hasBingo(id)) {
       delete bingos[id];
       updateBingos({ ...bingos });
@@ -36,25 +38,39 @@ export const BingoProvider = props => {
   const resetBingos = () => {
     updateBingos({});
     localStorage.removeItem(storage_name);
-  }
+  };
 
-  const toggleBingo = id => {
+  const toggleBingo = (id) => {
     hasBingo(id) ? removeBingo(id) : addBingo(id);
-  }
+  };
 
-  const updateBingos = bingos => {
+  const updateBingos = (bingos) => {
     setBingos(bingos);
     localStorage.setItem(storage_name, JSON.stringify(bingos));
-  }
+  };
 
   const checkScore = () => {
     return checkScoreState;
-  }
+  };
+
+  const resetCheckScore = () => {
+    setCheckScoreState(false);
+  };
 
   return (
     <BingoContext.Provider
-      value={{ bingos, addBingo, hasBingo, removeBingo, resetBingos, checkScore, toggleBingo }}>
+      value={{
+        bingos,
+        addBingo,
+        hasBingo,
+        removeBingo,
+        resetBingos,
+        checkScore,
+        toggleBingo,
+        resetCheckScore,
+      }}
+    >
       {props.children}
     </BingoContext.Provider>
-  )
+  );
 };

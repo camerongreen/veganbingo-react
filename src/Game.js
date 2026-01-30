@@ -22,10 +22,11 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
+const dataService = new DataService();
+
 export default function Game() {
   const theme = useTheme();
   let [listItems, setListItems] = React.useState([]);
-  const dataService = new DataService();
   const sections = dataService.getSections();
   const {
     hasBingo,
@@ -37,21 +38,19 @@ export default function Game() {
 
   // Snackbar state
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
-  const [snackbarMessage, setSnackbarMessage] = React.useState("");
-  const [snackbarSeverity, setSnackbarSeverity] = React.useState("success");
+  const [snackbarMessage, setSnackbarMessage] = React.useState('');
+  const [snackbarSeverity, setSnackbarSeverity] = React.useState('success');
 
   const handleSnackbarClose = (event, reason) => {
-    if (reason === "clickaway") {
+    if (reason === 'clickaway') {
       return;
     }
     setSnackbarOpen(false);
   };
 
   React.useEffect(() => {
-    Promise.all(sections.map((name) => dataService.getSection(name))).then(
-      (sectionData) => setListItems(sectionData),
-    );
-  }, [sections, dataService]);
+    Promise.all(sections.map(name => dataService.getSection(name))).then(sectionData => setListItems(sectionData));
+  }, [sections]);
 
   React.useEffect(() => {
     let squaresToFlash = [];
@@ -59,19 +58,17 @@ export default function Game() {
 
     if (newlyCompletedBlackout) {
       setSnackbarMessage("BLACKOUT! You've completed the entire board!");
-      setSnackbarSeverity("success");
+      setSnackbarSeverity('success');
       setSnackbarOpen(true);
       squaresToFlash = sections;
       shouldFlash = true;
     } else if (newlyCompletedLines.length > 0) {
       setSnackbarMessage("BINGO! You've completed a line!");
-      setSnackbarSeverity("success");
+      setSnackbarSeverity('success');
       setSnackbarOpen(true);
 
-      const winningSquares = newlyCompletedLines.flatMap((lineIndex) =>
-        winningCombinations[lineIndex].map(
-          (squareIndex) => sections[squareIndex],
-        ),
+      const winningSquares = newlyCompletedLines.flatMap(lineIndex =>
+        winningCombinations[lineIndex].map(squareIndex => sections[squareIndex])
       );
       squaresToFlash = [...new Set(winningSquares)];
       shouldFlash = true;

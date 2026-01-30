@@ -19,16 +19,23 @@ import DataService from "./services/DataService";
 // CSS.
 import "./styles/Page.css";
 
+const dataService = new DataService();
+
 export default function Page(props) {
   const { name } = useParams();
   const { bingos, hasBingo, toggleBingo } = React.useContext(BingoContext);
   const [page, setPage] = React.useState({});
-  const dataService = new DataService();
   const canonicalUrl = "https://veganbingo.net/page/" + name;
 
   React.useEffect(() => {
-    dataService.getSection(name).then((data) => setPage(data));
-  }, [page]);
+    let isMounted = true;
+    dataService.getSection(name).then((data) => {
+      if (isMounted) {
+        setPage(data)
+      }
+    });
+    return () => { isMounted = false };
+  }, [name]);
 
   return (
     <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>

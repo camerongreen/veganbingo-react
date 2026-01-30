@@ -19,7 +19,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "^7.5.0",
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "simple-git-hooks": "^2.13.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "latest"

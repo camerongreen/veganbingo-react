@@ -6,7 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src"
   },
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.0.2",
@@ -23,7 +24,11 @@
     "simple-git-hooks": "^2.13.1"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "latest"
+    "@babel/plugin-proposal-private-property-in-object": "latest",
+    "eslint": "^8.57.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1"
   },
   "browserslist": {
     "production": [
@@ -36,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run lint"
   }
 }

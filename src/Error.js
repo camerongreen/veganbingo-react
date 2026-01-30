@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useRouteError } from "react-router-dom";
 

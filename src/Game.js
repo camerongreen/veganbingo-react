@@ -3,6 +3,9 @@ import { useTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
 
 // Components.
 import Square from './Square';
@@ -13,6 +16,10 @@ import DataService from './services/DataService';
 
 // CSS.
 import './styles/Game.css';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export default function Game() {
   const theme = useTheme();
@@ -26,6 +33,18 @@ export default function Game() {
     resetCheckScore,
   } = React.useContext(BingoContext);
   const [lineComplete, setLineComplete] = React.useState(false);
+
+  // Snackbar state
+  const [snackbarOpen, setSnackbarOpen] = React.useState(false);
+  const [snackbarMessage, setSnackbarMessage] = React.useState('');
+  const [snackbarSeverity, setSnackbarSeverity] = React.useState('success');
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSnackbarOpen(false);
+  };
 
   const winningCombinations = [
     // Rows
@@ -51,7 +70,9 @@ export default function Game() {
     if (checkScore()) {
       const completedCount = Object.keys(bingos).length;
       if (completedCount === 16) {
-        alert("BLACKOUT! You've completed the entire board!");
+        setSnackbarMessage("BLACKOUT! You've completed the entire board!");
+        setSnackbarSeverity('success');
+        setSnackbarOpen(true);
         resetCheckScore();
         return;
       }
@@ -60,7 +81,9 @@ export default function Game() {
         for (const combination of winningCombinations) {
           const isLineComplete = combination.every(index => hasBingo(sections[index]));
           if (isLineComplete) {
-            alert("BINGO! You've completed a line!");
+            setSnackbarMessage("BINGO! You've completed a line!");
+            setSnackbarSeverity('success');
+            setSnackbarOpen(true);
             setLineComplete(true);
             break;
           }
@@ -81,6 +104,11 @@ export default function Game() {
           </Grid>
         ))}
       </Grid>
+      <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
+        <Alert onClose={handleSnackbarClose} severity={snackbarSeverity} sx={{ width: '100%' }}>
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
     </Container>
   );
 }

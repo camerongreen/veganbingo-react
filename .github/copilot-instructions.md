@@ -103,3 +103,10 @@ Updates section files from Google Docs source of truth. Useful for bulk content 
 - Error page component: `Error.js` (renders via errorElement in router config)
 - No existing test suite visible; `npm test` uses React Scripts defaults
 - Development: Browser DevTools + console logging; check custom event dispatch
+
+# Checklist Before Committing
+- [ ] Followed project coding conventions (React patterns, MUI usage)
+- [ ] Run tests and make sure they pass
+- [ ] Updated documentation if necessary (this file or section files)
+- [ ] Run eslint --fix
+- [ ] Run eslint to ensure code quality, including fixing warnings

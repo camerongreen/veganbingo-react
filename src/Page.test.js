@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { HelmetProvider } from '@dr.pogodin/react-helmet';
 import Page from './Page';
 import { BingoProvider } from './services/BingoContext';
 
@@ -56,21 +57,27 @@ describe('Page', () => {
     localStorage.clear();
   });
 
-  const renderPage = () => {
-    return render(
-      <BingoProvider sections={mockSections}>
-        <Page />
-      </BingoProvider>
-    );
+  const renderPage = async () => {
+    let result;
+    await act(async () => {
+      result = render(
+        <HelmetProvider>
+          <BingoProvider sections={mockSections}>
+            <Page />
+          </BingoProvider>
+        </HelmetProvider>
+      );
+    });
+    return result;
   };
 
-  it('should render without crashing', () => {
-    const { container } = renderPage();
+  it('should render without crashing', async () => {
+    const { container } = await renderPage();
     expect(container).toBeInTheDocument();
   });
 
   it('should display the page heading', async () => {
-    renderPage();
+    await renderPage();
     
     await waitFor(() => {
       expect(screen.getByText('But bacon though...')).toBeInTheDocument();
@@ -78,7 +85,7 @@ describe('Page', () => {
   });
 
   it('should display alternatives', async () => {
-    renderPage();
+    await renderPage();
     
     await waitFor(() => {
       expect(screen.getByText(/Try tempeh bacon/i)).toBeInTheDocument();
@@ -87,7 +94,7 @@ describe('Page', () => {
   });
 
   it('should display short answer', async () => {
-    renderPage();
+    await renderPage();
     
     await waitFor(() => {
       expect(screen.getByText('There are great alternatives!')).toBeInTheDocument();

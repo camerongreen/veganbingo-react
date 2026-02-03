@@ -240,11 +240,12 @@ describe('BingoContext', () => {
         });
         
         expect(localStorage.getItem('veganbingo.net')).toBeNull();
+        expect(localStorage.getItem('veganbingo.net_completed_squares')).toBeNull();
       });
     });
 
     describe('winning line detection', () => {
-      it('should detect completed row and store in completedLines', async () => {
+      it('should store completed row squares in localStorage', async () => {
         const { result } = renderHook(() => React.useContext(BingoContext), { wrapper });
         
         // Complete first row: indices 0, 1, 2, 3
@@ -260,8 +261,11 @@ describe('BingoContext', () => {
           result.current.addBingo('cow');     // 2
         });
         
+        // No completed line yet
+        expect(localStorage.getItem('veganbingo.net_completed_squares')).toBeNull();
+        
         await act(async () => {
-          result.current.addBingo('bacon');   // 3
+          result.current.addBingo('bacon');   // 3 - completes the row
         });
         
         // Verify all 4 squares are marked
@@ -269,16 +273,33 @@ describe('BingoContext', () => {
         expect(result.current.hasBingo('cheese')).toBe(true);
         expect(result.current.hasBingo('cow')).toBe(true);
         expect(result.current.hasBingo('bacon')).toBe(true);
+        
+        // Check localStorage for completed squares
+        const completedData = JSON.parse(localStorage.getItem('veganbingo.net_completed_squares'));
+        expect(completedData).toBeDefined();
+        expect(completedData).toContain('protein');
+        expect(completedData).toContain('cheese');
+        expect(completedData).toContain('cow');
+        expect(completedData).toContain('bacon');
       });
 
-      it('should detect completed column', async () => {
+      it('should store completed column squares in localStorage', async () => {
         const { result } = renderHook(() => React.useContext(BingoContext), { wrapper });
         
-        // Complete first column: indices 0, 4, 8, 12  
+        // Complete first column: indices 0, 4, 8, 12
         await act(async () => {
           result.current.addBingo('protein');      // 0
+        });
+        
+        await act(async () => {
           result.current.addBingo('hitler');       // 4
+        });
+        
+        await act(async () => {
           result.current.addBingo('food');         // 8
+        });
+        
+        await act(async () => {
           result.current.addBingo('what');         // 12
         });
         
@@ -287,16 +308,33 @@ describe('BingoContext', () => {
         expect(result.current.hasBingo('hitler')).toBe(true);
         expect(result.current.hasBingo('food')).toBe(true);
         expect(result.current.hasBingo('what')).toBe(true);
+        
+        // Check localStorage for completed squares
+        const completedData = JSON.parse(localStorage.getItem('veganbingo.net_completed_squares'));
+        expect(completedData).toBeDefined();
+        expect(completedData).toContain('protein');
+        expect(completedData).toContain('hitler');
+        expect(completedData).toContain('food');
+        expect(completedData).toContain('what');
       });
 
-      it('should detect completed diagonal', async () => {
+      it('should store completed diagonal squares in localStorage', async () => {
         const { result } = renderHook(() => React.useContext(BingoContext), { wrapper });
         
         // Complete main diagonal: indices 0, 5, 10, 15
         await act(async () => {
           result.current.addBingo('protein');      // 0
+        });
+        
+        await act(async () => {
           result.current.addBingo('plants');       // 5
+        });
+        
+        await act(async () => {
           result.current.addBingo('eat');          // 10
+        });
+        
+        await act(async () => {
           result.current.addBingo('preachy');      // 15
         });
         
@@ -305,22 +343,80 @@ describe('BingoContext', () => {
         expect(result.current.hasBingo('plants')).toBe(true);
         expect(result.current.hasBingo('eat')).toBe(true);
         expect(result.current.hasBingo('preachy')).toBe(true);
+        
+        // Check localStorage for completed squares
+        const completedData = JSON.parse(localStorage.getItem('veganbingo.net_completed_squares'));
+        expect(completedData).toBeDefined();
+        expect(completedData).toContain('protein');
+        expect(completedData).toContain('plants');
+        expect(completedData).toContain('eat');
+        expect(completedData).toContain('preachy');
       });
 
-      it('should detect blackout when all squares completed', async () => {
+      it('should store all squares for flashing', async () => {
         const { result } = renderHook(() => React.useContext(BingoContext), { wrapper });
         
-        await act(async () => {
-          // Add all squares
-          mockSections.forEach(section => {
-            result.current.addBingo(section);
+        // Add 15 squares
+        for (let i = 0; i < 15; i++) {
+          await act(async () => {
+            result.current.addBingo(mockSections[i]);
           });
+        }
+        
+        // Clear any previous completions from intermediate lines
+        localStorage.removeItem('veganbingo.net_completed_squares');
+        
+        // Add the 16th square to trigger blackout
+        await act(async () => {
+          result.current.addBingo(mockSections[15]);
         });
         
         // Verify all squares are marked
         mockSections.forEach(section => {
           expect(result.current.hasBingo(section)).toBe(true);
         });
+        
+        // Check localStorage for blackout
+        const completedData = JSON.parse(localStorage.getItem('veganbingo.net_completed_squares'));
+        expect(completedData).toBeDefined();
+        expect(completedData).toHaveLength(16);
+        mockSections.forEach(section => {
+          expect(completedData).toContain(section);
+        });
+      });
+
+      it('should store all lines when multiple lines complete with one square', async () => {
+        const { result } = renderHook(() => React.useContext(BingoContext), { wrapper });
+        
+        // Set up a scenario where adding one square completes multiple lines
+        // Complete most of first row (0,1,2) and first column (4,8,12) and diagonal (5,10)
+        await act(async () => {
+          result.current.addBingo('protein');  // 0 (row 0, col 0, diag 0)
+        });
+        
+        await act(async () => {
+          result.current.addBingo('cheese');   // 1 (row 0)
+        });
+        
+        await act(async () => {
+          result.current.addBingo('cow');      // 2 (row 0)
+        });
+        
+        // Clear intermediate completions - row is not complete yet
+        localStorage.removeItem('veganbingo.net_completed_squares');
+        
+        // Now complete row with 'bacon' (index 3)
+        // This will complete row 0 [0,1,2,3]
+        await act(async () => {
+          result.current.addBingo('bacon'); // 3
+        });
+        
+        const completedData = JSON.parse(localStorage.getItem('veganbingo.net_completed_squares'));
+        expect(completedData).toBeDefined();
+        expect(completedData).toContain('protein');
+        expect(completedData).toContain('cheese');
+        expect(completedData).toContain('cow');
+        expect(completedData).toContain('bacon');
       });
     });
   });

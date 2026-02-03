@@ -10,6 +10,10 @@
   }
 }
 
-.flash {
+.flash-line {
   animation: flash 0.5s 3;
+}
+
+.flash-blackout {
+  animation: flash 0.5s 5;
 }

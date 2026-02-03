@@ -12,7 +12,7 @@ import MuiAlert from "@mui/material/Alert";
 import Square from "./Square";
 
 // Services
-import { BingoContext, winningCombinations } from "./services/BingoContext";
+import { BingoContext } from "./services/BingoContext";
 import DataService from "./services/DataService";
 
 // CSS.
@@ -28,13 +28,9 @@ export default function Game() {
   const theme = useTheme();
   let [listItems, setListItems] = React.useState([]);
   const sections = dataService.getSections();
-  const {
-    hasBingo,
-    newlyCompletedLines,
-    newlyCompletedBlackout,
-    clearNewWins,
-  } = React.useContext(BingoContext);
+  const { hasBingo } = React.useContext(BingoContext);
   const [flashingSquares, setFlashingSquares] = React.useState([]);
+  const [flashClass, setFlashClass] = React.useState('');
 
   // Snackbar state
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
@@ -53,35 +49,43 @@ export default function Game() {
   }, [sections]);
 
   React.useEffect(() => {
-    let squaresToFlash = [];
-    let shouldFlash = false;
-
-    if (newlyCompletedBlackout) {
-      setSnackbarMessage("BLACKOUT! You've completed the entire board!");
-      setSnackbarSeverity('success');
-      setSnackbarOpen(true);
-      squaresToFlash = sections;
-      shouldFlash = true;
-    } else if (newlyCompletedLines.length > 0) {
-      setSnackbarMessage("BINGO! You've completed a line!");
-      setSnackbarSeverity('success');
-      setSnackbarOpen(true);
-
-      const winningSquares = newlyCompletedLines.flatMap(lineIndex =>
-        winningCombinations[lineIndex].map(squareIndex => sections[squareIndex])
-      );
-      squaresToFlash = [...new Set(winningSquares)];
-      shouldFlash = true;
+    // Check for completed squares on mount
+    const storage_name = "veganbingo.net";
+    const completedData = localStorage.getItem(`${storage_name}_completed_squares`);
+    
+    if (completedData) {
+      try {
+        const squares = JSON.parse(completedData);
+        const isBlackout = squares.length === sections.length;
+        
+        if (squares && squares.length > 0) {
+          // Set the appropriate flash class
+          setFlashClass(isBlackout ? 'flash-blackout' : 'flash-line');
+          setFlashingSquares(squares);
+          
+          // Show notification
+          if (isBlackout) {
+            setSnackbarMessage("BLACKOUT! You've completed the entire board!");
+          } else {
+            setSnackbarMessage("BINGO! You've completed a line!");
+          }
+          setSnackbarSeverity('success');
+          setSnackbarOpen(true);
+          
+          // Clear after animation completes (3 flashes * 0.5s = 1.5s, 5 flashes * 0.5s = 2.5s)
+          const animationDuration = isBlackout ? 2500 : 1500;
+          setTimeout(() => {
+            setFlashingSquares([]);
+            setFlashClass('');
+            localStorage.removeItem(`${storage_name}_completed_squares`);
+          }, animationDuration);
+        }
+      } catch (e) {
+        console.error('Error parsing completed squares:', e);
+        localStorage.removeItem(`${storage_name}_completed_squares`);
+      }
     }
-
-    if (shouldFlash) {
-      setFlashingSquares(squaresToFlash);
-      setTimeout(() => {
-        setFlashingSquares([]);
-        clearNewWins();
-      }, 1500);
-    }
-  }, [newlyCompletedLines, newlyCompletedBlackout, clearNewWins, sections]);
+  }, []); // Only run on mount
 
   return (
     <Container
@@ -94,7 +98,7 @@ export default function Game() {
           <Grid
             key={index}
             size={{ xs: 3 }}
-            className={`${section.colour} ${flashingSquares.includes(section.name) ? "flash" : ""}`}
+            className={`${section.colour} ${flashingSquares.includes(section.name) ? flashClass : ""}`}
           >
             <Square data={section} hasBingo={hasBingo(section.name)} />
           </Grid>

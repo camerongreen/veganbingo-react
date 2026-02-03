@@ -21,7 +21,7 @@ import "./styles/Page.css";
 
 const dataService = new DataService();
 
-export default function Page(props) {
+export default function Page() {
   const { name } = useParams();
   const { bingos, hasBingo, toggleBingo } = React.useContext(BingoContext);
   const [page, setPage] = React.useState({});

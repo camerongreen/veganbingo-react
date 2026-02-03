@@ -30,7 +30,7 @@ function SimpleDialog(props) {
       <DialogActions>
         <Button
           onClick={handleClose}>Cancel</Button>
-        <Button variant="contained" autoFocus
+        <Button variant="contained" 
                 onClick={handleDoIt}>Do it!</Button>
       </DialogActions>
     </Dialog>
@@ -44,7 +44,7 @@ export default function Settings() {
     setOpen(true);
   };
 
-  const handleClose = (value) => {
+  const handleClose = () => {
     setOpen(false);
   };
 
@@ -53,7 +53,7 @@ export default function Settings() {
   return (
     <InfoPage icon={<SettingsIcon fontSize="large"/>} heading="Settings">
       <p>
-        There aren't many settings for Bingo, but you can clear all your bingos
+        There aren&apos;t many settings for Bingo, but you can clear all your bingos
         by clicking this button.
       </p>
       <Button variant="contained" color="secondary" size="large"

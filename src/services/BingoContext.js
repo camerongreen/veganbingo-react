@@ -75,8 +75,10 @@ export const BingoProvider = (props) => {
 
   const removeBingo = (id) => {
     if (hasBingo(id)) {
-      delete bingos[id];
-      updateBingos({ ...bingos });
+      const newBingos = Object.fromEntries(
+        Object.entries(bingos).filter(([key]) => key !== id)
+      );
+      updateBingos(newBingos);
     }
   };
 

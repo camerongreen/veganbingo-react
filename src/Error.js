@@ -15,8 +15,8 @@ export default function Error() {
                disableGutters={useMediaQuery(theme.breakpoints.down('sm'))}
                sx={{ mt: 4, mb: 4 }}>
       <h1>Here be dragons!</h1>
-      <p>Sorry, you've slipped off the edge of the world. You've found a part
-        of <a href="/">Vegan Bingo</a> that we didn't know about.</p>
+      <p>Sorry, you&apos;ve slipped off the edge of the world. You&apos;ve found a part
+        of <a href="/">Vegan Bingo</a> that we didn&apos;t know about.</p>
       <p>Click <a href="/">here</a> to return to the known universe.</p>
     </Container>
   );

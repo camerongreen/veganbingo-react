@@ -59,7 +59,7 @@ describe('Game', () => {
     );
   };
 
-  it('should render without crashing', () => {
+  it('should render without crashing', async () => {
     const { container } = renderGame();
     expect(container.querySelector('.MuiContainer-root')).toBeInTheDocument();
   });

@@ -16,7 +16,17 @@ Originally written in Polymer, after Google cancelled that a couple of months af
 
 `npm run build`
 
+## Test
+
+`npm run test`
+
+## Update hooks
+
+`npx simple-git-hooks`
+
 ## Update sections from Google Docs.
 
 `./scripts/download-docs.sh src/sections`
+
+
 

@@ -49,7 +49,7 @@ export default function Game() {
   }, [sections]);
 
   React.useEffect(() => {
-    // Check for completed squares on mount
+    // Check for completed squares on mount.
     const storage_name = "veganbingo.net";
     const completedData = localStorage.getItem(`${storage_name}_completed_squares`);
     
@@ -85,7 +85,7 @@ export default function Game() {
         localStorage.removeItem(`${storage_name}_completed_squares`);
       }
     }
-  }, []); // Only run on mount
+  }, [sections]); // Only run on mount
 
   return (
     <Container

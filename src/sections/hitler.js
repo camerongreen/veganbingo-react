@@ -1,4 +1,4 @@
-﻿// This appears under the pictures on the square, and at the top of its
+// This appears under the pictures on the square, and at the top of its
 // Format: Text.
 // individual page.
 // Format: text.

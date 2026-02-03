@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import InfoIcon from '@mui/icons-material/Info';
 import InfoPage from './InfoPage';
 
@@ -21,19 +21,19 @@ export default function About() {
      <p>
        If you'd like to get in touch about Vegan Bingo or anything else, or just
        want to read my thoughts, check out my web page at: <a
-       href="https://camerongreen.org" target="_blank">camerongreen.org</a>
+       href="https://camerongreen.org" target="_blank" rel="noreferrer">camerongreen.org</a>
      </p>
 
      <p>
        You can chat more about Vegan Bingo, post your times, watch tumble weeds
        roll past (seriously there have been like 2 posts ever) at: <a
        href="https://facebook.com/veganbingo"
-       target="_blank">facebook.com/veganbingo</a>
+       target="_blank" rel="noreferrer">facebook.com/veganbingo</a>
      </p>
 
      <p>
        To read the privacy terms or other FAQs about the app: <a
-       href="https://camerongreen.org/a/veganbingo" target="_blank">Vegan Bingo
+       href="https://camerongreen.org/a/veganbingo" target="_blank" rel="noreferrer">Vegan Bingo
        on E.A.R.T.H.</a>. In short it only stores data in your browser and I don't take any identifying information. I have put Google Analytics on it now, but I won't be using it to target ads or anything else, just want to know how many people are using it.
      </p>
 
@@ -48,7 +48,7 @@ export default function About() {
        Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a
        copy of this licence, visit <a
        href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
-       target="_blank">Creative Commons</a>. Source code for the application is here: <a
+       target="_blank" rel="noreferrer">Creative Commons</a>. Source code for the application is here: <a
        href="https://github.com/camerongreen/veganbingo-react">Vegan Bingo on Github</a>.
      </p>
 

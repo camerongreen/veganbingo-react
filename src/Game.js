@@ -45,7 +45,13 @@ export default function Game() {
   };
 
   React.useEffect(() => {
-    Promise.all(sections.map(name => dataService.getSection(name))).then(sectionData => setListItems(sectionData));
+    let isMounted = true;
+    Promise.all(sections.map(name => dataService.getSection(name))).then(sectionData => {
+      if (isMounted) {
+        setListItems(sectionData);
+      }
+    });
+    return () => { isMounted = false };
   }, [sections]);
 
   React.useEffect(() => {

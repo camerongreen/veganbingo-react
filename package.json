@@ -6,7 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "download-docs": "node scripts/download-docs.js src/sections"
   },
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.0.2",
@@ -15,6 +16,7 @@
     "@mui/icons-material": "^7.0.0",
     "@mui/material": "latest",
     "framer-motion": "^12.7.4",
+    "marked": "^12.0.0",
     "moment": "^2.29.0",
     "react": "latest",
     "react-dom": "latest",

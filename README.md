@@ -16,11 +16,6 @@ Originally written in Polymer, after Google cancelled that a couple of months af
 
 `npm run build`
 
-<<<<<<< HEAD
-## Update sections from Google Docs
-||||||| c5f104d
-## Update sections from Google Docs.
-=======
 ## Test
 
 `npm run test`
@@ -30,7 +25,16 @@ Originally written in Polymer, after Google cancelled that a couple of months af
 `npx simple-git-hooks`
 
 ## Update sections from Google Docs.
->>>>>>> c6905be8d164be69e5ca3733d8a3e36548fffdd5
+
+## Debug mode
+
+Print start of files after parsing.
+
+`npm run download-docs -- --debug`
+
+## Live mode 
+
+Write files to sections directory.
 
 `npm run download-docs`
 

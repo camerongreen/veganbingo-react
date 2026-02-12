@@ -23,8 +23,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "^7.5.0",
-    "react-scripts": "latest",
-    "simple-git-hooks": "^2.13.1"
+    "react-scripts": "latest"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "latest",
@@ -36,7 +35,8 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "globals": "^15.14.0"
+    "globals": "^15.14.0",
+    "simple-git-hooks": "^2.13.1"
   },
   "browserslist": {
     "production": [

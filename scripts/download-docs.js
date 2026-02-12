@@ -28,11 +28,45 @@ const sections = {
 /**
  * Download markdown content from a Google Docs URL
  */
-function downloadDoc(url) {
+function downloadDoc(url, maxRedirects = 5) {
   return new Promise((resolve, reject) => {
-    const exportUrl = `${url}/export?format=md`;
+    const exportUrl = `${url}/export?format=markdown`;
     
     https.get(exportUrl, (res) => {
+      // Handle redirects
+      if (res.statusCode === 301 || res.statusCode === 302 || res.statusCode === 307 || res.statusCode === 308) {
+        if (maxRedirects === 0) {
+          reject(new Error('Too many redirects'));
+          return;
+        }
+        
+        const redirectUrl = res.headers.location;
+        if (!redirectUrl) {
+          reject(new Error('Redirect without location header'));
+          return;
+        }
+        
+        // Follow the redirect
+        https.get(redirectUrl, (redirectRes) => {
+          if (redirectRes.statusCode !== 200) {
+            reject(new Error(`Failed to download after redirect: ${redirectRes.statusCode}`));
+            return;
+          }
+          
+          let data = '';
+          redirectRes.on('data', (chunk) => {
+            data += chunk;
+          });
+          
+          redirectRes.on('end', () => {
+            data = data.replace(/\r/g, '');
+            resolve(data);
+          });
+        }).on('error', reject);
+        
+        return;
+      }
+      
       if (res.statusCode !== 200) {
         reject(new Error(`Failed to download: ${res.statusCode}`));
         return;
@@ -121,29 +155,14 @@ function generateModule(sections) {
   const shortAnswer = sections['short answer'] || '';
   const longAnswer = sections['long answer'] || '';
   
-  return `// This appears under the pictures on the square, and at the top of its
-// individual page.
-// Format: Text.
+  return `
 const heading = \`${heading}\`;
 
-
-// These are the alternative questions/acceptable statements at the top of the
-// individual page.
-// Format: Text.
 const alternatives = \`${alternatives}\`;
 
-
-// This is the short section at the top of the individual page.
-// Format: HTML.
 const short_answer = \`${textToHtml(shortAnswer)}\`;
 
-
-// This is the body of the individual page, use HTML liberally.
-// Format: HTML.
-const long_answer = \`
-${textToHtml(longAnswer)}
-\`;
-
+const long_answer = \`${textToHtml(longAnswer)}\`;
 
 export {
  heading, alternatives, short_answer, long_answer,
@@ -155,12 +174,19 @@ export {
  * Main function to process all sections
  */
 async function main() {
-  const outputDir = process.argv[2];
+  const args = process.argv.slice(2);
+  const debugMode = args.includes('--debug') || args.includes('-d');
+  const outputDir = args.find(arg => !arg.startsWith('-'));
   
   if (!outputDir || !fs.existsSync(outputDir)) {
-    console.error('Usage: node download-docs.js <output-directory>');
+    console.error('Usage: node download-docs.js <output-directory> [--debug]');
     console.error('Example: node download-docs.js src/sections');
+    console.error('         node download-docs.js src/sections --debug');
     process.exit(1);
+  }
+  
+  if (debugMode) {
+    console.log('🐛 Debug mode enabled - files will not be written\n');
   }
   
   console.log(`Downloading and processing ${Object.keys(sections).length} sections...`);
@@ -178,17 +204,22 @@ async function main() {
       // Generate the JavaScript module
       const moduleContent = generateModule(parsed);
       
-      // Write to file
-      const outputPath = path.join(outputDir, `${name}.js`);
-      fs.writeFileSync(outputPath, moduleContent, 'utf8');
-      
-      console.log(`✓ ${name}.js created`);
+      if (debugMode) {
+        console.log(`\n--- ${name}.js preview ---`);
+        console.log(moduleContent.substring(0, 1000) + '...\n');
+        console.log(`✓ ${name}.js processed (not written)`);
+      } else {
+        // Write to file
+        const outputPath = path.join(outputDir, `${name}.js`);
+        fs.writeFileSync(outputPath, moduleContent, 'utf8');
+        console.log(`✓ ${name}.js created`);
+      }
     } catch (error) {
       console.error(`✗ Error processing ${name}:`, error.message);
     }
   }
   
-  console.log('Done!');
+  console.log('\nDone!');
 }
 
 main().catch(console.error);

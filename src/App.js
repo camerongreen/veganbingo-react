@@ -21,6 +21,8 @@ import Timeline from "./Timeline";
 
 import './styles/App.css';
 
+import DataService from './services/DataService';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -125,8 +127,10 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
+  const dataService = new DataService();
+  const sections = dataService.getSections();
   return (
-    <BingoProvider>
+    <BingoProvider sections={sections}>
       <RouterProvider router={router}/>
     </BingoProvider>
   );

@@ -1,0 +1,19 @@
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.flash-line {
+  animation: flash 0.5s 3;
+}
+
+.flash-blackout {
+  animation: flash 0.5s 5;
+}

@@ -19,13 +19,13 @@ import DataService from './services/DataService';
 export default function Timeline() {
   const { bingos } = React.useContext(BingoContext);
   const [data, setData] = React.useState([]);
-  const dataService = new DataService();
+  const dataService = React.useMemo(() => new DataService(), []);
 
   React.useEffect(() => {
     Promise.all(Object.keys(bingos).map(name => dataService.getSection(name))).then(loadedData => {
       setData(loadedData);
     });
-  }, []);
+  }, [bingos, dataService]);
 
   return (
     <InfoPage icon={<ListAltIcon fontSize="large"/>} heading="Bingo timeline">
@@ -43,7 +43,7 @@ export default function Timeline() {
         {Object.values(data).reverse().map((values, index) =>
           <Grid size={{xs:12}} key={index} className={values.colour}>
             <Card>
-              <CardActionArea component={Link} to={'/page/' + name}
+              <CardActionArea component={Link} to={'/page/' + values.name}
                               sx={{
                                 display: 'flex',
                                 justifyContent: 'left',

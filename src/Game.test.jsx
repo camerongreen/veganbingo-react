@@ -62,7 +62,10 @@ describe('Game', () => {
 
   it('should render without crashing', async () => {
     const { container } = renderGame();
-    expect(container.querySelector('.MuiContainer-root')).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(container.querySelector('.MuiContainer-root')).toBeInTheDocument();
+    });
   });
 
   it('should load and display all sections', async () => {

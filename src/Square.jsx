@@ -12,9 +12,6 @@ export default function Square(props) {
   return (
     <Card
       className="Square"
-      style={{
-        backgroundColor: props.data.colour,
-      }}
     >
       <CardActionArea component={Link} to={'page/' + props.data.name}>
         <CardMedia

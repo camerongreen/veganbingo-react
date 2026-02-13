@@ -34,11 +34,6 @@ describe('Square', () => {
     expect(screen.getByText('But bacon though...')).toBeInTheDocument();
   });
 
-  it('should apply the correct background color', () => {
-    const { container } = renderSquare();
-    const card = container.querySelector('.Square');
-    expect(getComputedStyle(card).backgroundColor).toBe('rgb(255, 192, 203)');
-  });
 
   it('should use regular image when hasBingo is false', () => {
     renderSquare(false);
@@ -70,14 +65,6 @@ describe('Square', () => {
     expect(image).toBeInTheDocument();
   });
 
-  it('should handle different colors correctly', () => {
-    const dataWithDifferentColor = { ...mockData, colour: 'blue' };
-    const { container } = render(
-      <Square data={dataWithDifferentColor} hasBingo={false} />
-    );
-    const card = container.querySelector('.Square');
-    expect(getComputedStyle(card).backgroundColor).toBe('rgb(0, 0, 255)');
-  });
 
   it('should render all required card components', () => {
     const { container } = renderSquare();

@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderHook, act } from '@testing-library/react';
+import { vi } from 'vitest';
 import { BingoProvider, BingoContext, winningCombinations } from './BingoContext';
 
 // Mock localStorage
@@ -33,7 +34,7 @@ const mockSections = [
 describe('BingoContext', () => {
   beforeEach(() => {
     localStorage.clear();
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('winningCombinations', () => {

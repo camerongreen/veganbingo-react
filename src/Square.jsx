@@ -12,14 +12,14 @@ export default function Square(props) {
   return (
     <Card
       className="Square"
-      sx={{
+      style={{
         backgroundColor: props.data.colour,
       }}
     >
       <CardActionArea component={Link} to={'page/' + props.data.name}>
         <CardMedia
           component="img"
-          image={'images/' + props.data.name + (props.hasBingo ? '_done' : '') + '.png'}
+          image={'/images/' + props.data.name + (props.hasBingo ? '_done' : '') + '.png'}
           alt={props.data.heading + ' Square'}
         />
         <CardContent className="description">

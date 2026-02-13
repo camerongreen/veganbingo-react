@@ -80,16 +80,16 @@ Comprehensive testing of game state management:
 
 ```bash
 # Run all tests once
-npm test -- --watchAll=false
+npm test -- --run
 
 # Run tests in watch mode
 npm test
 
 # Run tests with coverage
-npm test -- --coverage --watchAll=false
+npm test -- --coverage --run
 
 # Run specific test file
-npm test Square.test.js
+npm test -- Square.test.js
 ```
 
 ## Test Dependencies
@@ -97,7 +97,7 @@ npm test Square.test.js
 - `@testing-library/react` - React component testing
 - `@testing-library/jest-dom` - DOM matchers
 - `@testing-library/user-event` - User interaction simulation
-- `jest` (via react-scripts) - Test runner
+- `vitest` - Test runner
 
 ## Known Issues & Improvements Needed
 
@@ -114,9 +114,9 @@ npm test Square.test.js
 ### Component Mocking
 ```javascript
 // Mocking react-router-dom Link component
-jest.mock('react-router-dom', () => ({
+vi.mock('react-router-dom', () => ({
   Link: ({ to, children, ...props }) => <a href={to} {...props}>{children}</a>,
-}), { virtual: true });
+}));
 ```
 
 ### LocalStorage Mocking

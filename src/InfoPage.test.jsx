@@ -1,12 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import InfoPage from './InfoPage';
 import HelpIcon from '@mui/icons-material/Help';
 
 // Mock Link component
-jest.mock('react-router-dom', () => ({
+vi.mock('react-router-dom', () => ({
   Link: ({ to, children, ...props }) => <a href={to} {...props}>{children}</a>,
-}), { virtual: true });
+}));
 
 describe('InfoPage', () => {
   const renderInfoPage = (props = {}) => {

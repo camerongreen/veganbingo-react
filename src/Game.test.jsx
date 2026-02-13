@@ -1,16 +1,17 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
+import { vi } from 'vitest';
 import Game from './Game';
 import { BingoProvider } from './services/BingoContext';
 
 // Mock Link component
-jest.mock('react-router-dom', () => ({
+vi.mock('react-router-dom', () => ({
   Link: ({ to, children, ...props }) => <a href={to} {...props}>{children}</a>,
-}), { virtual: true });
+}));
 
 // Mock DataService
-jest.mock('./services/DataService', () => {
-  return jest.fn().mockImplementation(() => ({
+vi.mock('./services/DataService', () => ({
+  default: vi.fn().mockImplementation(() => ({
     getSections: () => ['protein', 'cheese', 'cow', 'bacon'],
     getSection: (name) => Promise.resolve({
       name: name,
@@ -20,8 +21,8 @@ jest.mock('./services/DataService', () => {
       short_answer: 'short answer',
       long_answer: 'long answer'
     })
-  }));
-});
+  })),
+}));
 
 const mockSections = ['protein', 'cheese', 'cow', 'bacon'];
 

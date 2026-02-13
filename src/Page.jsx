@@ -45,12 +45,12 @@ export default function Page() {
       <Grid container spacing={2} size={{ xs: 12 }}>
         <Grid size={{ xs: 4, sm: 3, md: 2 }}>
           <img
-            src={require(
-              "../public/images/" +
-                name +
-                (hasBingo(name) ? "_done" : "") +
-                ".png",
-            )}
+            src={
+              "/images/" +
+              name +
+              (hasBingo(name) ? "_done" : "") +
+              ".png"
+            }
             alt={page.heading + " Page"}
           />
         </Grid>

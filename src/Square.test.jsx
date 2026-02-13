@@ -1,11 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import Square from './Square';
 
 // Mock Link component
-jest.mock('react-router-dom', () => ({
+vi.mock('react-router-dom', () => ({
   Link: ({ to, children, ...props }) => <a href={to} {...props}>{children}</a>,
-}), { virtual: true });
+}));
 
 const mockData = {
   name: 'bacon',
@@ -36,19 +37,19 @@ describe('Square', () => {
   it('should apply the correct background color', () => {
     const { container } = renderSquare();
     const card = container.querySelector('.Square');
-    expect(card).toHaveStyle({ backgroundColor: 'pink' });
+    expect(getComputedStyle(card).backgroundColor).toBe('rgb(255, 192, 203)');
   });
 
   it('should use regular image when hasBingo is false', () => {
     renderSquare(false);
     const image = screen.getByAltText('But bacon though... Square');
-    expect(image).toHaveAttribute('src', 'images/bacon.png');
+    expect(image).toHaveAttribute('src', '/images/bacon.png');
   });
 
   it('should use _done image when hasBingo is true', () => {
     renderSquare(true);
     const image = screen.getByAltText('But bacon though... Square');
-    expect(image).toHaveAttribute('src', 'images/bacon_done.png');
+    expect(image).toHaveAttribute('src', '/images/bacon_done.png');
   });
 
   it('should link to the correct detail page', () => {
@@ -75,7 +76,7 @@ describe('Square', () => {
       <Square data={dataWithDifferentColor} hasBingo={false} />
     );
     const card = container.querySelector('.Square');
-    expect(card).toHaveStyle({ backgroundColor: 'blue' });
+    expect(getComputedStyle(card).backgroundColor).toBe('rgb(0, 0, 255)');
   });
 
   it('should render all required card components', () => {

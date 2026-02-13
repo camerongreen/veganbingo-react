@@ -32,9 +32,9 @@
 ### Build & Run
 ```bash
 npm install      # Install dependencies
-npm start        # Dev server (react-scripts)
-npm run build    # Production build → `build/` folder
-npm test         # Run tests (CRA default)
+npm run dev      # Dev server (Vite)
+npm run build    # Production build → `dist/` folder
+npm test         # Run tests (Vitest)
 ```
 
 ### Update Bingo Content
@@ -77,10 +77,9 @@ Updates section files from Google Docs source of truth. Useful for bulk content 
 | `moment` v2.29 | Date formatting | Minimal use; timestamp in `addBingo()` |
 
 ## Deployment & Build Output
-- **Build output**: `build/` folder with code splitting (main bundle + 15+ chunk files)
+- **Build output**: `dist/` folder with code splitting (main bundle + chunk files)
 - **Apache config**: `scripts/conf/veganbingo.net.conf` - check for routing/rewrite rules affecting SPA
-- **Asset manifest**: `build/asset-manifest.json` documents all generated chunks
-- **Robots/sitemap**: SEO files in `public/` and `build/` (robots.txt, sitemap.xml)
+- **Robots/sitemap**: SEO files in `public/` and `dist/` (robots.txt, sitemap.xml)
 
 ## Common Workflows
 
@@ -88,7 +87,7 @@ Updates section files from Google Docs source of truth. Useful for bulk content 
 1. Create `src/sections/newsection.js` with `heading, alternatives, short_answer, long_answer` exports
 2. Add `'newsection'` to `DataService.#SECTIONS` array at desired grid position
 3. Create images: `public/images/newsection.png` and `public/images/newsection_done.png`
-4. Run `npm run build` and deploy `build/` folder
+4. Run `npm run build` and deploy `dist/` folder
 
 ### Modify Game Grid Layout
 - Grid size: Edit `Game.js` Grid container `size` prop or CSS in `src/styles/Game.css`
@@ -101,7 +100,7 @@ Updates section files from Google Docs source of truth. Useful for bulk content 
 
 ## Testing & Error Handling
 - Error page component: `Error.js` (renders via errorElement in router config)
-- No existing test suite visible; `npm test` uses React Scripts defaults
+- No existing test suite visible; `npm test` uses Vitest defaults
 - Development: Browser DevTools + console logging; check custom event dispatch
 
 # Checklist Before Committing

@@ -11,9 +11,9 @@ const root = createRoot(rootElement);
 
 root.render(
   <HelmetProvider>
-  <ThemeProvider theme={theme}>
-    <CssBaseline/>
-    <App/>
-  </ThemeProvider>
-  </HelmetProvider>,
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  </HelmetProvider>
 );

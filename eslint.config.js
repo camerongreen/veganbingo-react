@@ -41,7 +41,7 @@ module.exports = [
     },
   },
   {
-    files: ['**/*.test.js', '**/*.test.jsx'],
+    files: ['**/*.test.{js,jsx}'],
     languageOptions: {
       globals: {
         ...globals.jest,
@@ -49,6 +49,6 @@ module.exports = [
     },
   },
   {
-    ignores: ['build/**', 'node_modules/**'],
+    ignores: ['build/**', 'dist/**', 'node_modules/**'],
   },
 ];

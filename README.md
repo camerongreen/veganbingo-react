@@ -10,11 +10,11 @@ Originally written in Polymer, after Google cancelled that a couple of months af
 
 ## Run
 
-`npm start`
+`npm run dev`
 
 ## Build
 
-`npm run build`
+`npm run build` (outputs to `dist/`)
 
 ## Test
 

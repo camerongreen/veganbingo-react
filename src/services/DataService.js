@@ -52,7 +52,7 @@ export default class DataService {
   }
 
   loadSection(name) {
-    return import(`../sections/${name}`).then(loadedPage => {
+    return import(`../sections/${name}.js`).then(loadedPage => {
       loadedPage.name = name;
       loadedPage.colour = DataService.#COLOURS[DataService.#SECTIONS.indexOf(name) % DataService.#COLOURS.length];
       return loadedPage;

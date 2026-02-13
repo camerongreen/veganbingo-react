@@ -1,18 +1,19 @@
 import React from 'react';
 import { render, screen, waitFor, act } from '@testing-library/react';
+import { vi } from 'vitest';
 import { HelmetProvider } from '@dr.pogodin/react-helmet';
 import Page from './Page';
 import { BingoProvider } from './services/BingoContext';
 
 // Mock useParams and Link
-jest.mock('react-router-dom', () => ({
+vi.mock('react-router-dom', () => ({
   useParams: () => ({ name: 'bacon' }),
   Link: ({ to, children, ...props }) => <a href={to} {...props}>{children}</a>,
-}), { virtual: true });
+}));
 
 // Mock DataService
-jest.mock('./services/DataService', () => {
-  return jest.fn().mockImplementation(() => ({
+vi.mock('./services/DataService', () => ({
+  default: vi.fn().mockImplementation(() => ({
     getSection: (name) => Promise.resolve({
       name: name,
       heading: 'But bacon though...',
@@ -21,12 +22,8 @@ jest.mock('./services/DataService', () => {
       short_answer: 'There are great alternatives!',
       long_answer: 'Here is a longer explanation about bacon alternatives.'
     })
-  }));
-});
-
-// Mock require for images
-jest.mock('../public/images/bacon.png', () => 'bacon.png', { virtual: true });
-jest.mock('../public/images/bacon_done.png', () => 'bacon_done.png', { virtual: true });
+  })),
+}));
 
 const mockSections = ['protein', 'cheese', 'cow', 'bacon'];
 

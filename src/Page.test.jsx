@@ -12,18 +12,24 @@ vi.mock('react-router-dom', () => ({
 }));
 
 // Mock DataService
-vi.mock('./services/DataService', () => ({
-  default: vi.fn().mockImplementation(() => ({
-    getSection: (name) => Promise.resolve({
-      name: name,
-      heading: 'But bacon though...',
-      colour: 'pink',
-      alternatives: ['Try tempeh bacon', 'Try coconut bacon'],
-      short_answer: 'There are great alternatives!',
-      long_answer: 'Here is a longer explanation about bacon alternatives.'
-    })
-  })),
-}));
+vi.mock('./services/DataService', () => {
+  class DataServiceMock {
+    getSection(name) {
+      return Promise.resolve({
+        name: name,
+        heading: 'But bacon though...',
+        colour: 'pink',
+        alternatives: ['Try tempeh bacon', 'Try coconut bacon'],
+        short_answer: 'There are great alternatives!',
+        long_answer: 'Here is a longer explanation about bacon alternatives.'
+      });
+    }
+  }
+
+  return {
+    default: DataServiceMock,
+  };
+});
 
 const mockSections = ['protein', 'cheese', 'cow', 'bacon'];
 

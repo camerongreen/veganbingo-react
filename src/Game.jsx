@@ -23,11 +23,12 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 
 const dataService = new DataService();
+const sections = dataService.getSections();
+const placeholders = sections.map((name) => ({ name, heading: '', colour: '' }));
 
 export default function Game() {
   const theme = useTheme();
-  let [listItems, setListItems] = React.useState([]);
-  const sections = dataService.getSections();
+  const [listItems, setListItems] = React.useState(placeholders);
   const { hasBingo } = React.useContext(BingoContext);
   const [flashingSquares, setFlashingSquares] = React.useState([]);
   const [flashClass, setFlashClass] = React.useState('');
@@ -52,7 +53,7 @@ export default function Game() {
       }
     });
     return () => { isMounted = false };
-  }, [sections]);
+  }, []);
 
   React.useEffect(() => {
     // Check for completed squares on mount.
@@ -91,7 +92,7 @@ export default function Game() {
         localStorage.removeItem(`${storage_name}_completed_squares`);
       }
     }
-  }, [sections]); // Only run on mount
+  }, []); // Only run on mount
 
   return (
     <Container

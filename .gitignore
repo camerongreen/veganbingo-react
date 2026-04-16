@@ -23,6 +23,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Raw Google Docs downloads (temp, not committed)
+/tmp/
+
 # Guff
 tmp
 .idea

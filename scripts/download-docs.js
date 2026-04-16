@@ -28,62 +28,47 @@ const sections = {
 /**
  * Download markdown content from a Google Docs URL
  */
-function downloadDoc(url, maxRedirects = 5) {
+function downloadDocToFile(url, destPath, maxRedirects = 10) {
   return new Promise((resolve, reject) => {
-    const exportUrl = `${url}/export?format=markdown`;
-    
-    https.get(exportUrl, (res) => {
-      // Handle redirects
+    const isHttps = url.startsWith('https');
+    const client = isHttps ? https : require('http');
+
+    client.get(url, (res) => {
       if (res.statusCode === 301 || res.statusCode === 302 || res.statusCode === 307 || res.statusCode === 308) {
         if (maxRedirects === 0) {
           reject(new Error('Too many redirects'));
           return;
         }
-        
         const redirectUrl = res.headers.location;
         if (!redirectUrl) {
           reject(new Error('Redirect without location header'));
           return;
         }
-        
-        // Follow the redirect
-        https.get(redirectUrl, (redirectRes) => {
-          if (redirectRes.statusCode !== 200) {
-            reject(new Error(`Failed to download after redirect: ${redirectRes.statusCode}`));
-            return;
-          }
-          
-          let data = '';
-          redirectRes.on('data', (chunk) => {
-            data += chunk;
-          });
-          
-          redirectRes.on('end', () => {
-            data = data.replace(/\r/g, '').replace(/\\!/g, '!');
-            resolve(data);
-          });
-        }).on('error', reject);
-        
+        res.resume(); // discard response body
+        downloadDocToFile(redirectUrl, destPath, maxRedirects - 1).then(resolve).catch(reject);
         return;
       }
-      
+
       if (res.statusCode !== 200) {
-        reject(new Error(`Failed to download: ${res.statusCode}`));
+        reject(new Error(`Failed to download (${res.statusCode}): ${url}`));
         return;
       }
-      
+
       let data = '';
-      res.on('data', (chunk) => {
-        data += chunk;
-      });
-      
+      res.on('data', (chunk) => { data += chunk; });
       res.on('end', () => {
-        // Remove carriage returns and unnecessary markdown escapes from Google Docs
         data = data.replace(/\r/g, '').replace(/\\!/g, '!');
-        resolve(data);
+        fs.writeFileSync(destPath, data, 'utf8');
+        resolve();
       });
+      res.on('error', reject);
     }).on('error', reject);
   });
+}
+
+function downloadDoc(url, destPath) {
+  const exportUrl = `${url}/export?format=markdown`;
+  return downloadDocToFile(exportUrl, destPath);
 }
 
 /**
@@ -170,34 +155,66 @@ export {
 `;
 }
 
+const RAW_DOCS_DIR = path.join(__dirname, '..', 'tmp', 'raw-docs');
+
 /**
  * Main function to process all sections
  */
 async function main() {
   const args = process.argv.slice(2);
   const debugMode = args.includes('--debug') || args.includes('-d');
+  const parseOnly = args.includes('--parse-only') || args.includes('-p');
   const outputDir = args.find(arg => !arg.startsWith('-'));
   
   if (!outputDir || !fs.existsSync(outputDir)) {
-    console.error('Usage: node download-docs.js <output-directory> [--debug]');
+    console.error('Usage: node download-docs.js <output-directory> [--debug] [--parse-only]');
     console.error('Example: node download-docs.js src/sections');
     console.error('         node download-docs.js src/sections --debug');
+    console.error('         node download-docs.js src/sections --parse-only');
     process.exit(1);
   }
   
   if (debugMode) {
-    console.log('🐛 Debug mode enabled - files will not be written\n');
+    console.log('Debug mode enabled - files will not be written\n');
+  }
+
+  if (parseOnly) {
+    if (!fs.existsSync(RAW_DOCS_DIR)) {
+      console.error(`Error: raw-docs directory not found at ${RAW_DOCS_DIR}`);
+      console.error('Run without --parse-only first to download the raw files.');
+      process.exit(1);
+    }
+    const firstSection = Object.keys(sections)[0];
+    const firstFile = path.join(RAW_DOCS_DIR, `${firstSection}.md`);
+    if (!fs.existsSync(firstFile)) {
+      console.error(`Error: expected raw file not found: ${firstFile}`);
+      console.error('Run without --parse-only first to download the raw files.');
+      process.exit(1);
+    }
+    console.log('Parse-only mode - skipping download, reading from raw-docs/\n');
+  } else {
+    // Ensure the raw-docs temp directory exists
+    if (!fs.existsSync(RAW_DOCS_DIR)) {
+      fs.mkdirSync(RAW_DOCS_DIR, { recursive: true });
+    }
   }
   
-  console.log(`Downloading and processing ${Object.keys(sections).length} sections...`);
+  console.log(`Processing ${Object.keys(sections).length} sections...`);
   
-  for (const [name, url] of Object.entries(sections)) {
+  for (const [name] of Object.entries(sections)) {
     try {
-      console.log(`Processing ${name}...`);
-      
-      // Download the document
-      const text = await downloadDoc(url);
-      
+      const rawPath = path.join(RAW_DOCS_DIR, `${name}.md`);
+
+      if (!parseOnly) {
+        console.log(`Downloading ${name}...`);
+        await downloadDoc(sections[name], rawPath);
+        console.log(`  Saved raw to ${rawPath}`);
+      } else {
+        console.log(`Parsing ${name} from disk...`);
+      }
+
+      const text = fs.readFileSync(rawPath, 'utf8');
+
       // Parse the content
       const parsed = parseContent(text);
       

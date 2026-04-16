@@ -10,7 +10,8 @@
     "test": "vitest --run",
     "lint": "eslint src",
     "code-quality": "npm run lint && npm run test",
-    "download-docs": "node scripts/download-docs.js src/sections"
+    "download-docs": "node scripts/download-docs.js src/sections",
+    "parse-docs": "node scripts/download-docs.js src/sections --parse-only"
   },
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.0.2",

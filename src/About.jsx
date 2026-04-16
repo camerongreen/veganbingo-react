@@ -2,58 +2,26 @@ import * as React from 'react';
 import InfoIcon from '@mui/icons-material/Info';
 import InfoPage from './InfoPage';
 
+const content = `<p>Vegan greetings to you!</p>
+<p>Vegan Bingo is made up of a list of common questions or comments we get when people find out we are vegan. If someone says one of these common things to you, you can then check off a square on Vegan Bingo!</p>
+<p>As someone who has had to answer these common questions a lot, I have written some thoughts on how to answer each of them. Each question has a quick, snappy answer, but also has a longer, more in-depth answer for you to read at your leisure.</p>
+<h2>The Vegan Bingo story</h2>
+<p>Anyone who has been vegan for a long time will have witnessed a lot of positive change in the world. There are more vegan options in restaurants, more vegan products in the shops, and the products are often of a better quality. Vegan cheese in particular has come a long way since the early 2000s! While veganism has never been more widespread in mainstream consciousness, actual vegans are still a relatively niche part of the general population. A lot more people have now heard of veganism, but they still don’t know much about it, certainly the philosophical side of it. What this means is that when someone finds out you are a vegan, they will ask you questions, and after a while, you will notice these are often the same questions. Vegan Bingo is a way to have fun with this reality and reward you for having those repeated conversations about veganism. </p>
+<p>Personally, I’ve been through various stages of dealing with being vegan in a non-vegan world. As a new vegan, I was full of naive hope; I thought that we just needed to tell people about the reality of animal suffering in our farming systems and in nature, and they would start to change their behaviours. This was inevitably followed by disillusionment with the fact that people didn’t have any good argument for eating animals, but that didn&#39;t stop them from stubbornly defending it. I&#39;ve reached a point in a discussion about eating animals where the person said, &quot;We are human, and they are not&quot;, which is a classification, not an argument. There is a point where rationality fails, and you realise people don&#39;t even care that their reasons aren&#39;t very good ones. They are on the side of the majority, and that is enough. </p>
+<p>Many say they love animals. Given the amount of suffering involved in animal agriculture, with many billions of animals in it every year, you would think anyone who loves animals would be highly concerned about the ethics of the system. Talking to someone who eats meat for a few minutes, however, often shows this not to be the case. They often don&#39;t know the basics of animal agriculture, but in an example of the Dunning-Kruger phenomenon, they have no idea that they don&#39;t know. If you ask them a basic question about factory farming, they will give you a poor answer, instantly refutable by two minutes on the internet. They aren&#39;t happy if you inform them or correct them about anything, though; rather, they get annoyed at you for bringing to their attention the needless suffering of billions of animals, suffering they are directly contributing to. I have a simple proposition for people  - Don’t ask me where I get my protein from if you don’t care about my answer and are just clumsily trying to justify your own apathy and inaction towards animal suffering</p>
+<p>Now that I&#39;ve been vegan for a long time, I&#39;ve come to what I think is a healthier and more productive relationship with the non-vegan world. When people ask me questions, even stupid loaded questions, I see it as an invitation to advocate for the animals. I don&#39;t expect that I am going to change anyone&#39;s mind in a single conversation, so I concentrate on trying to open a crack in their perception, one that eventually widens enough that they can properly see the suffering of animals. Everyone has to go through various stages of truth. At some point, most ideas are new to everybody, especially ideas that are deliberately hidden in the culture. My own truth is also incomplete, so I try to listen to people and their stories, and remember there is often something I can learn from them. I ate animal products for the first 29 years of my life. I probably would have had the same questions and said the same things to justify my own unexamined habits. So I imagine myself in their place, lowering my expectations for what I am likely to achieve, but also raising my aim from a single person to a culture. If I can remove one or two of a person&#39;s barriers to change, and at least avoid creating more barriers by giving them a bad experience of conversing about veganism, that is probably enough. I want to leave people more open to discussing veganism, as when I found them. If next time they meet a vegan, see vegan products, or see something about a new documentary exposing animal farming, I want them to be more, not less, likely to engage after having met me. </p>
+<p>Veganism is about our society&#39;s shared moral progress. Hopefully, we can bring people along on this journey, and that starts by assuming other people are also trying to figure out how to live well and ethically in this world, just like we are. Some people may just argue out of ego and social status, or they like conforming and just don&#39;t want to change, or maybe they don’t really have any higher ideals beyond selfishness, but it&#39;s not really easy to tell what sort of person we are talking to, whether they are open to change or not. Just because someone argues with us doesn&#39;t mean they are against veganism. Some argue rigorously and perceptively, because they want proof of a position before they consider adopting it. People don’t change lightly after all, nor should they. We should accept and even encourage that. Our job is to be part of people&#39;s journeys, to at least plant seeds of helping people see a truth that they might come to be thankful for.</p>
+<p>We can keep making progress towards a vegan world, but it is going to take the same sort of thoughtfulness, energy and activism as it has taken to remove other horrors of our past. Vegan Bingo is an attempt to positively affect the cultural conversation from which that change can happen. Hope you get something out of it!</p>
+<p>If you&#39;d like to get in touch about Vegan Bingo or anything else, or just want to read my thoughts, check out my web page at: <a href="https://camerongreen.org">https://camerongreen.org</a>.</p>
+<p>Ahimsa!</p>
+<p>Cameron     </p>
+<p>Vegan Bingo was inspired by (what I think is) the original Omnivore Rationalization Bingo by Vegnews, sent to me in 2008. </p>
+<p>This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this licence, visit <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a></p>`;
+
 export default function About() {
- return (
-   <InfoPage icon={<InfoIcon fontSize="large"/>} heading="About Vegan Bingo">
-     <p>
-       Greetings!
-     </p>
-
-     <p>Anyone who has been vegan for a long time will have witnessed an incredible amount of positive change. While veganism has never been more mainstream, it is still relatively niche as part of the general population. A lot of people don’t know much about veganism, and as a vegan you will often be asked the same questions repeatedly. Vegan Bingo is a way to have fun with this reality, and reward you for having conversations about veganism. You check off a bingo when people ask questions, and can track how long it takes you to get them all.
-     </p>
-
-     <p>Personally I’ve been through various stages with this reality of the same conversations over and over again. As a new vegan I was full of hope and energy, I thought that we just needed to reach people with the reality of animal suffering and sentience and they would see the same truth I had. This was inevitably followed by disillusionment with the fact that people didn’t have any good argument for eating animals, but didn’t care that they didn’t. Any poor argument refutable by two minutes on the internet would do, they can’t be bothered to change and wish you wouldn’t remind them of the billions of animals needlessly suffering they are directly contributing to. I wanted to say to people “Don’t ask me where I get my protein from if you don’t care about my answer and are just clumsily trying to justify your own apathy and inaction towards animal suffering”. I’ve now come to what I think is a healthier and more productive state. People asking me questions, even stupid loaded questions, is an invitation to advocate for the animals. I try to enter the conversations lightly, sincerely, keeping in mind that at some point all ideas are new to everybody, that there is something to learn from most people, that I ate meat for the first 25 years of my life and might have said the same things, that even though I have heard the same questions dozens of times each person who asks it has their own unique story, that I probably won’t convert anyone in a single conversation but it’s achievable to remove one or two of their barriers to change, and that most of all I don’t want to leave a bad experience of conversing about veganism in someone’s mind, or the minds of people witnessing the conversation. I want to leave people as, or more, open to discussing veganism as when I found them.
-     </p>
-
-     <p>Vegan Bingo also gives vegans some ideas for how to answer common questions. We shouldn&apos;t pretend we have all the answers, hopefully the person you are talking to is just another person trying to figure out how to live well and ethically in this world just like we are. Some people are just arguing out of ego, they resist change because they don’t really have ideals, just an identity to cling to and try to elevate. Others though, who argue just as rigorously and usually more perceptively, do so because they want proof of a position before they consider adopting it. People don’t change lightly after all, nor should they, we should accept and even encourage that and think of our jobs as planting seeds, of helping people see a truth which they will come to be thankful for.
-     </p>
-
-     <p>
-       If you&apos;d like to get in touch about Vegan Bingo or anything else, or just
-       want to read my thoughts, check out my web page at: <a
-       href="https://camerongreen.org" target="_blank" rel="noreferrer">camerongreen.org</a>
-     </p>
-
-     <p>
-       You can chat more about Vegan Bingo, post your times, watch tumble weeds
-       roll past (seriously there have been like 2 posts ever) at: <a
-       href="https://facebook.com/veganbingo"
-       target="_blank" rel="noreferrer">facebook.com/veganbingo</a>
-     </p>
-
-     <p>
-       To read the privacy terms or other FAQs about the app: <a
-       href="https://camerongreen.org/a/veganbingo" target="_blank" rel="noreferrer">Vegan Bingo
-       on E.A.R.T.H.</a>. In short it only stores data in your browser and I don&apos;t take any identifying information. I have put Google Analytics on it now, but I won&apos;t be using it to target ads or anything else, just want to know how many people are using it.
-     </p>
-
-     <p>
-       Vegan Bingo was inspired by (what I think is) the original Omnivore
-       Rationalization Bingo by Vegnews, sent to me in 2008.
-       <img style={{ margin: '1rem auto', 'max-width': '80%' }} src="images/rationalization-bingo-2007.jpg" alt="Omnivore Rationalization Bingo" />
-     </p>
-
-     <p>
-       This work is licensed under the Creative Commons
-       Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a
-       copy of this licence, visit <a
-       href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
-       target="_blank" rel="noreferrer">Creative Commons</a>. Source code for the application is here: <a
-       href="https://github.com/camerongreen/veganbingo-react">Vegan Bingo on Github</a>.
-     </p>
-
-     <p>Ahimsa!</p>
-
-   </InfoPage>
- );
+  return (
+    <InfoPage icon={<InfoIcon fontSize="large"/>} heading="About Page">
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+    </InfoPage>
+  );
 }

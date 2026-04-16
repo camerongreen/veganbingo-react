@@ -5,6 +5,15 @@ const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
 
+// Google Docs URLs for InfoPage components (pages/)
+const pages = {
+  'About': {
+    url: 'https://docs.google.com/document/d/1xT6jquARDUdF3h-RaePiRL3mdfQ3_h1bhtkj5Q3OlB0',
+    icon: "InfoIcon",
+    iconImport: "import InfoIcon from '@mui/icons-material/Info';",
+  },
+};
+
 // Google Docs URLs for each section
 const sections = {
   'aspirational': 'https://docs.google.com/document/d/196lc34oglHYc1olevXr7-dZvboUkHLEobRqDi_RMq3M',
@@ -155,6 +164,42 @@ export {
 `;
 }
 
+/**
+ * Extract heading and body from parsed markdown content.
+ * The first H1 becomes the page heading; everything else is body HTML.
+ */
+function generatePageJsx(name, pageConfig, markdownText) {
+  // Split off the first H1 line as the heading
+  const lines = markdownText.split('\n');
+  let heading = name;
+  let bodyLines = lines;
+
+  const h1Index = lines.findIndex(l => l.trimStart().startsWith('# '));
+  if (h1Index !== -1) {
+    heading = lines[h1Index].trimStart().replace(/^#\s+/, '').trim();
+    bodyLines = lines.slice(h1Index + 1);
+  }
+
+  const bodyHtml = marked.parse(bodyLines.join('\n'), { breaks: true, gfm: true }).trim();
+  // Escape backticks and ${} in the HTML for safe template literal embedding
+  const escapedHtml = bodyHtml.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$\{/g, '\\${');
+
+  return `import * as React from 'react';
+${pageConfig.iconImport}
+import InfoPage from './InfoPage';
+
+const content = \`${escapedHtml}\`;
+
+export default function ${name}() {
+  return (
+    <InfoPage icon={<${pageConfig.icon} fontSize="large"/>} heading="${heading}">
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+    </InfoPage>
+  );
+}
+`;
+}
+
 const RAW_DOCS_DIR = path.join(__dirname, '..', 'tmp', 'raw-docs');
 
 /**
@@ -173,6 +218,9 @@ async function main() {
     console.error('         node download-docs.js src/sections --parse-only');
     process.exit(1);
   }
+  
+  // Pages output dir is the parent of the sections output dir (e.g. src/ when sections is src/sections)
+  const pagesOutputDir = path.dirname(outputDir);
   
   if (debugMode) {
     console.log('Debug mode enabled - files will not be written\n');
@@ -236,6 +284,42 @@ async function main() {
     }
   }
   
+  console.log(`\nProcessing ${Object.keys(pages).length} pages...`);
+
+  const RAW_PAGES_DIR = path.join(__dirname, '..', 'tmp', 'raw-pages');
+  if (!parseOnly && !fs.existsSync(RAW_PAGES_DIR)) {
+    fs.mkdirSync(RAW_PAGES_DIR, { recursive: true });
+  }
+
+  for (const [name, pageConfig] of Object.entries(pages)) {
+    try {
+      const rawPath = path.join(RAW_PAGES_DIR, `${name}.md`);
+
+      if (!parseOnly) {
+        console.log(`Downloading page ${name}...`);
+        await downloadDoc(pageConfig.url, rawPath);
+        console.log(`  Saved raw to ${rawPath}`);
+      } else {
+        console.log(`Parsing page ${name} from disk...`);
+      }
+
+      const text = fs.readFileSync(rawPath, 'utf8');
+      const jsxContent = generatePageJsx(name, pageConfig, text);
+
+      if (debugMode) {
+        console.log(`\n--- ${name}.jsx preview ---`);
+        console.log(jsxContent.substring(0, 1000) + '...\n');
+        console.log(`✓ ${name}.jsx processed (not written)`);
+      } else {
+        const outputPath = path.join(pagesOutputDir, `${name}.jsx`);
+        fs.writeFileSync(outputPath, jsxContent, 'utf8');
+        console.log(`✓ ${name}.jsx created`);
+      }
+    } catch (error) {
+      console.error(`✗ Error processing page ${name}:`, error.message);
+    }
+  }
+
   console.log('\nDone!');
   process.exit(0);
 }

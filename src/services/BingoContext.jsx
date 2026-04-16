@@ -1,5 +1,5 @@
 import * as React from "react";
-export const BingoContext = React.createContext([]);
+export const BingoContext = React.createContext({});
 
 export const winningCombinations = [
   // Rows.
@@ -19,9 +19,13 @@ export const winningCombinations = [
 
 export const BingoProvider = (props) => {
   const storage_name = "veganbingo.net";
-  const [bingos, setBingos] = React.useState(
-    JSON.parse(localStorage.getItem(storage_name)) || {},
-  );
+  const [bingos, setBingos] = React.useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem(storage_name)) || {};
+    } catch {
+      return {};
+    }
+  });
 
   const { sections } = props;
 

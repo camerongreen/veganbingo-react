@@ -27,7 +27,7 @@ export default class DataService {
     'preachy',
   ];
 
-  #data = {};
+  static #data = {};
 
   getSections() {
     return DataService.#SECTIONS;
@@ -47,11 +47,14 @@ export default class DataService {
    *   Section data.
    */
   getSection(name) {
-    if (name in this.#data) {
-      return this.#data[name];
+    if (name in DataService.#data) {
+      return DataService.#data[name];
     }
 
-    const loadedPage =  this.loadSection(name);
+    const loadedPage = this.loadSection(name).catch((err) => {
+      delete DataService.#data[name];
+      return Promise.reject(err);
+    });
     this.setSection(name, loadedPage);
     return loadedPage;
   }
@@ -70,6 +73,6 @@ export default class DataService {
   }
 
   setSection(name, values) {
-    this.#data[name] = values;
+    DataService.#data[name] = values;
   }
 }

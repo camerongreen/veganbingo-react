@@ -1,6 +1,8 @@
 
 const heading = `What about our canine teeth?`;
 
+const short_heading = `Canine teeth`;
+
 const alternatives = `Meat eating caused human brains to evolve. Our forward-looking eyes mean we are a carnivore`;
 
 const short_answer = `<p>The fact that we call two of our teeth “canine” is of little more scientific relevance than the fact that we have an Achilles heel or an Adam’s apple. Justifying killing should never be done lightly, and should require an understanding of comparative biology slightly more advanced than we had thousands of years ago when we named these teeth. The argument that our teeth prove we ate animals is a clear case of &quot;believe me, not your own eyes&quot;. Look at carnivore teeth, then at herbivore teeth, and then compare both to our own. Humans are opportunistic omnivores. We can largely choose the makeup of our diet, and thus whether it contributes to a more or less compassionate world.</p>`;
@@ -20,5 +22,5 @@ const long_answer = `<p>Reality eventually finds out those who profess things th
 <p>Once you strip away what people would like to believe out of habit, you are left with a simple truth of profound ethical importance to the world. We have the freedom to use our conscience in deciding what, or whom, we eat. We can make compassionate choices and contribute to a kinder world…if we want it.</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

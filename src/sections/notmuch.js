@@ -1,7 +1,9 @@
 
 const heading = `I don't eat much meat`;
 
-const alternatives = `Someone tells you they recently ate a vegetarian or vegan meal.`;
+const short_heading = `I don't eat much meat`;
+
+const alternatives = `I am mostly vegan. Someone tells you they recently ate a vegetarian or vegan meal.`;
 
 const short_answer = `<p>Whether you think you eat much meat is partly related to who you compare yourself to. Americans and Australians consume 2 to 3 times the amount of animal products compared to the global average. An American who &quot;doesn&#39;t eat much meat&quot; might be considered an avid meat consumer in Japan, or even in America, before the factory farm changed things so drastically. Someone who eats meat less than once or twice a week can probably claim they aren&#39;t eating much meat. Everyone else should say something more like &quot;I don&#39;t eat as much meat as my red-faced uncle who drives a big car&quot;. Most vegans appreciate the positive aspiration to eat less meat, but it still implies victims. Fewer animals in factory farms means less suffering in the world, but every animal unnecessarily slaughtered for food is an individual tragedy.</p>`;
 
@@ -34,5 +36,5 @@ const long_answer = `<p>People who say things like &quot;I don&#39;t eat much me
 <p>In the end, we should generally try to be kind to people who hold out a hand towards us. &quot;I don&#39;t eat much meat&quot; is a statement of positive intention, and if properly followed through with, it will mean the ramifications of their lives on the non-human world will be less bad. We should have higher ideals for ourselves and our contribution to the world than less bad; we should be heading towards flourishing and a higher good. A better collective future awaits humans and animals beyond the factory farms, cages, barbed wire enclosures, slaughterhouses, and other tools of animal oppression that humans have created. Not eating much meat leaves these things that should never have existed in place. A collective evolution to a global vegan culture is too important for us to linger in the ethical purgatory of transitional phases. Be part of leading that change.</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

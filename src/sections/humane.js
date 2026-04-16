@@ -1,6 +1,8 @@
 
 const heading = `What about backyard chickens?`;
 
+const short_heading = `Backyard chickens`;
+
 const alternatives = `What if animals were farmed humanely?`;
 
 const short_answer = `<p>Chickens, perhaps even more than any other farmed animal, have been abusively bred to be production machines. The breeds of hens in our farming systems have been selectively manipulated to lay hundreds of eggs yearly, ten times more and larger eggs than their wild forebears. This is only one facet of a torturous regime that is inconsistent with health and quality of life. Life in a backyard would almost always be better than a factory farm, but hens cannot escape that their bodies have been bred to suffer. If you care at all about the suffering of these friendly, inquisitive creatures, the best policy is to eat something else.</p>`;
@@ -27,5 +29,5 @@ const long_answer = `<p>The industrial factory farm is one of the cruellest crea
 <p>We can do better than turning our backyards into more places to oppress and slaughter animals. Paying to outsource oppression and slaughter, however, as most people currently do, is even less ethically acceptable. Luckily, we have a simple choice we can make to escape this ethical quandary. By joining the growing millions living happy and healthy vegan lives, we can be part of a movement showing the way to a brighter shared future between human and non-human beings.</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

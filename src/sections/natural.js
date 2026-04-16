@@ -1,6 +1,8 @@
 
 const heading = `Eating meat is natural`;
 
+const short_heading = `Eating meat is natural`;
+
 const alternatives = `Killing and death are part of nature. What about the food chain?`;
 
 const short_answer = `<p>Whether something has been done for a long time is irrelevant to whether it is necessary, just or compassionate. Consider all of the human-originated violent practices down through the centuries. Should we perpetuate this violence because it is perhaps natural? This is an amoral universe; if we want a more moral universe, it is only to human ethical progress and action that we can reliably look. Compassion and empathy are also natural to social species, and have been quieter but still powerful forces in all human cultures. We thus have choices to make about what parts of our nature to perpetuate. A reverence for what is natural is vital in considering our ethical frameworks, but even if we understood Nature and our nature, it is still within ourselves that we must find the final answers.</p>`;
@@ -23,5 +25,5 @@ const long_answer = `<p>As much as humans have long wished for an ordered, moral
 <p>A more ethical universe is a lofty goal, a heroic challenge for humanity that requires the flourishing of the best within us. To transcend our limitations, to outgrow our myopic selfishness and embrace the complexity of the interconnected reality of life, is a worthy challenge of our higher consciousness. Such lofty goals begin by taking pragmatic, powerful actions in our daily lives. By changing how we consume, especially what we eat, we can vote to balance and heal the natural world. Our full individual and collective ethical potential shall only start to be realised when we acknowledge our interdependence on, and our place within, the grand family of life. Veganism is a jumping-off point for a new conception of humanity’s role within our complex evolutionary world.</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

@@ -1,6 +1,8 @@
 
 const heading = `Why do you eat things that look like meat?`;
 
+const short_heading = `Fake meat`;
+
 const alternatives = `Thinking that every vegan alternative is made of tofu. Thinking all vegan alternatives have unnatural ingredients.`;
 
 const short_answer = `<p>If you are offended by someone happily eating a veggie burger or sausage, and not by billions of animals suffering in slaughterhouses and factory farms, perhaps you need to reconsider your ethical framework. Vegans are generally more concerned with the ethics, not the aesthetics, of what we eat. If people are bothered by food that hasn&#39;t involved the factory farm and slaughterhouse, then it is those people, not the vegans, who need to change.</p>`;
@@ -20,5 +22,5 @@ const long_answer = `<p>If carnists are so offended by vegans eating veggie burg
 <p>There are many things we could get offended by in the world, but we need to have some sense of proportion about what actually matters. Finally, to repeat the point I made above, if people are offended by others happily eating veggie sausages, and not by billions of animals suffering in slaughterhouses and factory farms, they need to reconsider their ethical framework.</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

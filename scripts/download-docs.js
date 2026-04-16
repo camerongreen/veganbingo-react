@@ -141,16 +141,30 @@ function textToHtml(markdown) {
 /**
  * Generate JavaScript module content from parsed sections
  */
-function generateModule(sections) {
+function generateModule(name, sections) {
   // Expected structure: first section is heading, second is alternatives,
   // third is short answer, rest is long answer
-  const heading = sections.heading || 'heading';
+  const heading = sections.heading || '';
+  const shortHeading = sections['short heading'] || '';
   const alternatives = sections['alternative headings'] || '';
   const shortAnswer = sections['short answer'] || '';
   const longAnswer = sections['long answer'] || '';
-  
+
+  const missing = [];
+  if (!heading) missing.push('heading');
+  if (!shortHeading) missing.push('short heading');
+  if (!alternatives) missing.push('alternative headings');
+  if (!shortAnswer) missing.push('short answer');
+  if (!longAnswer) missing.push('long answer');
+  if (missing.length > 0) {
+    console.error(`✗ ${name}: missing fields: ${missing.join(', ')}`);
+    process.exit(1);
+  }
+
   return `
 const heading = \`${heading}\`;
+
+const short_heading = \`${shortHeading}\`;
 
 const alternatives = \`${alternatives}\`;
 
@@ -159,7 +173,7 @@ const short_answer = \`${textToHtml(shortAnswer)}\`;
 const long_answer = \`${textToHtml(longAnswer)}\`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };
 `;
 }
@@ -267,7 +281,7 @@ async function main() {
       const parsed = parseContent(text);
       
       // Generate the JavaScript module
-      const moduleContent = generateModule(parsed);
+      const moduleContent = generateModule(name, parsed);
       
       if (debugMode) {
         console.log(`\n--- ${name}.js preview ---`);

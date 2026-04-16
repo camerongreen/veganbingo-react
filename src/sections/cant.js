@@ -1,6 +1,8 @@
 
 const heading = `But you can't eat that!`;
 
+const short_heading = `You can't eat that`;
+
 const alternatives = `It's not vegan, but it is gluten-free. Can you eat bread, peanut butter, etc?`;
 
 const short_answer = `<p>Non-vegans and new vegans focus on what vegans don&#39;t eat, whereas established vegans mostly focus on what they do eat. From the perspective of an animal-product-heavy diet, veganism may seem like a diet of self-denial. Vegans, however, see aligning our consumption with our compassion as the opposite of self-denial because it is about living in a way that expresses our better selves. Replacing a handful of ingredients is a small price to help heal humanity&#39;s relationship with the non-human world. Once we become accustomed to being vegan, a mental shift occurs where we cease to consider animal products as food and instead focus on the infinite variety of the world&#39;s foods and cuisines.</p>`;
@@ -24,5 +26,5 @@ const long_answer = `<p>Some vegans like myself weren&#39;t looking for an ident
 <p>Focusing on what vegans can and can’t eat mistakes the forest for the trees. Veganism is not a diet; it is a philosophy of compassion. People who mistake veganism for a diet display how little they understand its vital message for our world. Veganism is not about ticking some arbitrary boxes; it is about having a thought-through personal response to deep ethical questions about the way humans currently treat other life. What we &quot;can&#39;t&quot; do collectively is continue living in a way that depletes the shared living systems of this world. What we &quot;can&#39;t&quot; do is continue sending animals into slaughterhouses and factory farms, and think our ethics towards animals shouldn&#39;t be questioned.</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

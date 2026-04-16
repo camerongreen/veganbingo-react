@@ -1,6 +1,8 @@
 
 const heading = `Where would all the cows go?`;
 
+const short_heading = `What about cows?`;
+
 const alternatives = `What about all the farmers? What about the open landscapes of the countryside?`;
 
 const short_answer = `<p>It should come as no surprise that nothing is left to chance in the big business that is intensive animal farming. Livestock breeding is strictly controlled and responds to the laws of supply and demand rather than the desires of animals or their welfare. The fewer animals people eat, the fewer animals corporations will artificially breed. It may be interesting to think about “what if we all suddenly stopped eating animals?” But, back in reality, the transition will probably continue to be gradual, and our economies will have plenty of time to adjust.</p>`;
@@ -23,5 +25,5 @@ const long_answer = `<p>When people try to justify why they eat animals, the mai
 <p>Oppression not only damages the oppressed, but it also limits the vision and full flourishing of the oppressor. The livestock industry is the very definition of oppression; it is a symptom of our rampant myopia, and we should celebrate the gradual replacement of these cruel, unnecessary industries because it will reflect a wider ethical and intellectual progression for us all.</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

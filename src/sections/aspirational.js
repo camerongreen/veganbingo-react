@@ -1,7 +1,9 @@
 
-const heading = `I'd love to be vegan, but...`;
+const heading = `I am an animal lover`;
 
-const alternatives = `I’m an animal lover. I was vegan/vegetarian but…`;
+const short_heading = `I love animals...`;
+
+const alternatives = `I’d love to be vegan but... I was vegan/vegetarian but…`;
 
 const short_answer = `<p>Noble aspirations are fine, but when we reflect upon our lives, we will judge ourselves more by what we have done than what we wish we had done. In the process of self-actualisation, the most important step is to make our lives consistent with our ethical aspirations. We may love animals or wish there was less suffering in the world, but if we don’t believe these things strongly enough to alter our behaviour, we need to question our ethical priorities. Kind thoughts, prayers, virtue signalling, and policing language can all be reasonable in themselves unless they are the main extent of your activism. Love, compassion and kindness must be active because it is the realm of sentient experience that ultimately matters, not your internal world.</p>`;
 
@@ -25,5 +27,5 @@ const long_answer = `<p>Veganism is an idea that has become more embedded in the
 <p>As much as we personally identify with veganism, it is not about us or our egos; we are speaking for the animals, and we have a responsibility to do it effectively. Some of the most vociferous, hardline vegans I have met seemed to put more people off veganism than draw them to it. Being right, coming from the moral high ground, is not enough; our egos can often be the main barrier between us and our connection with others. Almost any conversation about veganism is a chance to plant seeds that might bear fruit. Let us ensure in these conversations, we properly embody our message by exhibiting the compassion for humans that we are trying to promote towards animals.</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

@@ -1,6 +1,8 @@
 
 const heading = `Mmmm bacon...`;
 
+const short_heading = `Mmmm bacon...`;
+
 const alternatives = `"I love steak" is almost as common. Other lines from the toxic masculinity script.`;
 
 const short_answer = `<p>Jokes that rely on being cruel or mean reveal the shallow character of both those who tell them and those who laugh along. Humour is a complex part of human expression and communication. Laughter can be joyous and sincere, or fake and hollow. Sometimes we can&#39;t help laughing, sometimes we intellectually want to laugh so we force out a chuckle, but this can slip into fake laughing. Fake laughter is used as part of status displays, or to declare our identity with a person, group or mob. You&#39;re unlikely to get through to people who use fake humour, even if you have all the intelligence and sincerity in the world, but then being a fake person is its own karma.</p>`;
@@ -21,5 +23,5 @@ const long_answer = `<p>There are some good jokes that make light of veganism, e
 <p>Finally, a joke about carnists I hope they can appreciate: How many meat eaters does it take to change a lightbulb? None, they prefer to stay in the dark.</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

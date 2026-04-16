@@ -1,6 +1,8 @@
 
 const heading = `Where do you get protein?`;
 
+const short_heading = `What about protein?`;
+
 const alternatives = `Where do you get iron? Or an obscure trace element that they didn’t know about 2 months ago`;
 
 const short_answer = `<p>When you mention you are vegan, many people suddenly become very interested in nutrition. Unfortunately, they generally don&#39;t know that most nutrients, including protein, come from plants. Humans can get everything they need on a plant-based diet without needless animal suffering. Healthy vegans don’t just remove animal products from an omnivorous diet either; they swap them with kinder alternatives like nuts, beans, seeds, lentils, peas, seitan, tempeh, quinoa, tofu and a host of other foods.</p>`;
@@ -17,5 +19,5 @@ const long_answer = `<p>At a party many years ago, a boy who looked about 10 was
 <p>In the end, we should be getting our nutritional advice from qualified dietitians, not friends, family, random people, social media or even Vegan Bingo! A great investment in a better life is booking a couple of sessions with a university-qualified nutritionist who understands plant-based diets. They will help you make sure the core of your diet is working towards your long-term health. Healthy food is a gift we can give ourselves and others, that will help maintain physical and mental health, and that will reverberate positively out into the world.<br>As a quote attributed to Hippocrates says, &quot;Let thy food be thy medicine&quot;. Let us follow this advice while also making our food kinder to the world.</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

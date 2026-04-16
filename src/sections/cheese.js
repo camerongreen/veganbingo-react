@@ -1,6 +1,8 @@
 
 const heading = `I could never give up cheese`;
 
+const short_heading = `But cheese`;
+
 const alternatives = `I could never go vegan because… but you won't need any other alternative because you'll be hearing about cheese repeatedly.`;
 
 const short_answer = `<p>Cheese is mostly about two things: fat and cruelty to animals. By giving it up, you can reduce suffering, and fat is available in plenty of other foods. Perhaps even more than other animal products, people say they feel better after giving up dairy. This is unsurprising, as only a third of people globally have the genetic mutation necessary to process lactose beyond infancy. Even for those who can process it, the ability reduces as we age. Like all other mammals, humans should be naturally weaned from their mother&#39;s milk after infancy. People who give up dairy soon find they lose the taste for it and prefer the many delicious and kinder alternatives. And if you think about it, taking the breast milk of another species is weird and oppressive.</p>`;
@@ -19,5 +21,5 @@ const long_answer = `<p>The statement &quot;I could never give up cheese&quot; i
 <p>You can give up cheese; you can lean into your compassionate best self; you can be a powerful force helping to create a kinder world.</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

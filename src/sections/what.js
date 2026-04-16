@@ -1,7 +1,9 @@
 
 const heading = `What about human suffering?`;
 
-const alternatives = `You care more about animals than people`;
+const short_heading = `What about people?`;
+
+const alternatives = `You care more about animals than people. We should worry about humans first.`;
 
 const short_answer = `<p>To think that one can only care about a single issue is a false dichotomy. Humans are complex beings, and most of us can and do care about more than one thing. Surveys consistently find that people who care about animals are more likely to care about human rights and the environment. The idea that we need to ration our compassion or love is a basic misunderstanding - widening our circle of empathy does not diminish, but strengthens it. People are animals too; human suffering is animal suffering; being vegan extends our compassion to its necessary and logical conclusion.</p>`;
 
@@ -32,5 +34,5 @@ const long_answer = `<p>What about human suffering? The premise of this statemen
 <p>Until he extends the circle of his compassion to all living things, man will not himself find peace - Albert Schweitzer</p>`;
 
 export {
- heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, short_answer, long_answer,
 };

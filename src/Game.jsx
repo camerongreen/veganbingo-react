@@ -24,7 +24,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 const dataService = new DataService();
 const sections = dataService.getSections();
-const placeholders = sections.map((name) => ({ name, heading: '', colour: '' }));
+const placeholders = sections.map((name) => ({ name, heading: '', colour: dataService.getColour(name) }));
 
 export default function Game() {
   const theme = useTheme();

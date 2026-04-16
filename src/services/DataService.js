@@ -33,6 +33,11 @@ export default class DataService {
     return DataService.#SECTIONS;
   }
 
+  getColour(name) {
+    const index = DataService.#SECTIONS.indexOf(name);
+    return DataService.#COLOURS[index % DataService.#COLOURS.length];
+  }
+
   /**
    * Lazily loads and returns section.
    *

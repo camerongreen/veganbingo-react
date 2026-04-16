@@ -16,6 +16,10 @@ vi.mock('./services/DataService', () => {
       return ['protein', 'cheese', 'cow', 'bacon'];
     }
 
+    getColour() {
+      return 'yellow';
+    }
+
     getSection(name) {
       return Promise.resolve({
         name: name,

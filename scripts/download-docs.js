@@ -150,7 +150,7 @@ function textToHtml(markdown) {
 function generateModule(sections) {
   // Expected structure: first section is heading, second is alternatives,
   // third is short answer, rest is long answer
-  const heading = sections.heading || 'Heading';
+  const heading = sections.heading || 'heading';
   const alternatives = sections['alternative headings'] || '';
   const shortAnswer = sections['short answer'] || '';
   const longAnswer = sections['long answer'] || '';

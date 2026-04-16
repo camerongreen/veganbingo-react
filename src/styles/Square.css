@@ -42,11 +42,23 @@
     text-align: center;
 }
 
+.Square .heading-desktop {
+    display: none;
+}
+
 @media only screen and (min-width: 600px) {
     .Square .description {
         font-weight: bold;
         font-size: 16pt;
         margin-bottom: 1rem;
+    }
+
+    .Square .heading-mobile {
+        display: none;
+    }
+
+    .Square .heading-desktop {
+        display: inline;
     }
 
     .Square img {

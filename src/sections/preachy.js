@@ -1,7 +1,7 @@
 
 const heading = `Why are Vegans so preachy?`;
 
-const short_heading = `Vegans are preachy`;
+const short_heading = `Preachy vegans`;
 
 const alternatives = `The sadly ironic "live and let live". Each to their own. What I eat is a personal choice.`;
 

@@ -1,7 +1,7 @@
 
 const heading = `I don't eat much meat`;
 
-const short_heading = `I don't eat much meat`;
+const short_heading = `I don't eat much`;
 
 const alternatives = `I am mostly vegan. Someone tells you they recently ate a vegetarian or vegan meal.`;
 

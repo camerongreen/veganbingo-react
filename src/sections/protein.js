@@ -1,7 +1,7 @@
 
 const heading = `Where do you get protein?`;
 
-const short_heading = `What about protein?`;
+const short_heading = `Protein?`;
 
 const alternatives = `Where do you get iron? Or an obscure trace element that they didn’t know about 2 months ago`;
 

@@ -1,7 +1,7 @@
 
 const heading = `Eating meat is natural`;
 
-const short_heading = `Eating meat is natural`;
+const short_heading = `Meat is natural`;
 
 const alternatives = `Killing and death are part of nature. What about the food chain?`;
 

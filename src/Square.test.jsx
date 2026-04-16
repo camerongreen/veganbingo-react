@@ -11,6 +11,7 @@ vi.mock('react-router-dom', () => ({
 const mockData = {
   name: 'bacon',
   heading: 'But bacon though...',
+  short_heading: 'Bacon?',
   colour: 'pink',
   alternatives: ['Test alternative'],
   short_answer: 'Test short answer',
@@ -26,7 +27,7 @@ describe('Square', () => {
 
   it('should render without crashing', () => {
     renderSquare();
-    expect(screen.getByText('But bacon though...')).toBeInTheDocument();
+    expect(screen.getByText('Bacon?')).toBeInTheDocument();
   });
 
   it('should display the heading text', () => {

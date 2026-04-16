@@ -20,6 +20,7 @@ vi.mock('./services/DataService', () => {
       return Promise.resolve({
         name: name,
         heading: `${name} heading`,
+        short_heading: `${name} short`,
         colour: 'yellow',
         alternatives: ['alternative'],
         short_answer: 'short answer',

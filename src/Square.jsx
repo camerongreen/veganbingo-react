@@ -20,7 +20,8 @@ export default function Square(props) {
           alt={props.data.heading + ' Square'}
         />
         <CardContent className="description">
-          {props.data.heading}
+          <span className="heading-mobile">{props.data.short_heading || props.data.heading}</span>
+          <span className="heading-desktop">{props.data.heading}</span>
         </CardContent>
       </CardActionArea>
     </Card>

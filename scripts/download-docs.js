@@ -59,7 +59,7 @@ function downloadDoc(url, maxRedirects = 5) {
           });
           
           redirectRes.on('end', () => {
-            data = data.replace(/\r/g, '');
+            data = data.replace(/\r/g, '').replace(/\\!/g, '!');
             resolve(data);
           });
         }).on('error', reject);
@@ -78,8 +78,8 @@ function downloadDoc(url, maxRedirects = 5) {
       });
       
       res.on('end', () => {
-        // Remove carriage returns
-        data = data.replace(/\r/g, '');
+        // Remove carriage returns and unnecessary markdown escapes from Google Docs
+        data = data.replace(/\r/g, '').replace(/\\!/g, '!');
         resolve(data);
       });
     }).on('error', reject);
@@ -111,8 +111,8 @@ function parseContent(text) {
       // Start new section - remove the '# ' prefix
       currentHeading = trimmed.substring(2);
       currentContent = [];
-    } else if (currentHeading !== null && trimmed.length > 0) {
-      // Add content to current section (skip empty lines at start)
+    } else if (currentHeading !== null) {
+      // Add content to current section (skip empty lines at start, preserve them within)
       if (currentContent.length > 0 || trimmed.length > 0) {
         currentContent.push(line);
       }
@@ -220,6 +220,7 @@ async function main() {
   }
   
   console.log('\nDone!');
+  process.exit(0);
 }
 
-main().catch(console.error);
+main().catch((err) => { console.error(err); process.exit(1); });

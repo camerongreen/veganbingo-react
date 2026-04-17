@@ -27,8 +27,8 @@ vi.mock('./services/DataService', () => {
         short_heading: `${name} short`,
         colour: 'yellow',
         alternatives: ['alternative'],
-        short_answer: 'short answer',
-        long_answer: 'long answer'
+        summary: 'summary',
+        discussion: 'discussion'
       });
     }
   }

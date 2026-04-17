@@ -14,8 +14,8 @@ const mockData = {
   short_heading: 'Bacon?',
   colour: 'pink',
   alternatives: ['Test alternative'],
-  short_answer: 'Test short answer',
-  long_answer: 'Test long answer'
+  summary: 'Test summary',
+  discussion: 'Test discussion'
 };
 
 describe('Square', () => {

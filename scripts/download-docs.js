@@ -143,19 +143,19 @@ function textToHtml(markdown) {
  */
 function generateModule(name, sections) {
   // Expected structure: first section is heading, second is alternatives,
-  // third is short answer, rest is long answer
+  // third is summary, rest is discussion
   const heading = sections.heading || '';
   const shortHeading = sections['short heading'] || '';
   const alternatives = sections['alternative headings'] || '';
-  const shortAnswer = sections['short answer'] || '';
-  const longAnswer = sections['long answer'] || '';
+  const summary = sections['summary'] || '';
+  const discussion = sections['discussion'] || '';
 
   const missing = [];
   if (!heading) missing.push('heading');
   if (!shortHeading) missing.push('short heading');
   if (!alternatives) missing.push('alternative headings');
-  if (!shortAnswer) missing.push('short answer');
-  if (!longAnswer) missing.push('long answer');
+  if (!summary) missing.push('summary');
+  if (!discussion) missing.push('discussion');
   if (missing.length > 0) {
     console.error(`✗ ${name}: missing fields: ${missing.join(', ')}`);
     process.exit(1);
@@ -168,12 +168,12 @@ const short_heading = \`${shortHeading}\`;
 
 const alternatives = \`${alternatives}\`;
 
-const short_answer = \`${textToHtml(shortAnswer)}\`;
+const summary = \`${textToHtml(summary)}\`;
 
-const long_answer = \`${textToHtml(longAnswer)}\`;
+const discussion = \`${textToHtml(discussion)}\`;
 
 export {
- heading, short_heading, alternatives, short_answer, long_answer,
+ heading, short_heading, alternatives, summary, discussion,
 };
 `;
 }

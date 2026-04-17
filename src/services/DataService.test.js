@@ -32,8 +32,8 @@ describe('DataService', () => {
       expect(['yellow', 'pink', 'blue', 'purple', 'green']).toContain(sectionData.colour);
       expect(sectionData.heading).toBeDefined();
       expect(sectionData.alternatives).toBeDefined();
-      expect(sectionData.short_answer).toBeDefined();
-      expect(sectionData.long_answer).toBeDefined();
+      expect(sectionData.summary).toBeDefined();
+      expect(sectionData.discussion).toBeDefined();
     });
 
     it('should assign colors cyclically based on section position', async () => {

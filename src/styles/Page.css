@@ -1,7 +1,7 @@
-.main {
+.summary, .discussion {
     margin: 1rem 0;
 }
 
-.main p {
+.summary p, .discussion p {
     margin-left: 1rem;
 }

@@ -12,7 +12,7 @@
 - **Square.js**: Individual card component. Links to detail page and toggles image based on completion state (`_done` suffix).
 
 ### Sections System
-- Each section (16 total) is a standalone ES6 module in `src/sections/` exporting: `heading`, `alternatives`, `short_answer`, `long_answer`
+- Each section (16 total) is a standalone ES6 module in `src/sections/` exporting: `heading`, `alternatives`, `summary`, `discussion`
 - Sections are imported dynamically at runtime by `DataService.loadSection()` and bundled as separate chunks
 - Add new arguments by creating `src/sections/newname.js` following the pattern in `src/sections/bacon.js`
 - Order matters: `DataService.#SECTIONS` array controls grid position and color assignment
@@ -84,7 +84,7 @@ Updates section files from Google Docs source of truth. Useful for bulk content 
 ## Common Workflows
 
 ### Add a New Bingo Section
-1. Create `src/sections/newsection.js` with `heading, alternatives, short_answer, long_answer` exports
+1. Create `src/sections/newsection.js` with `heading, alternatives, summary, discussion` exports
 2. Add `'newsection'` to `DataService.#SECTIONS` array at desired grid position
 3. Create images: `public/images/newsection.png` and `public/images/newsection_done.png`
 4. Run `npm run build` and deploy `dist/` folder

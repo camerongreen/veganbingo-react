@@ -20,8 +20,8 @@ vi.mock('./services/DataService', () => {
         heading: 'But bacon though...',
         colour: 'pink',
         alternatives: ['Try tempeh bacon', 'Try coconut bacon'],
-        short_answer: 'There are great alternatives!',
-        long_answer: 'Here is a longer explanation about bacon alternatives.'
+        summary: 'There are great alternatives!',
+        discussion: 'Here is a longer explanation about bacon alternatives.'
       });
     }
   }
@@ -95,7 +95,7 @@ describe('Page', () => {
     });
   });
 
-  it('should display short answer', async () => {
+  it('should display summary', async () => {
     await renderPage();
     
     await waitFor(() => {

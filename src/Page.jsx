@@ -86,25 +86,32 @@ export default function Page() {
           ""
         )}
         <Grid size={{ xs: 12 }}>
+          <h2 className="section-title">Summary (tl;dr)</h2>
           <Paper
             sx={{
               p: 2,
               display: "flex",
               flexDirection: "column",
             }}
-            className="main"
+            className="discussion"
           >
-            <h2>Summary (tl;dr)</h2>
             <Grid
               size={{ xs: 12 }}
-              className="short_answer"
-              dangerouslySetInnerHTML={{ __html: page.short_answer }}
+              dangerouslySetInnerHTML={{ __html: page.summary }}
             />
-            <h2>Discussion</h2>
+          </Paper>
+          <h2 className="section-title">Discussion</h2>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "column",
+            }}
+            className="discussion"
+          >
             <Grid
               size={{ xs: 12 }}
-              className="long_answer"
-              dangerouslySetInnerHTML={{ __html: page.long_answer }}
+              dangerouslySetInnerHTML={{ __html: page.discussion }}
             />
           </Paper>
         </Grid>

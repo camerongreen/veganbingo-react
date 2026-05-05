@@ -58,7 +58,7 @@ export default function Page() {
           <h2>{page.heading}</h2>
         </Grid>
         <Grid size={{ xs: 12 }} className="rules">
-          <div>Similar acceptable statements to get this bingo</div>
+          <div>Similar/related statements for this bingo:</div>
           <h3>{page.alternatives}</h3>
         </Grid>
         <Grid>

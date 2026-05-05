@@ -3,7 +3,7 @@ const heading = `Where do you get protein?`;
 
 const short_heading = `Protein?`;
 
-const alternatives = `Where do you get iron? Or an obscure trace element that they didn’t know about 2 months ago`;
+const alternatives = `Where do you get iron? What about some obscure trace element (that they didn’t know about 2 months ago)?`;
 
 const summary = `<p>When you mention you are vegan, many people suddenly become very interested in nutrition. Unfortunately, they generally don&#39;t know that most nutrients, including protein, come from plants. Humans can get everything they need on a plant-based diet without needless animal suffering. Healthy vegans don’t just remove animal products from an omnivorous diet either; they swap them with kinder alternatives like nuts, beans, seeds, lentils, peas, seitan, tempeh, quinoa, tofu and a host of other foods.</p>`;
 

@@ -68,6 +68,14 @@ function DashboardContent() {
   const { bingos } = React.useContext(BingoContext);
   const [open, setOpen] = React.useState(false);
   const location = useLocation();
+  const mainRef = React.useRef(null);
+  
+  React.useEffect(() => {
+    if (mainRef.current) {
+      mainRef.current.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
+
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -142,6 +150,7 @@ function DashboardContent() {
       </Drawer>
       <Box
         component="main"
+        ref={mainRef}
         sx={{
           backgroundColor: (theme) =>
             theme.palette.mode === 'light'

@@ -1,7 +1,7 @@
 
-const heading = `Why are vegans so preachy?`;
+const question = `Why are vegans so preachy?`;
 
-const short_heading = `Preachy vegans`;
+const short_question = `Preachy vegans`;
 
 const alternatives = `The sadly ironic "live and let live". Each to their own. What I eat is a personal choice.`;
 
@@ -28,5 +28,5 @@ const discussion = `<h2>Vegan Stereotypes</h2>
 <p>You may not care what other people think of you and your way of being in the world. You may even wear your prickly individualism like a badge of honour, perhaps rejecting the world before it can reject you. This may win you fans in the right social circles, but the world we are trying to change is much more vast. To be a vegan is to be part of the idea of what vegan means for the people we encounter. Like it or not, whatever identity we have, especially if we are in a minority, we will be a representative of that identity in the world. We may not choose the responsibility of defining what veganism is for other people, but it is thrust upon us every time we say we are vegan, wear a vegan shirt, or order a vegan meal. To be an effective advocate for animals, we must understand that our medium and our message are inextricably intertwined. Veganism is about compassion to all animals, humans included, so let us embody that consistently so as not to confuse that simple truth in other people’s minds.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

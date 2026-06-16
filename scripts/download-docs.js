@@ -142,18 +142,18 @@ function textToHtml(markdown) {
  * Generate JavaScript module content from parsed sections
  */
 function generateModule(name, sections) {
-  // Expected structure: first section is heading, second is alternatives,
-  // third is summary, rest is discussion
-  const heading = sections.heading || '';
-  const shortHeading = sections['short heading'] || '';
-  const alternatives = sections['alternative headings'] || '';
+  // Expected structure: first section is question, then short question, then
+  // alternatives, then summary, rest is discussion
+  const question = sections.question || '';
+  const shortQuestion = sections['short question'] || '';
+  const alternatives = sections['alternatives'] || '';
   const summary = sections['summary'] || '';
   const discussion = sections['discussion'] || '';
 
   const missing = [];
-  if (!heading) missing.push('heading');
-  if (!shortHeading) missing.push('short heading');
-  if (!alternatives) missing.push('alternative headings');
+  if (!question) missing.push('question');
+  if (!shortQuestion) missing.push('short question');
+  if (!alternatives) missing.push('alternatives');
   if (!summary) missing.push('summary');
   if (!discussion) missing.push('discussion');
   if (missing.length > 0) {
@@ -162,9 +162,9 @@ function generateModule(name, sections) {
   }
 
   return `
-const heading = \`${heading}\`;
+const question = \`${question}\`;
 
-const short_heading = \`${shortHeading}\`;
+const short_question = \`${shortQuestion}\`;
 
 const alternatives = \`${alternatives}\`;
 
@@ -173,7 +173,7 @@ const summary = \`${textToHtml(summary)}\`;
 const discussion = \`${textToHtml(discussion)}\`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };
 `;
 }
@@ -203,7 +203,6 @@ ${pageConfig.iconImport}
 import InfoPage from './InfoPage';
 
 const content = \`${escapedHtml}\`;
-
 export default function ${name}() {
   return (
     <InfoPage icon={<${pageConfig.icon} fontSize="large"/>} heading="${heading}">

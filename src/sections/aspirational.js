@@ -1,7 +1,7 @@
 
-const heading = `I am an animal lover`;
+const question = `I am an animal lover`;
 
-const short_heading = `I love animals...`;
+const short_question = `I love animals...`;
 
 const alternatives = `I’d love to be vegan but... I was vegan/vegetarian but…`;
 
@@ -27,5 +27,5 @@ const discussion = `<p>Veganism is an idea that has become more embedded in the 
 <p>As much as we personally identify with veganism, it is not about us or our egos; we are speaking for the animals, and we have a responsibility to do it effectively. Some of the most vociferous, hardline vegans I have met seemed to put more people off veganism than draw them to it. Being right, coming from the moral high ground, is not enough; our egos can often be the main barrier between us and our connection with others. Almost any conversation about veganism is a chance to plant seeds that might bear fruit. Let us ensure in these conversations, we properly embody our message by exhibiting the compassion for humans that we are trying to promote towards animals.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

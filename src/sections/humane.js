@@ -1,7 +1,7 @@
 
-const heading = `What about backyard chickens?`;
+const question = `What about backyard chickens?`;
 
-const short_heading = `Backyard chickens`;
+const short_question = `Backyard chickens`;
 
 const alternatives = `What if animals were farmed humanely?`;
 
@@ -29,5 +29,5 @@ const discussion = `<p>The industrial factory farm is one of the cruellest creat
 <p>We can do better than turning our backyards into more places to oppress and slaughter animals. Paying to outsource oppression and slaughter, however, as most people currently do, is even less ethically acceptable. Luckily, we have a simple choice we can make to escape this ethical quandary. By joining the growing millions living happy and healthy vegan lives, we can be part of a movement showing the way to a brighter shared future between human and non-human beings.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

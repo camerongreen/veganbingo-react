@@ -30,7 +30,7 @@ describe('DataService', () => {
       expect(sectionData.name).toBe('bacon');
       expect(sectionData.colour).toBeDefined();
       expect(['yellow', 'pink', 'blue', 'purple', 'green']).toContain(sectionData.colour);
-      expect(sectionData.heading).toBeDefined();
+      expect(sectionData.question).toBeDefined();
       expect(sectionData.alternatives).toBeDefined();
       expect(sectionData.summary).toBeDefined();
       expect(sectionData.discussion).toBeDefined();
@@ -60,13 +60,13 @@ describe('DataService', () => {
       const sectionData = await dataService.getSection('cheese');
       
       expect(sectionData.name).toBe('cheese');
-      expect(sectionData.heading).toBeDefined();
+      expect(sectionData.question).toBeDefined();
     });
   });
 
   describe('setSection', () => {
     it('should store section data for future retrieval', async () => {
-      const mockData = { name: 'test', colour: 'blue', heading: 'Test' };
+      const mockData = { name: 'test', colour: 'blue', question: 'Test' };
       dataService.setSection('test', mockData);
       
       // The section should now be cached

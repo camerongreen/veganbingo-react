@@ -1,7 +1,7 @@
 
-const heading = `I don't eat much meat`;
+const question = `I don't eat much meat`;
 
-const short_heading = `I don't eat much`;
+const short_question = `I don't eat much`;
 
 const alternatives = `I am mostly vegan. Someone tells you they recently ate a vegetarian or vegan meal.`;
 
@@ -36,5 +36,5 @@ const discussion = `<p>People who say things like &quot;I don&#39;t eat much mea
 <p>In the end, we should generally try to be kind to people who hold out a hand towards us. &quot;I don&#39;t eat much meat&quot; is a statement of positive intention, and if properly followed through with, it will mean the ramifications of their lives on the non-human world will be less bad. We should have higher ideals for ourselves and our contribution to the world than less bad; we should be heading towards flourishing and a higher good. A better collective future awaits humans and animals beyond the factory farms, cages, barbed wire enclosures, slaughterhouses, and other tools of animal oppression that humans have created. Not eating much meat leaves these things that should never have existed in place. A collective evolution to a global vegan culture is too important for us to linger in the ethical purgatory of transitional phases. Be part of leading that change.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

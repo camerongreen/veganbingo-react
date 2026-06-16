@@ -1,7 +1,7 @@
 
-const heading = `But you can't eat that!`;
+const question = `But you can't eat that!`;
 
-const short_heading = `You can't eat that`;
+const short_question = `You can't eat that`;
 
 const alternatives = `It's not vegan, but it is gluten-free. Can you eat bread, peanut butter, etc?`;
 
@@ -26,5 +26,5 @@ const discussion = `<p>Some vegans like myself weren&#39;t looking for an identi
 <p>Focusing on what vegans can and can’t eat mistakes the forest for the trees. Veganism is not a diet; it is a philosophy of compassion. People who mistake veganism for a diet display how little they understand its vital message for our world. Veganism is not about ticking some arbitrary boxes; it is about having a thought-through personal response to deep ethical questions about the way humans currently treat other life. What we &quot;can&#39;t&quot; do collectively is continue living in a way that depletes the shared living systems of this world. What we &quot;can&#39;t&quot; do is continue sending animals into slaughterhouses and factory farms, and think our ethics towards animals shouldn&#39;t be questioned.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

@@ -1,7 +1,7 @@
 
-const heading = `Why do you eat things that look like meat?`;
+const question = `Why do you eat things that look like meat?`;
 
-const short_heading = `Fake meat`;
+const short_question = `Fake meat`;
 
 const alternatives = `Thinking that every vegan alternative is made of tofu. Thinking all vegan alternatives have unnatural ingredients.`;
 
@@ -22,5 +22,5 @@ const discussion = `<p>If carnists are so offended by vegans eating veggie burge
 <p>There are many things we could get offended by in the world, but we need to have some sense of proportion about what actually matters. Finally, to repeat the point I made above, if people are offended by others happily eating veggie sausages, and not by billions of animals suffering in slaughterhouses and factory farms, they need to reconsider their ethical framework.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

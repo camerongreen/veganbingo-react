@@ -1,7 +1,7 @@
 
-const heading = `What about human suffering?`;
+const question = `What about human suffering?`;
 
-const short_heading = `What about people?`;
+const short_question = `What about people?`;
 
 const alternatives = `You care more about animals than people. We should worry about humans first.`;
 
@@ -34,5 +34,5 @@ const discussion = `<p>What about human suffering? The premise of this statement
 <p>Until he extends the circle of his compassion to all living things, man will not himself find peace - Albert Schweitzer</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

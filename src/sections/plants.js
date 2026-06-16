@@ -1,7 +1,7 @@
 
-const heading = `Don't plants have feelings?`;
+const question = `Don't plants have feelings?`;
 
-const short_heading = `Plants have feelings`;
+const short_question = `Plants have feelings`;
 
 const alternatives = `Carrots scream when you cut them. Eating plants kills more animals than eating animals.`;
 
@@ -33,5 +33,5 @@ const discussion = `<p>Plants are pretty amazing. They appear to have their own 
 <p>It is the lot of a finite mind in this infinite universe to have to think and act with incomplete knowledge and information. We will inevitably make mistakes, practically and ethically. It is not making mistakes we should fear, but the mindset that refuses to grow, to learn and then change when confronted with new thoughts and information. We can never have complete certainty about the intellectual and emotional lives of other beings, including other people. History teaches us, however, that when limited knowledge confronts expansive ethical questions, it is safest to err on the side of compassion.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

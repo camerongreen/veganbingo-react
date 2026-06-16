@@ -51,11 +51,11 @@ export default function Page() {
               (hasBingo(name) ? "_done" : "") +
               ".png"
             }
-            alt={page.heading + " Page"}
+            alt={page.question + " Page"}
           />
         </Grid>
         <Grid size={{ xs: 8, sm: 9, md: 10 }}>
-          <h2>{page.heading}</h2>
+          <h2>{page.question}</h2>
         </Grid>
         <Grid size={{ xs: 12 }} className="rules">
           <div>Similar/related statements for this bingo:</div>

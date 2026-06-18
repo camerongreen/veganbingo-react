@@ -17,11 +17,11 @@ export default function Square(props) {
         <CardMedia
           component="img"
           image={'/images/' + props.data.name + (props.hasBingo ? '_done' : '') + '.png'}
-          alt={props.data.heading + ' Square'}
+          alt={props.data.question + ' Square'}
         />
         <CardContent className="description">
-          <span className="heading-mobile">{props.data.short_heading || props.data.heading}</span>
-          <span className="heading-desktop">{props.data.heading}</span>
+          <span className="heading-mobile">{props.data.short_question || props.data.question}</span>
+          <span className="heading-desktop">{props.data.question}</span>
         </CardContent>
       </CardActionArea>
     </Card>

@@ -166,8 +166,8 @@ function textToHtml(markdown) {
  * Generate JavaScript module content from parsed sections
  */
 function generateModule(name, sections) {
-  // Expected structure: first section is question, second is alternatives,
-  // third is summary, rest is discussion
+  // Expected structure: first section is question, then short question, then
+  // alternatives, then summary, rest is discussion
   const question = sections.question || "";
   const shortQuestion = sections["short question"] || "";
   const alternatives = sections["alternatives"] || "";
@@ -232,7 +232,6 @@ ${pageConfig.iconImport}
 import InfoPage from './InfoPage';
 
 const content = \`${escapedHtml}\`;
-
 export default function ${name}() {
   return (
     <InfoPage icon={<${pageConfig.icon} fontSize="large"/>} heading="${heading}">

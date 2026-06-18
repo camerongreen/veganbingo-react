@@ -17,7 +17,7 @@ vi.mock('./services/DataService', () => {
     getSection(name) {
       return Promise.resolve({
         name: name,
-        heading: 'But bacon though...',
+        question: 'But bacon though...',
         colour: 'pink',
         alternatives: ['Try tempeh bacon', 'Try coconut bacon'],
         summary: 'There are great alternatives!',
@@ -78,7 +78,7 @@ describe('Page', () => {
     expect(container).toBeInTheDocument();
   });
 
-  it('should display the page heading', async () => {
+  it('should display the page question', async () => {
     await renderPage();
     
     await waitFor(() => {

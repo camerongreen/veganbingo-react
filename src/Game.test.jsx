@@ -23,8 +23,8 @@ vi.mock('./services/DataService', () => {
     getSection(name) {
       return Promise.resolve({
         name: name,
-        heading: `${name} heading`,
-        short_heading: `${name} short`,
+        question: `${name} question`,
+        short_question: `${name} short`,
         colour: 'yellow',
         alternatives: ['alternative'],
         summary: 'summary',
@@ -86,10 +86,10 @@ describe('Game', () => {
     renderGame();
     
     await waitFor(() => {
-      expect(screen.getByText('protein heading')).toBeInTheDocument();
-      expect(screen.getByText('cheese heading')).toBeInTheDocument();
-      expect(screen.getByText('cow heading')).toBeInTheDocument();
-      expect(screen.getByText('bacon heading')).toBeInTheDocument();
+      expect(screen.getByText('protein question')).toBeInTheDocument();
+      expect(screen.getByText('cheese question')).toBeInTheDocument();
+      expect(screen.getByText('cow question')).toBeInTheDocument();
+      expect(screen.getByText('bacon question')).toBeInTheDocument();
     });
   });
 
@@ -115,7 +115,7 @@ describe('Game', () => {
     renderGame();
     
     await waitFor(() => {
-      expect(screen.getByText('protein heading')).toBeInTheDocument();
+      expect(screen.getByText('protein question')).toBeInTheDocument();
     });
   });
 

@@ -10,8 +10,8 @@ vi.mock('react-router-dom', () => ({
 
 const mockData = {
   name: 'bacon',
-  heading: 'But bacon though...',
-  short_heading: 'Bacon?',
+  question: 'But bacon though...',
+  short_question: 'Bacon?',
   colour: 'pink',
   alternatives: ['Test alternative'],
   summary: 'Test summary',
@@ -30,7 +30,7 @@ describe('Square', () => {
     expect(screen.getByText('Bacon?')).toBeInTheDocument();
   });
 
-  it('should display the heading text', () => {
+  it('should display the question text', () => {
     renderSquare();
     expect(screen.getByText('But bacon though...')).toBeInTheDocument();
   });

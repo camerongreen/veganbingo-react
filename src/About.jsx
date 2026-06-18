@@ -17,7 +17,6 @@ const content = `<p>Vegan greetings to you!</p>
 <p>Cameron     </p>
 <p>Vegan Bingo was inspired by (what I think is) the original Omnivore Rationalization Bingo by Vegnews, sent to me in 2008. </p>
 <p>This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this licence, visit <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a></p>`;
-
 export default function About() {
   return (
     <InfoPage icon={<InfoIcon fontSize="large"/>} heading="About Page">

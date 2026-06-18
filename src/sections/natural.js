@@ -1,7 +1,7 @@
 
-const heading = `Eating meat is natural`;
+const question = `Eating meat is natural`;
 
-const short_heading = `Meat is natural`;
+const short_question = `Meat is natural`;
 
 const alternatives = `Killing and death are part of nature. What about the food chain?`;
 
@@ -25,5 +25,5 @@ const discussion = `<p>As much as humans have long wished for an ordered, moral 
 <p>A more ethical universe is a lofty goal, a heroic challenge for humanity that requires the flourishing of the best within us. To transcend our limitations, to outgrow our myopic selfishness and embrace the complexity of the interconnected reality of life, is a worthy challenge of our higher consciousness. Such lofty goals begin by taking pragmatic, powerful actions in our daily lives. By changing how we consume, especially what we eat, we can vote to balance and heal the natural world. Our full individual and collective ethical potential shall only start to be realised when we acknowledge our interdependence on, and our place within, the grand family of life. Veganism is a jumping-off point for a new conception of humanity’s role within our complex evolutionary world.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

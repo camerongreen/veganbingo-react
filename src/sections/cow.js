@@ -1,7 +1,7 @@
 
-const heading = `Where would all the cows go?`;
+const question = `Where would all the cows go?`;
 
-const short_heading = `What about cows?`;
+const short_question = `What about cows?`;
 
 const alternatives = `What about all the farmers? What about the open landscapes of the countryside?`;
 
@@ -25,5 +25,5 @@ const discussion = `<p>When people try to justify why they eat animals, the main
 <p>Oppression not only damages the oppressed, but it also limits the vision and full flourishing of the oppressor. The livestock industry is the very definition of oppression; it is a symptom of our rampant myopia, and we should celebrate the gradual replacement of these cruel, unnecessary industries because it will reflect a wider ethical and intellectual progression for us all.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

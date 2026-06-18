@@ -1,7 +1,7 @@
 
-const heading = `What about our canine teeth?`;
+const question = `What about our canine teeth?`;
 
-const short_heading = `Canine teeth`;
+const short_question = `Canine teeth`;
 
 const alternatives = `Meat eating caused human brains to evolve. Our forward-looking eyes mean we are a carnivore`;
 
@@ -26,5 +26,5 @@ const discussion = `<p>Reality usually finds out those who profess things they w
 <p>Once you strip away what people would like to believe out of habit, you are left with a simple truth of profound ethical importance to the world. We have the freedom to use our conscience in deciding what, or whom, we eat. We can make compassionate choices and contribute to a kinder world…if we want it.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

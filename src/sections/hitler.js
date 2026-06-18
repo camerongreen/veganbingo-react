@@ -1,7 +1,7 @@
 
-const heading = `Wasn't Hitler a vegetarian?`;
+const question = `Wasn't Hitler a vegetarian?`;
 
-const short_heading = `Hitler was vegetarian`;
+const short_question = `Hitler was vegetarian`;
 
 const alternatives = `Sometimes it is Pol Pot, Mussolini, Charles Manson, or whoever was a terrible human being.`;
 
@@ -30,5 +30,5 @@ const discussion = `<p>Godwin’s law arose in the early days of Internet discus
 <p>Finally, I will speak for veganism, because that is what I am, and I have no place to speak for vegetarianism. The intellectual and ethical progress of humanity has always been improved by widening our circles of compassion. Any outlook that considers humans but not animals, or animals but not humans, or some subset of humans or animals, is incomplete. All sentient beings deserve consideration of their interests, at the very least, in concordance with their level of sentience. An ethically and intellectually consistent life has at its core compassion for all beings who can suffer, for all earthlings thrown into these evolutionary moments of existence together. Veganism is not purely a diet; it spans far beyond that into a philosophy of universal compassion. Anyone advocating violence towards sentient beings, or even degrading the value of their lives, cannot be a vegan.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

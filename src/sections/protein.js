@@ -1,7 +1,7 @@
 
-const heading = `Where do you get protein?`;
+const question = `Where do you get protein?`;
 
-const short_heading = `Protein?`;
+const short_question = `Protein?`;
 
 const alternatives = `Where do you get iron? What about some obscure trace element (that they didn’t know about 2 months ago)?`;
 
@@ -31,5 +31,5 @@ const discussion = `<p>At a party many years ago, a boy of roughly 10 was bringi
 <p>Healthy food is a gift we can give ourselves and others, that will help maintain physical and mental health, and that will reverberate positively out into the world. As a quote attributed to Hippocrates says, &quot;Let thy food be thy medicine&quot;. Let us follow this advice while also ensuring our food is kinder to animals and the environment.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

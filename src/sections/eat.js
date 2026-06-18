@@ -1,7 +1,7 @@
 
-const heading = `But what can vegans eat?`;
+const question = `But what can vegans eat?`;
 
-const short_heading = `What do you eat?`;
+const short_question = `What do you eat?`;
 
 const alternatives = `Oh, you are vegan, that must be hard. Being vegan is expensive.`;
 
@@ -26,5 +26,5 @@ const discussion = `<p>When you tell someone you are vegan, they picture their o
 <p>Veganism is about an ethical evolution for the whole human race. We believe that one day our age will be seen as a strange and dark place with respect to our treatment of animals. People in the future will scarcely believe that the cruelty and oppression inherent in animal agriculture were not only legal but commonplace; that so many tried to justify, or gave little thought to, the suffering of billions in factory farms and their murder in slaughterhouses. Our cruel treatment of animals is also unnecessary, which only adds to its immorality. We can eat beautifully and healthfully without participating in this oppressive, destructive system. We can play a part in bringing about a better shared future for all animals in this world, human and non-human.</p>`;
 
 export {
- heading, short_heading, alternatives, summary, discussion,
+ question, short_question, alternatives, summary, discussion,
 };

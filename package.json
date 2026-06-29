@@ -11,7 +11,8 @@
     "lint": "eslint src",
     "code-quality": "npm run lint && npm run test",
     "download-docs": "node scripts/download-docs.js src/sections",
-    "parse-docs": "node scripts/download-docs.js src/sections --parse-only"
+    "parse-docs": "node scripts/download-docs.js src/sections --parse-only",
+    "download-books": "node scripts/download-books.js"
   },
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.0.2",

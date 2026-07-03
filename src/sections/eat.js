@@ -3,7 +3,7 @@ const question = `But what can vegans eat?`;
 
 const short_question = `What do you eat?`;
 
-const alternatives = `Oh, you are vegan, that must be hard. Being vegan is expensive.`;
+const alternatives = `Being vegan is hard. Being vegan is expensive.`;
 
 const summary = `<p>Most people already eat a variety of plant foods, and they make up the majority of the calories they consume; so they&#39;ve already got a great starting point for a vegan diet. Anyone who believes that millions of vegans are wasting away trying to find food hasn&#39;t met enough vegans. Vegans come in all shapes and sizes, from slim to voluptuous, athletic to wiry, couch potato to powerlifter. Vegans do have far lower rates of obesity than meat-eaters, but we aren&#39;t all skinny. Veganism is about compassion, not self-denial or purity. Most people have access to an unprecedented variety of foods, so it has never been easier to make more compassionate choices.</p>`;
 

@@ -61,36 +61,40 @@ export default function Game() {
     const completedData = localStorage.getItem(`${storage_name}_completed_squares`);
     
     if (completedData) {
-      try {
-        const squares = JSON.parse(completedData);
-        const isBlackout = squares.length === sections.length;
-        
-        if (squares && squares.length > 0) {
-          // Set the appropriate flash class
-          setFlashClass(isBlackout ? 'flash-blackout' : 'flash-line');
-          setFlashingSquares(squares);
+      const timer = setTimeout(() => {
+        try {
+          const squares = JSON.parse(completedData);
+          const isBlackout = squares.length === sections.length;
           
-          // Show notification
-          if (isBlackout) {
-            setSnackbarMessage("BLACKOUT! You've completed the entire board!");
-          } else {
-            setSnackbarMessage("BINGO! You've completed a line!");
+          if (squares && squares.length > 0) {
+            // Set the appropriate flash class
+            setFlashClass(isBlackout ? 'flash-blackout' : 'flash-line');
+            setFlashingSquares(squares);
+            
+            // Show notification
+            if (isBlackout) {
+              setSnackbarMessage("BLACKOUT! You've completed the entire board!");
+            } else {
+              setSnackbarMessage("BINGO! You've completed a line!");
+            }
+            setSnackbarSeverity('success');
+            setSnackbarOpen(true);
+            
+            // Clear after animation completes (3 flashes * 0.5s = 1.5s, 5 flashes * 0.5s = 2.5s)
+            const animationDuration = isBlackout ? 2500 : 1500;
+            setTimeout(() => {
+              setFlashingSquares([]);
+              setFlashClass('');
+              localStorage.removeItem(`${storage_name}_completed_squares`);
+            }, animationDuration);
           }
-          setSnackbarSeverity('success');
-          setSnackbarOpen(true);
-          
-          // Clear after animation completes (3 flashes * 0.5s = 1.5s, 5 flashes * 0.5s = 2.5s)
-          const animationDuration = isBlackout ? 2500 : 1500;
-          setTimeout(() => {
-            setFlashingSquares([]);
-            setFlashClass('');
-            localStorage.removeItem(`${storage_name}_completed_squares`);
-          }, animationDuration);
+        } catch (e) {
+          console.error('Error parsing completed squares:', e);
+          localStorage.removeItem(`${storage_name}_completed_squares`);
         }
-      } catch (e) {
-        console.error('Error parsing completed squares:', e);
-        localStorage.removeItem(`${storage_name}_completed_squares`);
-      }
+      }, 0);
+
+      return () => clearTimeout(timer);
     }
   }, []); // Only run on mount
 

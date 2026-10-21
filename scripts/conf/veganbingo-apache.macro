@@ -64,7 +64,7 @@
 
 <Macro VBDir $(host)>
   <Directory /var/www/$(host)/dist>
-    Options FollowSymLinks -Indexes -MultiViews
+    Options +FollowSymLinks -Indexes -MultiViews
     AllowOverride None
 
     RewriteEngine On
